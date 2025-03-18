@@ -161,11 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#why-pangwas" id="toc-why-pangwas" class="nav-link" data-scroll-target="#why-pangwas">Why panGWAS?</a></li>
   <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method">Method</a></li>
-  <li><a href="#install" id="toc-install" class="nav-link" data-scroll-target="#install">Install</a>
-  <ul class="collapse">
-  <li><a href="#post-release" id="toc-post-release" class="nav-link" data-scroll-target="#post-release">Post-Release</a></li>
-  <li><a href="#pre-release" id="toc-pre-release" class="nav-link" data-scroll-target="#pre-release">Pre-Release</a></li>
-  </ul></li>
+  <li><a href="#install" id="toc-install" class="nav-link" data-scroll-target="#install">Install</a></li>
   <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a>
   <ul class="collapse">
   <li><a href="#nextflow" id="toc-nextflow" class="nav-link" data-scroll-target="#nextflow">Nextflow</a></li>
@@ -220,11 +216,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="install" class="level2">
 <h2 class="anchored" data-anchor-id="install">Install</h2>
-<section id="post-release" class="level3">
-<h3 class="anchored" data-anchor-id="post-release">Post-Release</h3>
-<blockquote class="blockquote">
-<p>❗ These instructions apply after public release.</p>
-</blockquote>
 <ol type="1">
 <li><p>Install with <code>conda</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-c</span> conda-forge <span class="at">-c</span> bioconda <span class="at">-n</span> pangwas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
@@ -232,64 +223,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull ghcr.io/phac-nml/pangwas:latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 </section>
-<section id="pre-release" class="level3">
-<h3 class="anchored" data-anchor-id="pre-release">Pre-Release</h3>
-<blockquote class="blockquote">
-<p>❗ These instructions apply before public release.</p>
-</blockquote>
-<ol type="1">
-<li><p>Clone repository.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/phac-nml/pangwas.git</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> pangwas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Install with <code>conda</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-y</span> <span class="at">-f</span> environment.yml <span class="at">-n</span> pangwas</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate pangwas</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install .</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Help and usage</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> <span class="at">--help</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run . <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Install with <code>docker</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build <span class="at">-t</span> phac-nml/pangwas:latest <span class="at">-f</span> Dockerfile .</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Help and usage</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run phac-nml/pangwas:latest pangwas <span class="at">--help</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run phac-nml/pangwas:latest nextflow run . <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-</section>
-</section>
 <section id="usage" class="level2">
 <h2 class="anchored" data-anchor-id="usage">Usage</h2>
 <p>Individual commands can be run via the command-line interface:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> extract <span class="at">--gff</span> sample1.gff3</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> extract <span class="at">--gff</span> sample2.gff3</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> collect <span class="at">--tsv</span> sample1.tsv sample2.tsv</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> cluster <span class="at">--fasta</span> sequences.fasta</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> extract <span class="at">--gff</span> sample1.gff3</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> extract <span class="at">--gff</span> sample2.gff3</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> collect <span class="at">--tsv</span> sample1.tsv sample2.tsv</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> cluster <span class="at">--fasta</span> sequences.fasta</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Or as <code>python</code> functions:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pangwas</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>pangwas.extract(gff<span class="op">=</span><span class="st">"sample1.gff3"</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>pangwas.extract(gff<span class="op">=</span><span class="st">"sample2.gff3"</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>pangwas.collect(tsv<span class="op">=</span>[<span class="st">"sample1.tsv"</span>, <span class="st">"sample2.tsv"</span>])</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>pangwas.cluster(fasta<span class="op">=</span><span class="st">"sequences.fasta"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pangwas</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pangwas.extract(gff<span class="op">=</span><span class="st">"sample1.gff3"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>pangwas.extract(gff<span class="op">=</span><span class="st">"sample2.gff3"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>pangwas.collect(tsv<span class="op">=</span>[<span class="st">"sample1.tsv"</span>, <span class="st">"sample2.tsv"</span>])</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>pangwas.cluster(fasta<span class="op">=</span><span class="st">"sequences.fasta"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>For a detailed guide on each command please see the <a href="https://phac-nml.github.io/pangwas/manual/table_of_contents.html">Manual</a>.</p>
 <section id="nextflow" class="level3">
 <h3 class="anchored" data-anchor-id="nextflow">Nextflow</h3>
 <p>An end-to-end pipeline is provided via <code>nextflow</code>. We provide a minimal <code>test</code> profile of synthetic data that runs quickly:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> test <span class="at">--trait</span> resistant</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> test <span class="at">--trait</span> resistant</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The samples <code>sample4</code> and <code>sample3</code> are the ones that are labelled as “resistant” and we can see the following variants are significantly associated with this trait:</p>
 <p><img src="docs/images/test_resistant_heatmap.png" class="img-fluid"></p>
 <p>We also provide tutorials profile that runs the dataset from the <a href="https://pyseer.readthedocs.io/en/master/tutorial.html"><code>pyseer</code> GWAS tutorial</a>. It demonstrates how to use pre-computed variants and tree, and only runs the GWAS and PLOT stages:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Core genome GWAS</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_core/snps.Rtab.gz</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_core <span class="at">--trait</span> penicillin</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pangenome GWAS</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_pangenome/variants.Rtab.gz</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_pangenome/clusters.tsv.gz</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_pangenome <span class="at">--trait</span> penicillin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Core genome GWAS</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_core/snps.Rtab.gz</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_core <span class="at">--trait</span> penicillin</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pangenome GWAS</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_pangenome/variants.Rtab.gz</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_pangenome/clusters.tsv.gz</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_pangenome <span class="at">--trait</span> penicillin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Penicillin resistance is primarily controlled by core genome genes, and we can see that the major genes are identical between a pangenome and core genome GWAS.</p>
 <p><img src="docs/images/core_vs_pangenome.png" class="img-fluid"></p>
 <p>For more information on end-to-end analysis, please see the <a href="https://phac-nml.github.io/pangwas/pipeline/pipeline.html">Pipeline Documentation</a>.</p>

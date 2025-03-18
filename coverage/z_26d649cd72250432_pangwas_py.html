@@ -54,9 +54,9 @@
             </div>
         </aside>
         <h2>
-            <span class="text">3601 statements &nbsp;</span>
+            <span class="text">3604 statements &nbsp;</span>
             <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">3507<span class="text"> run</span></button>
-            <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">94<span class="text"> missing</span></button>
+            <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">97<span class="text"> missing</span></button>
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
         </h2>
         <p class="text">
@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="index.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.7.0">coverage.py v7.7.0</a>,
-            created at 2025-03-18 18:47 +0000
+            created at 2025-03-18 22:57 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -6623,21 +6623,24 @@
     <p class="run"><span class="n"><a id="t6541" href="#t6541">6541</a></span><span class="t">    <span class="key">if</span> <span class="nam">options</span><span class="op">.</span><span class="nam">version</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t6542" href="#t6542">6542</a></span><span class="t">        <span class="key">import</span> <span class="nam">importlib</span><span class="op">.</span><span class="nam">metadata</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t6543" href="#t6543">6543</a></span><span class="t">        <span class="nam">version</span> <span class="op">=</span> <span class="nam">importlib</span><span class="op">.</span><span class="nam">metadata</span><span class="op">.</span><span class="nam">version</span><span class="op">(</span><span class="str">"pangwas"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t6544" href="#t6544">6544</a></span><span class="t">        <span class="nam">print</span><span class="op">(</span><span class="str">f"pangwas v{version}"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t6545" href="#t6545">6545</a></span><span class="t">        <span class="key">return</span> <span class="str">f"pangwas v{version}"</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t6546" href="#t6546">6546</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t6547" href="#t6547">6547</a></span><span class="t">    <span class="nam">logging</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Begin"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t6548" href="#t6548">6548</a></span><span class="t">    <span class="nam">logging</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">f"Command: {command}"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t6549" href="#t6549">6549</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t6550" href="#t6550">6550</a></span><span class="t">    <span class="com"># Organize options as kwargs for functions</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t6551" href="#t6551">6551</a></span><span class="t">    <span class="nam">kwargs</span> <span class="op">=</span> <span class="op">{</span><span class="nam">k</span><span class="op">:</span><span class="nam">v</span> <span class="key">for</span> <span class="nam">k</span><span class="op">,</span><span class="nam">v</span> <span class="key">in</span> <span class="nam">vars</span><span class="op">(</span><span class="nam">options</span><span class="op">)</span><span class="op">.</span><span class="nam">items</span><span class="op">(</span><span class="op">)</span> <span class="key">if</span> <span class="nam">k</span> <span class="key">not</span> <span class="key">in</span> <span class="op">[</span><span class="str">"version"</span><span class="op">,</span> <span class="str">"subcommand"</span><span class="op">]</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t6552" href="#t6552">6552</a></span><span class="t">    <span class="nam">fn</span> <span class="op">=</span> <span class="nam">globals</span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="nam">options</span><span class="op">.</span><span class="nam">subcommand</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t6553" href="#t6553">6553</a></span><span class="t">    <span class="nam">fn</span><span class="op">(</span><span class="op">**</span><span class="nam">kwargs</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t6554" href="#t6554">6554</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t6555" href="#t6555">6555</a></span><span class="t">    <span class="nam">logging</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Done"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t6556" href="#t6556">6556</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t6557" href="#t6557">6557</a></span><span class="t"><span class="key">if</span> <span class="nam">__name__</span> <span class="op">==</span> <span class="str">"__main__"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t6558" href="#t6558">6558</a></span><span class="t">    <span class="nam">cli</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t6544" href="#t6544">6544</a></span><span class="t">        <span class="key">return</span> <span class="str">f"pangwas v{version}"</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t6545" href="#t6545">6545</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t6546" href="#t6546">6546</a></span><span class="t">    <span class="nam">logging</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Begin"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t6547" href="#t6547">6547</a></span><span class="t">    <span class="nam">logging</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">f"Command: {command}"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t6548" href="#t6548">6548</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t6549" href="#t6549">6549</a></span><span class="t">    <span class="com"># Organize options as kwargs for functions</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t6550" href="#t6550">6550</a></span><span class="t">    <span class="nam">kwargs</span> <span class="op">=</span> <span class="op">{</span><span class="nam">k</span><span class="op">:</span><span class="nam">v</span> <span class="key">for</span> <span class="nam">k</span><span class="op">,</span><span class="nam">v</span> <span class="key">in</span> <span class="nam">vars</span><span class="op">(</span><span class="nam">options</span><span class="op">)</span><span class="op">.</span><span class="nam">items</span><span class="op">(</span><span class="op">)</span> <span class="key">if</span> <span class="nam">k</span> <span class="key">not</span> <span class="key">in</span> <span class="op">[</span><span class="str">"version"</span><span class="op">,</span> <span class="str">"subcommand"</span><span class="op">]</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t6551" href="#t6551">6551</a></span><span class="t">    <span class="key">try</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t6552" href="#t6552">6552</a></span><span class="t">        <span class="nam">fn</span> <span class="op">=</span> <span class="nam">globals</span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="nam">options</span><span class="op">.</span><span class="nam">subcommand</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t6553" href="#t6553">6553</a></span><span class="t">        <span class="nam">fn</span><span class="op">(</span><span class="op">**</span><span class="nam">kwargs</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t6554" href="#t6554">6554</a></span><span class="t">    <span class="key">except</span> <span class="nam">KeyError</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t6555" href="#t6555">6555</a></span><span class="t">        <span class="nam">logging</span><span class="op">.</span><span class="nam">error</span><span class="op">(</span><span class="str">f"A pangwas subcommand is required (ex. pangwas extract)."</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t6556" href="#t6556">6556</a></span><span class="t">        <span class="key">return</span> <span class="num">1</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t6557" href="#t6557">6557</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t6558" href="#t6558">6558</a></span><span class="t">    <span class="nam">logging</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Done"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t6559" href="#t6559">6559</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t6560" href="#t6560">6560</a></span><span class="t"><span class="key">if</span> <span class="nam">__name__</span> <span class="op">==</span> <span class="str">"__main__"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t6561" href="#t6561">6561</a></span><span class="t">    <span class="nam">cli</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
 </main>
 <footer>
     <div class="content">
@@ -6647,7 +6650,7 @@
             <a class="nav" href="index.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.7.0">coverage.py v7.7.0</a>,
-            created at 2025-03-18 18:47 +0000
+            created at 2025-03-18 22:57 +0000
         </p>
     </div>
 </footer>
