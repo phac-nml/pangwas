@@ -1,0 +1,26 @@
+##fileformat=VCFv4.2
+##contig=<ID=pangenome,length=3627>
+##INFO=<ID=CR,Number=0,Type=Flag,Description="Consensus reference allele, not based on real reference genome">
+##INFO=<ID=C,Number=1,Type=String,Description="Cluster">
+##INFO=<ID=CP,Number=1,Type=Int,Description="Cluster Position">
+##INFO=<ID=S,Number=1,Type=String,Description="Synteny">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FILTER=<ID=IW,Description="Indel window proximity filter 10">
+##FILTER=<ID=SW,Description="SNP window proximity filter 3">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	sample1	sample2	sample3	sample4
+pangenome	826	pim|snp:C230G	C	G	.	PASS	CR;C=pim;CP=230,S=9	GT	0/0	1/1	0/0	0/0
+pangenome	902	pim|snp:A306G	A	G	.	PASS	CR;C=pim;CP=306,S=9	GT	0/0	1/1	0/0	0/0
+pangenome	984	pim|snp:A388T	A	T	.	PASS	CR;C=pim;CP=388,S=9	GT	0/0	1/1	0/0	0/0
+pangenome	1115	speB|snp:G93T	G	T	.	PASS	CR;C=speB;CP=93,S=10	GT	1/1	1/1	0/0	0/0
+pangenome	1247	snps_ambig|snp:G10C	G	C	.	PASS	CR;C=snps_ambig;CP=10,S=12	GT	1/1	0/0	0/0	./.
+pangenome	1392	snps_unique_to_sample4|snp:A10T	A	T	.	PASS	CR;C=snps_unique_to_sample4;CP=10,S=16	GT	0/0	0/0	0/0	1/1
+pangenome	1402	snps_unique_to_sample4|snp:G20C	G	C	.	PASS	CR;C=snps_unique_to_sample4;CP=20,S=16	GT	0/0	0/0	0/0	1/1
+pangenome	1425	snps_shared_sample2_sample3|snp:C10G	C	G	.	PASS	CR;C=snps_shared_sample2_sample3;CP=10,S=17	GT	0/0	1/1	1/1	0/0
+pangenome	1435	snps_shared_sample2_sample3|snp:C20G	C	G	.	PASS	CR;C=snps_shared_sample2_sample3;CP=20,S=17	GT	0/0	1/1	1/1	0/0
+pangenome	1454	snps_unique_to_sample1|snp:A10T	A	T	.	PASS	CR;C=snps_unique_to_sample1;CP=10,S=18	GT	1/1	0/0	0/0	0/0
+pangenome	1464	snps_unique_to_sample1|snp:T20A	T	A	.	PASS	CR;C=snps_unique_to_sample1;CP=20,S=18	GT	1/1	0/0	0/0	0/0
+pangenome	1483	snps_unique_to_sample3|snp:T10C	T	C	.	PASS	CR;C=snps_unique_to_sample3;CP=10,S=19	GT	0/0	0/0	1/1	0/0
+pangenome	2285	snps_close_to_terminal|snp:A3T	A	T	.	PASS	CR;C=snps_close_to_terminal;CP=3,S=23	GT	0/0	1/1	1/1	0/0
+pangenome	2310	snps_close_to_terminal|snp:A28T	A	T	.	PASS	CR;C=snps_close_to_terminal;CP=28,S=23	GT	0/0	1/1	1/1	0/0
+pangenome	2324	snps_close_to_terminal|snp:G42T	G	T	.	PASS	CR;C=snps_close_to_terminal;CP=42,S=23	GT	1/1	0/0	0/0	1/1
+pangenome	2350	snps_close_to_terminal|snp:C68G	C	G	.	PASS	CR;C=snps_close_to_terminal;CP=68,S=23	GT	0/0	1/1	1/1	0/0

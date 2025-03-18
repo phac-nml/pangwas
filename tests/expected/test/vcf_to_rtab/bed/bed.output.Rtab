@@ -1,0 +1,3 @@
+Variant	sample1	sample2	sample3	sample4
+gene1|snp:A1C	0	0	0	1
+gene1|snp:C2G	1	0	.	.

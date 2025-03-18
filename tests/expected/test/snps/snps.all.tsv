@@ -1,0 +1,17 @@
+snp	pangenome_snp	prop_non_ambig	allele_frequency	cluster	sample1	sample2	sample3	sample4
+pim|snp:C230G	C826G	1.0	0.25	pim	0	1	0	0
+pim|snp:A306G	A902G	1.0	0.25	pim	0	1	0	0
+pim|snp:A388T	A984T	1.0	0.25	pim	0	1	0	0
+speB|snp:G93T	G1115T	1.0	0.5	speB	1	1	0	0
+snps_ambig|snp:G10C	G1247C	0.75	0.25	snps_ambig	1	0	0	.
+snps_unique_to_sample4|snp:A10T	A1392T	1.0	0.25	snps_unique_to_sample4	0	0	0	1
+snps_unique_to_sample4|snp:G20C	G1402C	1.0	0.25	snps_unique_to_sample4	0	0	0	1
+snps_shared_sample2_sample3|snp:C10G	C1425G	1.0	0.5	snps_shared_sample2_sample3	0	1	1	0
+snps_shared_sample2_sample3|snp:C20G	C1435G	1.0	0.5	snps_shared_sample2_sample3	0	1	1	0
+snps_unique_to_sample1|snp:A10T	A1454T	1.0	0.25	snps_unique_to_sample1	1	0	0	0
+snps_unique_to_sample1|snp:T20A	T1464A	1.0	0.25	snps_unique_to_sample1	1	0	0	0
+snps_unique_to_sample3|snp:T10C	T1483C	1.0	0.25	snps_unique_to_sample3	0	0	1	0
+snps_close_to_terminal|snp:A3T	A2285T	1.0	0.5	snps_close_to_terminal	0	1	1	0
+snps_close_to_terminal|snp:A28T	A2310T	1.0	0.5	snps_close_to_terminal	0	1	1	0
+snps_close_to_terminal|snp:G42T	G2324T	1.0	0.5	snps_close_to_terminal	1	0	0	1
+snps_close_to_terminal|snp:C68G	C2350G	1.0	0.5	snps_close_to_terminal	0	1	1	0

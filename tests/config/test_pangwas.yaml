@@ -1,0 +1,2738 @@
+# -----------------------------------------------------------------------------
+# testing pipeline itself
+
+dev:
+  - name: safe
+    params:
+      function: pangwas.extract
+      tags: ["dev"]
+      args:
+        gff: "{data_dir}/{sample}.gff3"
+        min_len: "{min_len}"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      variables:   
+        data_dir: "data/test/gff"
+        sample: "sample1"
+        min_len:
+          - 10
+          - 100
+        prefix: "'short' if params['args']['min_len'] == '10' else 'long'"
+        outdir: "tests/observed/test/dev/{name}"
+
+  - name: unsafe
+    params:
+      function: pangwas.extract
+      tags: ["dev"]
+      args:
+        gff: "{data_dir}/{sample}.gff3"
+        min_len: "{min_len}"
+      error_message: "invalid literal for int() with base 10: 'list(range(0,10))"
+      variables:   
+        data_dir: "data/test/gff"
+        outdir: "tests/observed/test/annotate/{name}"
+        sample: "sample1"  
+        min_len: "list(range(0,10))"
+
+# -----------------------------------------------------------------------------
+# Utility
+
+utility:
+
+  - name: get_options
+    params:
+      tags: ["cov"]
+      function: pangwas.get_options
+      args:
+        args: "pangwas extract --gff sample1.gff3"
+
+  - name: cli
+    params:
+      tags: ["cov"]
+      function: pangwas.cli
+      args:
+        args: "extract --help"
+      result: "0"
+
+  - name: cli_version
+    params:
+      tags: ["cov"]
+      function: pangwas.cli
+      args:
+        args: "--version"
+      result: "pangwas v0.1.0"
+
+  - name: cli_run
+    params:
+      tags: ["cov"]
+      function: pangwas.cli
+      args:
+        args: "binarize --table {data_dir}/samplesheet.csv --column lineage --outdir {outdir} --prefix {prefix}"
+      variables:
+        data_dir: "data/test"
+        outdir: "tests/observed/test/binarize/{name}"
+        prefix: "lineage"
+
+  - name: cli_subcommand_unknown
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.cli
+      args:
+        args: "unknown --help"
+      result: "2"
+
+  - name: get_options_args
+    params:
+      tags: ["cov"]
+      function: pangwas.get_options
+      args:
+        args: "pangwas tree --alignment sequences.aln --ufboot 1000"
+
+  - name: extract_cli_param
+    params:
+      tags: ["cov"]
+      function: pangwas.extract_cli_param
+      args:
+        args: "iqtree -T 2 --seed 2"
+        target: "{target}"
+      result: "{value}"
+      variables:
+        target: 
+          - "-T"
+          - "--seed"
+        value:
+          - 2
+
+  - name: run_cmd
+    params:
+      tags: ["cov"]
+      function: pangwas.run_cmd
+      args:
+        cmd: "echo test"
+
+  - name: run_cmd_error
+    params:
+      tags: ["cov"]
+      function: pangwas.run_cmd
+      error_message: "No such file or directory"
+      args:
+        cmd: "grep x dummy.file"
+  
+  - name: run_cmd_io
+    params:
+      tags: ["cov"]
+      function: pangwas.run_cmd
+      args:
+        cmd: "echo test"
+        output: "{outfile}"
+        err: "{errfile}"
+      variables:
+        outfile: "{name}.out"
+        errfile: "{name}.err"
+
+  - name: get_delim_tsv
+    params:
+      tags: ["cov"]
+      function: pangwas.get_delim
+      args:
+        table: "{table}"
+      result: "\t"
+      variables:
+        table:
+          - "table.tsv"
+          - "table.Rtab"
+
+  - name: get_delim_csv
+    params:
+      tags: ["cov"]
+      function: pangwas.get_delim
+      args:
+        table: "table.csv"
+      result: ","
+
+  - name: get_delim_error
+    params:
+      tags: ["cov"]
+      function: pangwas.get_delim
+      args:
+        table: "table.txt"
+      error_message: "Unknown file extension of table"
+
+# -----------------------------------------------------------------------------
+# Table Utilities
+
+binarize:
+  - name: csv_to_csv
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.binarize
+      args:
+        table: "{data_dir}/samplesheet.csv"
+        column: "lineage"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        output_delim: ","
+      output:
+        table: "{outdir}/{prefix}.binarize.csv"
+      variables:
+        data_dir: "data/test"
+        outdir: "tests/observed/test/binarize/{name}"
+        prefix: "lineage"
+
+  - name: csv_to_tsv
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.binarize
+      args:
+        table: "{data_dir}/samplesheet.csv"
+        column: "lineage"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        output_delim: "\t"
+      output:
+        table: "{outdir}/{prefix}.binarize.tsv"
+      variables:
+        data_dir: "data/test"
+        outdir: "tests/observed/test/binarize/{name}"
+        prefix: "lineage"
+
+  - name: transpose
+    params:
+      tags: ["cov"]
+      function: pangwas.binarize
+      args:
+        table: "{data_dir}/samplesheet.csv"
+        column: "lineage"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        transpose: true
+      output:
+        table: "{outdir}/{prefix}.binarize.tsv"
+      variables:
+        data_dir: "data/test"
+        outdir: "tests/observed/test/binarize/{name}"
+        prefix: "lineage"
+
+table_to_rtab:
+
+  - name: csv_to_rtab
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.table_to_rtab
+      args:
+        table: "{data_dir}/samplesheet.csv"
+        filter: "{test_data}/filter.tsv"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        table: "{outdir}/{prefix}.output.tsv"
+      variables:
+        data_dir: "data/test"
+        test_data: "tests/data"
+        outdir: "tests/observed/test/table_to_rtab/{name}"
+        prefix: "lineage"
+
+  - name: filter_unique_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.table_to_rtab
+      args:
+        table: "{data_dir}/samplesheet.csv"
+        filter: "{test_data}/{name}.tsv"
+      error_message: "Filter name 1 is not unique"
+      variables:
+        data_dir: "data/test"
+        test_data: "tests/data"
+  
+  - name: filter_missing_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.table_to_rtab
+      args:
+        table: "{data_dir}/samplesheet.csv"
+        filter: "{test_data}/{name}.tsv"
+      error_message: "No filters were found matching columns in the input table."
+      variables:
+        data_dir: "data/test"
+        test_data: "tests/data"
+
+vcf_to_rtab:
+
+  - name: snps
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.vcf_to_rtab
+      args:
+        vcf: "{test_data}/snps.vcf"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        table: "{outdir}/{prefix}.output.Rtab"
+      variables:
+        test_data: "tests/data"
+        outdir: "tests/observed/test/vcf_to_rtab/{name}"
+        prefix: "{name}"
+
+  - name: bed
+    params:
+      tags: ["cov"]
+      function: pangwas.vcf_to_rtab
+      args:
+        vcf: "{test_data}/snps.vcf"
+        bed: "{test_data}/snps.bed"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        table: "{outdir}/{prefix}.output.Rtab"
+      variables:
+        test_data: "tests/data"
+        outdir: "tests/observed/test/vcf_to_rtab/{name}"
+        prefix: "{name}"
+
+
+# -----------------------------------------------------------------------------
+# annotate
+
+annotate:
+  - name: annotate
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.annotate
+      args:
+        fasta: "{data_dir}/{sample}.gff3"
+        db: "database/bakta"
+        outdir: "{outdir}"
+        threads: 4
+        args: "--locus {sample}_contig"
+      output:
+        gff: "{outdir}/{sample}.gff3"
+      variables:
+        data_dir: "data/test/gff"
+        sample: "sample1"
+        outdir: "tests/observed/test/annotate/{sample}"
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.annotate
+      args:
+        fasta: "{data_dir}/{sample}.gff3"
+        db: "database/bakta"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        threads: "{threads}"
+        args: "--locus {sample}_contig"
+      output:
+        gff: "{outdir}/{prefix}.gff3"
+      variables:
+        data_dir: "data/test/gff"
+        sample: "sample1"
+        outdir: "tests/observed/test/annotate/t{threads}_run{run}"
+        prefix: "t{threads}_run{run}"
+        run:
+          - 1
+          - 2
+        threads:
+          - 1
+          - 2
+          - 4
+          - 8
+
+# -----------------------------------------------------------------------------
+# extract
+
+extract:
+
+  - name: extract
+    params:
+      function: pangwas.extract
+      tags: ["default", "cov"]
+      args:
+        gff: "{data_dir}/{sample}.gff3"
+        min_len: "{min_len}"
+        outdir: "{outdir}"
+      output:
+        tsv: "{outdir}/{prefix}.tsv"
+      variables:   
+        data_dir: "data/test/gff"
+        min_len: "10"
+        outdir: "tests/observed/test/extract"
+        prefix: "{sample}"
+        sample:
+          - "sample1"
+          - "sample2"
+          - "sample3"
+          - "sample4"
+
+  - name: regex
+    params:
+      function: pangwas.extract
+      tags: ["default", "cov"]
+      args:
+        gff: "{data_dir}/sample1.gff3"
+        regex: ".*pesticin.*"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        tsv: "{outdir}/{prefix}.tsv"
+      variables:   
+        data_dir: "data/test/gff"
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}"
+
+  - name: duplicate_locus
+    params:
+      tags: ["cov"]
+      function: pangwas.extract    
+      args:
+        gff: "{test_data}/{name}.gff3"
+        outdir: "{outdir}"
+        prefix: "{prefix}"        
+      output:
+        tsv: "{outdir}/{prefix}.tsv"
+      variables:
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}"
+        test_data: "tests/data"
+
+  - name: duplicate_contig_error
+    params:
+      tags: ["cov"]
+      function: pangwas.extract
+      args:
+        gff: "{test_data}/{name}.gff3"
+        outdir: "{outdir}"
+        prefix: "{prefix}"        
+      error_message: "Duplicate contig ID found: sample2_pesticin"
+      variables:
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}"
+        test_data: "tests/data"
+
+  - name: with_sample
+    params:
+      tags: ["cov"]
+      function: pangwas.extract    
+      args:
+        gff: "{data_dir}/sample1.gff3"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        tsv: "{outdir}/{prefix}.tsv"
+      variables:
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}"
+        data_dir: "data/test/gff"
+
+  - name: with_fasta
+    params:
+      tags: ["cov"]
+      function: pangwas.extract    
+      args:
+        gff: "{data_dir}/gff/sample1.gff3"
+        fasta: "{data_dir}/sequences/sample1.fasta"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        tsv: "{outdir}/{prefix}.tsv"
+      variables:
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}"
+        data_dir: "data/test"
+  
+  - name: no_sequence_with_fasta
+    params:
+      tags: ["cov"]    
+      function: pangwas.extract    
+      args:
+        gff: "{test_data}/{name}.gff3"
+        fasta: "{test_data}/{name}.fasta"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        tsv: "{outdir}/{prefix}.tsv"
+      variables:
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}"
+        test_data:  "tests/data"
+
+  - name: locus_no_sample
+    params:
+      tags: ["cov"]    
+      function: pangwas.extract    
+      args:
+        gff: "{test_data}/{name}.gff3"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        tsv: "{outdir}/{prefix}.tsv"
+      variables:
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}"
+        test_data:  "tests/data"
+  
+  - name: min_len
+    params:
+      tags: ["cov"]    
+      function: pangwas.extract    
+      args:
+        gff: "{data_dir}/sample1.gff3"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        min_len: "{min_len}"
+      output:
+        tsv: "{outdir}/{prefix}.tsv"
+      variables:
+        outdir: "tests/observed/test/extract/{name}_{min_len}"
+        prefix: "{name}_{min_len}"
+        data_dir: "data/test/gff"
+        min_len:
+          - 10
+          - 100
+
+  # TBD
+  # - name: consensus
+  #   params:
+  #     tags: ["cov"]    
+  #     function: pangwas.extract    
+  #     args:
+  #       gff: "{data_dir}/reference.gff3"
+  #       fasta: "{data_dir}/reference.fasta"
+  #       outdir: "{outdir}"
+  #       prefix: "{prefix}"
+  #       consensus: true
+  #     output:
+  #       tsv: "{outdir}/{prefix}.tsv"
+  #     variables:
+  #       outdir: "tests/observed/test/extract/{name}"
+  #       prefix: "{name}"
+  #       data_dir: "data/sars-cov-2"
+  
+  - name: duplicate_sequence_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.extract
+      args:
+        gff: "{test_data}/{name}.gff3"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      error_message: "Duplicate sequence ID found"
+      variables:
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}"      
+        test_data: "tests/data"
+
+  - name: malformed_error
+    params:
+      tags: ["cov", "error"]    
+      function: pangwas.extract
+      args:
+        gff: "{test_data}/{name}.gff3"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      error_message: "GFF record does not contain 9 fields"
+      variables:
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}"
+        test_data: "tests/data"
+  
+  - name: no_sequence_error
+    params:
+      tags: ["cov", "error"]    
+      function: pangwas.extract
+      args:
+        gff: "{test_data}/{name}.gff3"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      error_message: "A FASTA file must be provided"
+      variables:
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}"
+        test_data: "tests/data"
+
+  - name: missing_contig_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.extract
+      args:
+        gff: "{test_data}/{name}.gff3"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      error_message: "Contig sample2_missing in missing_contig_error annotations is not present in the sequences."
+      variables:
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}"
+        test_data: "tests/data"
+
+  - name: missing_region_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.extract
+      args:
+        gff: "{test_data}/{name}.gff3"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      error_message: "Contig sample2_pesticin in missing_region_error annotations is not present in the sequences."
+      variables:
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}"
+        test_data: "tests/data"
+
+  - name: prefix_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.extract
+      args:
+        gff: "{test_data}/{name}.gff3"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      error_message: "Prefix cannot contain slashes"
+      variables:
+        outdir: "tests/observed/test/extract/{name}"
+        prefix: "{name}/{name}"
+        test_data: "tests/data"
+
+  # - name: streptococcus_pneumoniae
+  #   params:
+  #     function: pangwas.extract
+  #     tags: [ "streptococcus_pneumoniae" ]
+  #     args:
+  #       gff: "{data_dir}/{sample}.gff3"
+  #       outdir: "{outdir}"
+  #       min_len: 2000
+  #     output:
+  #       tsv: "{outdir}/{prefix}.tsv"
+  #     variables:   
+  #       data_dir: "data/streptococcus_pneumoniae/gff"
+  #       outdir: "tests/observed/streptococcus_pneumoniae/extract"
+  #       prefix: "{sample}"
+  #       sample:
+  #         # Using extra quotations, to prevent pytest
+  #         # from thinking this is a mathematical expression
+  #         - "\"6952-4-17\""
+  #         - "\"6952-4-19\""
+  #         - "\"6999-1-11\""
+  #         - "\"6999-1-3\""
+  #         - "\"6999-5-12\""
+  #         - "\"6999-5-5\""
+  #         - "\"6999-7-20\""
+  #         - "\"7001-3-2\""
+  #         - "\"7553-4-28\""
+  #         - "\"7622-3-93\""
+  #         - "\"7622-4-37\""
+  #         - "\"7622-4-48\""
+  #         - "\"7622-5-52\""
+  #         - "\"7622-5-56\""
+  #         - "\"7622-5-93\""
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.extract
+      args:
+        gff: "{data_dir}/gff/sample1.gff3"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        tsv: "{outdir}/{prefix}.tsv"
+      variables:
+        outdir: "tests/observed/test/extract/run{run}"
+        prefix: "run{run}"
+        data_dir: "data/test"
+        run:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8        
+  
+# -----------------------------------------------------------------------------
+# collect
+
+collect:
+  - name: collect
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.collect
+      args:
+        tsv:
+          - "{extract_dir}/sample1.tsv"
+          - "{extract_dir}/sample2.tsv"
+          - "{extract_dir}/sample3.tsv"
+          - "{extract_dir}/sample4.tsv"
+        outdir: "{outdir}"
+      output:
+        tsv: "{outdir}/regions.tsv"
+        fasta: "{outdir}/sequences.fasta"
+      variables:
+        extract_dir: "tests/observed/test/extract"
+        outdir: "tests/observed/test/collect/"
+
+  - name: collect_file
+    params:
+      tags: ["cov"]
+      function: pangwas.collect
+      args:
+        tsv_paths: "{test_data}/{name}.txt"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        tsv: "{outdir}/{prefix}.regions.tsv"
+        fasta: "{outdir}/{prefix}.sequences.fasta"
+      variables:
+        test_data: "tests/data"
+        outdir: "tests/observed/test/collect/{name}"
+        prefix: "{name}"
+
+  - name: duplicate_sequence_id
+    params:
+      tags: ["cov"]
+      function: pangwas.collect
+      args:
+        tsv:
+          - "{test_data}/{name}.tsv"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        tsv: "{outdir}/{prefix}.regions.tsv"
+        fasta: "{outdir}/{prefix}.sequences.fasta"
+      variables:
+        test_data: "tests/data"
+        outdir: "tests/observed/test/collect/{name}"
+        prefix: "{name}"
+
+  - name: duplicate_sample_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.collect
+      args:
+        tsv:
+          - "{extract_dir}/sample1.tsv"
+          - "{extract_dir}/sample1.tsv"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      error_message: "Duplicate sample ID found: sample1"
+      variables:
+        extract_dir: "tests/observed/test/extract"
+        outdir: "tests/observed/test/collect/{name}"
+        prefix: "{name}"
+
+  # - name: streptococcus_pneumoniae
+  #   params:
+  #     tags: ["streptococcus_pneumoniae"]
+  #     function: pangwas.collect
+  #     args:
+  #       tsv:
+  #         - "{extract_dir}/6952-4-17.tsv"
+  #         - "{extract_dir}/6952-4-19.tsv"
+  #         - "{extract_dir}/6999-1-11.tsv"
+  #         - "{extract_dir}/6999-1-3.tsv"
+  #         - "{extract_dir}/6999-5-12.tsv"
+  #         - "{extract_dir}/6999-5-5.tsv"
+  #         - "{extract_dir}/6999-7-20.tsv"
+  #         - "{extract_dir}/7001-3-2.tsv"
+  #         - "{extract_dir}/7553-4-28.tsv"
+  #         - "{extract_dir}/7622-3-93.tsv"
+  #         - "{extract_dir}/7622-4-37.tsv"
+  #         - "{extract_dir}/7622-4-48.tsv"
+  #         - "{extract_dir}/7622-5-52.tsv"
+  #         - "{extract_dir}/7622-5-56.tsv"
+  #         - "{extract_dir}/7622-5-93.tsv"
+  #       outdir: "{outdir}"
+  #     output:
+  #       tsv: "{outdir}/regions.tsv"
+  #       fasta: "{outdir}/sequences.fasta"
+  #     variables:
+  #       extract_dir: "tests/observed/streptococcus_pneumoniae/extract"
+  #       outdir: "tests/observed/streptococcus_pneumoniae/collect/"
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.collect
+      args:
+        tsv_paths: "{test_data}/collect_file.txt"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        tsv: "{outdir}/{prefix}.regions.tsv"
+        fasta: "{outdir}/{prefix}.sequences.fasta"
+      variables:  
+        test_data: "tests/data"
+        outdir: "tests/observed/test/collect/run{run}"
+        prefix: "run{run}"
+        run:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+
+# -----------------------------------------------------------------------------
+# cluster
+
+cluster:
+
+  - name: cluster
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.cluster
+      args:
+        fasta: "{collect_dir}/sequences.fasta"
+        outdir: "{outdir}"
+        tmp: "{outdir}/tmp"
+      output:
+        clusters: "{outdir}/clusters.tsv"
+        representative: "{outdir}/representative.fasta"
+      variables:
+        collect_dir: "tests/observed/test/collect"
+        outdir: "tests/observed/test/cluster"
+
+  - name: memory_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.cluster
+      error_message: "Please use a computer with more main memory"
+      args:
+        fasta: "{collect_dir}/sequences.fasta"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        tmp: "{outdir}/tmp"
+        memory: "2G"
+        args: "-k 15"
+      variables:
+        collect_dir: "tests/observed/test/collect"
+        outdir: "tests/observed/test/cluster/memory_error"
+        prefix: "{name}"
+
+  # - name: streptococcus_pneumoniae
+  #   params:
+  #     tags: ["streptococcus_pneumoniae"]
+  #     function: pangwas.cluster
+  #     args:
+  #       fasta: "{collect_dir}/sequences.fasta"
+  #       outdir: "{outdir}"
+  #       tmp: "{outdir}/tmp"
+  #       threads: 8
+  #     output:
+  #       clusters: "{outdir}/clusters.tsv"
+  #       representative: "{outdir}/representative.fasta"
+  #     variables:
+  #       collect_dir: "tests/observed/streptococcus_pneumoniae/collect"
+  #       outdir: "tests/observed/streptococcus_pneumoniae/cluster"
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.cluster
+      args:
+        fasta: "{collect_dir}/sequences.fasta"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        tmp: "{outdir}/tmp"
+        memory: "{memory}"
+        threads: "{threads}"
+      output:
+        clusters: "{outdir}/{prefix}.clusters.tsv"
+        representative: "{outdir}/{prefix}.representative.fasta"
+      variables:
+        collect_dir: "tests/observed/test/collect"
+        outdir: "tests/observed/test/cluster/t{threads}_mem{memory}"
+        prefix: "t{threads}_mem{memory}"
+        threads:
+          - 1
+          - 2
+          - 4
+        memory:
+          - "1G"
+          - "2G"
+          - "4G"
+
+# -----------------------------------------------------------------------------
+# defrag
+
+defrag:
+  - name: defrag
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.defrag
+      args:
+        clusters: "{cluster_dir}/clusters.tsv"
+        representative: "{cluster_dir}/representative.fasta"
+        outdir: "{outdir}"
+        tmp: "{outdir}/tmp"
+      output:
+        clusters: "{outdir}/clusters.tsv"
+        representative: "{outdir}/representative.fasta"
+        align: "{outdir}/align.tsv"
+      variables:
+        cluster_dir: "tests/observed/test/cluster"
+        outdir: "tests/observed/test/defrag"
+
+  # - name: streptococcus_pneumoniae
+  #   params:
+  #     tags: ["streptococcus_pneumoniae"]
+  #     function: pangwas.defrag
+  #     args:
+  #       clusters: "{cluster_dir}/clusters.tsv"
+  #       representative: "{cluster_dir}/representative.fasta"
+  #       outdir: "{outdir}"
+  #       tmp: "{outdir}/tmp"
+  #       threads: 8
+  #     output:
+  #       clusters: "{outdir}/clusters.tsv"
+  #       representative: "{outdir}/representative.fasta"
+  #     variables:
+  #       cluster_dir: "tests/observed/streptococcus_pneumoniae/cluster"
+  #       outdir: tests/observed/streptococcus_pneumoniae/defrag/
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.defrag
+      args:
+        clusters: "{cluster_dir}/clusters.tsv"
+        representative: "{cluster_dir}/representative.fasta"
+        outdir: "{outdir}"
+        tmp: "{outdir}/tmp"
+        prefix: "{prefix}"
+      output:
+        clusters: "{outdir}/{prefix}.clusters.tsv"
+        representative: "{outdir}/{prefix}.representative.fasta"
+        align: "{outdir}/{prefix}.align.tsv"
+      variables:
+        cluster_dir: "tests/observed/test/cluster"
+        outdir: "tests/observed/test/defrag/run{run}"
+        prefix: "run{run}"
+        run:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+  
+# -----------------------------------------------------------------------------
+# summarize
+
+summarize:
+  - name: summarize
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.summarize
+      args:
+        clusters: "{defrag_dir}/clusters.tsv"
+        regions: "{collect_dir}/regions.tsv"
+        outdir: "{outdir}"
+      output:
+        tsv: "{outdir}/clusters.tsv"
+        phandango: "{outdir}/phandango.csv"
+        graphml_full: "{outdir}/synteny.full.graphml"
+        graphml_linear: "{outdir}/synteny.linear.graphml"
+        gfa_full: "{outdir}/synteny.full.gfa"
+        gfa_linear: "{outdir}/synteny.linear.gfa"
+      variables:
+        defrag_dir: "tests/observed/test/defrag"
+        collect_dir: "tests/observed/test/collect"
+        outdir: "tests/observed/test/summarize"
+
+  - name: graph_missing
+    params:
+      tags: ["cov"]
+      function: pangwas.summarize
+      args:
+        clusters: "{test_data}/{name}_clusters.tsv"
+        regions: "{test_data}/{name}_regions.tsv"
+        outdir: "{outdir}"
+      output:
+        tsv: "{outdir}/clusters.tsv"
+        phandango: "{outdir}/phandango.csv"
+        graphml_full: "{outdir}/synteny.full.graphml"
+        graphml_linear: "{outdir}/synteny.linear.graphml"
+        gfa_full: "{outdir}/synteny.full.gfa"
+        gfa_linear: "{outdir}/synteny.linear.gfa"
+      variables:
+        test_data: "tests/data"
+        outdir: "tests/observed/test/summarize/{name}"
+
+  - name: graph_cycles
+    params:
+      tags: ["cov"]
+      function: pangwas.summarize
+      args:
+        clusters: "{test_data}/{name}_clusters.tsv"
+        regions: "{test_data}/{name}_regions.tsv"
+        outdir: "{outdir}"
+      output:
+        tsv: "{outdir}/clusters.tsv"
+        phandango: "{outdir}/phandango.csv"
+        graphml_full: "{outdir}/synteny.full.graphml"
+        graphml_linear: "{outdir}/synteny.linear.graphml"
+        gfa_full: "{outdir}/synteny.full.gfa"
+        gfa_linear: "{outdir}/synteny.linear.gfa"
+      variables:
+        test_data: "tests/data"
+        outdir: "tests/observed/test/summarize/{name}"
+
+  - name: exhaustive
+    params:
+      tags: ["cov"]
+      function: pangwas.summarize
+      args:
+        clusters: "{defrag_dir}/clusters.tsv"
+        regions: "{collect_dir}/regions.tsv"
+        outdir: "{outdir}"
+        max_product_len: "10"
+        threshold: 0.25
+        min_samples: 4
+      output:
+        tsv: "{outdir}/clusters.tsv"
+        phandango: "{outdir}/phandango.csv"
+        graphml_full: "{outdir}/synteny.full.graphml"
+        graphml_linear: "{outdir}/synteny.linear.graphml"
+        gfa_full: "{outdir}/synteny.full.gfa"
+        gfa_linear: "{outdir}/synteny.linear.gfa"
+      variables:
+        defrag_dir: "tests/observed/test/defrag"
+        collect_dir: "tests/observed/test/collect"
+        outdir: "tests/observed/test/summarize/{name}"
+  
+  - name: duplicate_sequence_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.summarize
+      args:
+        clusters: "{defrag_dir}/clusters.tsv"
+        regions: "{test_data}/{name}.tsv"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      error_message: "Duplicate sequence ID found: sample1_SAMPL01_pim"
+      variables:
+        defrag_dir: "tests/observed/test/defrag"
+        test_data: "tests/data"
+        outdir: "tests/observed/test/summarize/{name}"
+        prefix: "{name}"
+
+  - name: missing_regions_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.summarize
+      args:
+        clusters: "{test_data}/graph_missing_clusters_error.tsv"
+        regions: "{test_data}/graph_missing_regions.tsv"
+        outdir: "{outdir}"
+      error_message: "Sequence is present in clusters but not in regions: missing"
+      variables:
+        test_data: "tests/data"
+        outdir: "tests/observed/test/summarize/{name}"     
+
+  - name: duplicate_cluster_error
+    params:
+      tags: ["cov"]
+      function: pangwas.summarize
+      args:
+        clusters: "{test_data}/{name}.tsv"
+        regions: "{collect_dir}/regions.tsv"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      error_message: "Duplicate cluster sequence ID found: sample1_pim"
+      variables:
+        collect_dir: "tests/observed/test/collect"
+        test_data: "tests/data"
+        outdir: "tests/observed/test/summarize/{name}"
+        prefix: "{name}"
+
+  # - name: streptococcus_pneumoniae
+  #   params:
+  #     tags: ["streptococcus_pneumoniae"]
+  #     function: pangwas.summarize
+  #     args:
+  #       clusters: "{defrag_dir}/clusters.tsv"
+  #       regions: "{collect_dir}/regions.tsv"
+  #       outdir: "{outdir}"
+  #     output:
+  #       tsv: "{outdir}/clusters.tsv"
+  #     variables:
+  #       defrag_dir: "tests/observed/streptococcus_pneumoniae/defrag"
+  #       collect_dir: "tests/observed/streptococcus_pneumoniae/collect"
+  #       outdir: "tests/observed/streptococcus_pneumoniae/summarize"
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.summarize
+      args:
+        clusters: "{defrag_dir}/clusters.tsv"
+        regions: "{collect_dir}/regions.tsv"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        tsv: "{outdir}/{prefix}.clusters.tsv"
+      variables:
+        defrag_dir: "tests/observed/test/defrag"
+        collect_dir: "tests/observed/test/collect"
+        outdir: "tests/observed/test/summarize/run{run}"
+        prefix: "run{run}"
+        run:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+
+# -----------------------------------------------------------------------------
+# align
+
+align:
+  - name: align
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.align
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        regions: "{results_dir}/collect/regions.tsv"
+        outdir: "{outdir}"
+      output:
+        pangenome_alignment: "{outdir}/pangenome.aln"
+        pangenome_bed: "{outdir}/pangenome.bed"
+        pangenome_consensus: "{outdir}/pangenome.consensus.fasta"
+        cluster_alignments: "{outdir}/alignments"
+        cluster_sequences: "{outdir}/sequences"
+        cluster_representative: "{outdir}/representative"
+        cluster_consensus: "{outdir}/consensus"
+      variables:
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/align"
+
+  - name: exclude_singletons
+    params:
+      tags: ["cov"]
+      function: pangwas.align
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        regions: "{results_dir}/collect/regions.tsv"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        exclude_singletons: true
+      output:
+        pangenome_alignment: "{outdir}/{prefix}.pangenome.aln"
+        pangenome_bed: "{outdir}/{prefix}.pangenome.bed"
+        pangenome_consensus: "{outdir}/{prefix}.pangenome.consensus.fasta"
+        cluster_alignments: "{outdir}/{prefix}.alignments"
+        cluster_sequences: "{outdir}/{prefix}.sequences"
+        cluster_representative: "{outdir}/{prefix}.representative"
+        cluster_consensus: "{outdir}/{prefix}.consensus"
+      variables:
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/align/{name}"
+        prefix: "{name}"
+
+  # TBD: Make new reverse_complement test data in tsv format instead of ndjson
+  # - name: reverse_complement
+  #   params:
+  #     tags: ["cov"]
+  #     function: pangwas.align
+  #     args:
+  #       clusters: "{summarize_dir}/clusters.tsv"
+  #       regions: "{test_data}/collect.tsv"
+  #       outdir: "{outdir}"
+  #     output:
+  #       pangenome_alignment: "{outdir}/pangenome.aln"
+  #       pangenome_bed: "{outdir}/pangenome.bed"
+  #       pangenome_consensus: "{outdir}/pangenome.consensus.fasta"
+  #       cluster_alignments: "{outdir}/alignments"
+  #       cluster_sequences: "{outdir}/sequences"
+  #       cluster_representative: "{outdir}/representative"
+  #       cluster_consensus: "{outdir}/consensus"
+  #     variables:
+  #       test_data: "tests/data"
+  #       outdir: "tests/observed/test/align/{name}"
+
+  # - name: streptococcus_pneumoniae
+  #   params:
+  #     tags: ["streptococcus_pneumoniae"]
+  #     function: pangwas.align
+  #     args:
+  #       clusters: "{results_dir}/summarize/clusters.tsv"
+  #       regions: "{results_dir}/collect/regions.tsv"
+  #       outdir: "{outdir}"
+  #       exclude_singletons: true
+  #       threads: 8
+  #     output:
+  #       pangenome_alignment: "{outdir}/pangenome.aln"
+  #       pangenome_bed: "{outdir}/pangenome.bed"
+  #       pangenome_consensus: "{outdir}/pangenome.consensus.fasta"
+  #       cluster_alignments: "{outdir}/alignments"
+  #       cluster_sequences: "{outdir}/sequences"
+  #       cluster_representative: "{outdir}/representative"
+  #       cluster_consensus: "{outdir}/consensus"
+  #     variables:
+  #       outdir: "tests/observed/streptococcus_pneumoniae/align"
+  #       results_dir: "tests/observed/streptococcus_pneumoniae"
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.align
+      args:
+        clusters: "tests/observed/test/summarize/clusters.tsv"
+        regions: "tests/observed/test/collect/regions.tsv"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        threads: "{threads}"
+      output:
+        pangenome_alignment: "{outdir}/{prefix}.pangenome.aln"
+        pangenome_bed: "{outdir}/{prefix}.pangenome.bed"
+        pangenome_consensus: "{outdir}/{prefix}.pangenome.consensus.fasta"
+      variables:
+        outdir: "tests/observed/test/align/t{threads}_run{run}"
+        prefix: "t{threads}_run{run}"
+        run:
+          - 1
+          - 2
+        threads:
+          - 1
+          - 2
+          - 3
+          - 4
+
+# -----------------------------------------------------------------------------
+# structural variants
+
+structural:
+  - name: structural
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.structural
+      args:
+        clusters: "tests/observed/test/summarize/clusters.tsv"
+        alignments: "tests/observed/test/align/alignments"
+        outdir: "{outdir}"
+      output:
+        rtab: "{outdir}/structural.Rtab"
+      variables:
+        outdir: "tests/observed/test/structural"
+
+  - name: min_len
+    params:
+      tags: ["cov"]
+      function: pangwas.structural
+      args:
+        clusters: "tests/observed/test/summarize/clusters.tsv"
+        alignments: "tests/observed/test/align/alignments"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        min_len: 20
+        min_indel_len: 2
+      output:
+        rtab: "{outdir}/{prefix}.structural.Rtab"
+      variables:
+        outdir: "tests/observed/test/structural/{name}"
+        prefix: "{name}"
+
+  - name: exclude_singletons
+    params:
+      tags: ["cov"]
+      function: pangwas.structural
+      args:
+        clusters: "tests/observed/test/summarize/clusters.tsv"
+        alignments: "tests/observed/test/align/exclude_singletons/exclude_singletons.alignments"
+        outdir: "{outdir}"
+      output:
+        rtab: "{outdir}/structural.Rtab"
+      variables:
+        outdir: "tests/observed/test/structural/{name}"
+
+  # - name: streptococcus_pneumoniae
+  #   params:
+  #     tags: ["streptococcus_pneumoniae"]
+  #     function: pangwas.structural
+  #     args:
+  #       clusters: "{results_dir}/summarize/clusters.tsv"
+  #       alignments: "{results_dir}/align/alignments"
+  #       outdir: "{outdir}"
+  #     output:
+  #       rtab: "{outdir}/structural.Rtab"
+  #     variables:
+  #       results_dir: "tests/observed/streptococcus_pneumoniae"
+  #       outdir: "tests/observed/streptococcus_pneumoniae/structural"
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.structural
+      args:
+        clusters: "tests/observed/test/summarize/clusters.tsv"
+        alignments: "tests/observed/test/align/alignments"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        rtab: "{outdir}/{prefix}.structural.Rtab"
+      variables:
+        outdir: "tests/observed/test/structural/run{run}"
+        prefix: "run{run}"
+        run:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+
+# -----------------------------------------------------------------------------
+# presence absence
+
+presence_absence:
+  - name: presence_absence
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.presence_absence
+      args:
+        clusters: "tests/observed/test/summarize/clusters.tsv"
+        outdir: "{outdir}"
+      output:
+        rtab: "{outdir}/presence_absence.Rtab"
+      variables:
+        outdir: "tests/observed/test/presence_absence"
+
+  # - name: streptococcus_pneumoniae
+  #   params:
+  #     tags: ["streptococcus_pneumoniae"]
+  #     function: pangwas.presence_absence
+  #     args:
+  #       clusters: "{results_dir}/summarize/clusters.tsv"
+  #       outdir: "{outdir}"
+  #     output:
+  #       rtab: "{outdir}/presence_absence.Rtab"
+  #     variables:
+  #       results_dir: "tests/observed/streptococcus_pneumoniae"
+  #       outdir: "tests/observed/streptococcus_pneumoniae/presence_absence"
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.presence_absence
+      args:
+        clusters: "tests/observed/test/summarize/clusters.tsv"
+        outdir: "{outdir}"
+        prefix: "run{run}"
+      output:
+        rtab: "{outdir}/{prefix}.presence_absence.Rtab"
+      variables:
+        outdir: "tests/observed/test/presence_absence/run{run}"
+        prefix: "run{run}"
+        run:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+
+# -----------------------------------------------------------------------------
+# SNPs
+
+snps:
+  - name: snps
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.snps
+      args:
+        alignment: "{align_dir}/pangenome.aln"
+        bed: "{align_dir}/pangenome.bed"
+        consensus: "{align_dir}/pangenome.consensus.fasta"
+        outdir: "{outdir}"
+        structural: "{structural_dir}/structural.Rtab"
+        core: 0.75
+        indel_window: 10
+        snp_window: 3
+      output:
+        rtab: "{outdir}/snps.Rtab"
+        all_alignment: "{outdir}/snps.all.fasta"
+        core_alignment: "{outdir}/snps.core.fasta"
+        constant_sites: "{outdir}/snps.constant_sites.txt"
+        all_tsv: "{outdir}/snps.all.tsv"
+        core_tsv: "{outdir}/snps.core.tsv"
+        all_vcf: "{outdir}/snps.all.vcf"
+        core_vcf: "{outdir}/snps.core.vcf" 
+      variables:
+        align_dir: "tests/observed/test/align"
+        structural_dir: "tests/observed/test/structural"
+        outdir: "tests/observed/test/snps"
+
+  # - name: streptococcus_pneumoniae
+  #   params:
+  #     tags: ["streptococcus_pneumoniae"]
+  #     function: pangwas.snps
+  #     args:
+  #       alignment: "{align_dir}/pangenome.aln"
+  #       bed: "{align_dir}/pangenome.bed"
+  #       consensus: "{align_dir}/pangenome.consensus.fasta"
+  #       outdir: "{outdir}"
+  #       structural: "{structural_dir}/structural.Rtab"
+  #       core: 0.75
+  #       indel_window: 10
+  #       snp_window: 3
+  #     output:
+  #       rtab: "{outdir}/snps.Rtab"
+  #       all_alignment: "{outdir}/snps.all.fasta"
+  #       core_alignment: "{outdir}/snps.core.fasta"
+  #       constant_sites: "{outdir}/snps.constant_sites.txt"
+  #       all_tsv: "{outdir}/snps.all.tsv"
+  #       core_tsv: "{outdir}/snps.core.tsv"
+  #     variables:
+  #       align_dir: "tests/observed/streptococcus_pneumoniae/align"
+  #       results_dir: "tests/observed/streptococcus_pneumoniae"
+  #       structural_dir: "tests/observed/streptococcus_pneumoniae/structural"
+  #       outdir: "tests/observed/streptococcus_pneumoniae/snps"
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.snps
+      args:
+        alignment: "{align_dir}/pangenome.aln"
+        bed: "{align_dir}/pangenome.bed"
+        consensus: "{align_dir}/pangenome.consensus.fasta"
+        outdir: "{outdir}"
+        structural: "{structural_dir}/structural.Rtab"
+        prefix: "{prefix}"
+      output:
+        rtab: "{outdir}/{prefix}.snps.Rtab"
+        all_alignment: "{outdir}/{prefix}.snps.all.fasta"
+        core_alignment: "{outdir}/{prefix}.snps.core.fasta"
+        constant_sites: "{outdir}/{prefix}.snps.constant_sites.txt"
+        all_tsv: "{outdir}/{prefix}.snps.all.tsv"
+        core_tsv: "{outdir}/{prefix}.snps.core.tsv"
+        all_vcf: "{outdir}/{prefix}.snps.all.vcf"
+        core_vcf: "{outdir}/{prefix}.snps.core.vcf"
+      variables:
+        align_dir: "tests/observed/test/align"
+        structural_dir: "tests/observed/test/structural"
+        outdir: "tests/observed/test/snps/run{run}"
+        prefix: "run{run}"
+        run:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+
+# -----------------------------------------------------------------------------
+# Combine
+
+combine:
+  - name: combine
+    params:
+      function: pangwas.combine
+      tags: ["default", "cov"]
+      args:
+        rtab:
+          - "{results_dir}/structural/structural.Rtab"
+          - "{results_dir}/snps/snps.Rtab"
+          - "{results_dir}/presence_absence/presence_absence.Rtab"
+        outdir: "{outdir}"
+      output:
+        rtab: "{outdir}/combine.Rtab"
+      variables:   
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/combine"
+
+  # - name: streptococcus_pneumoniae
+  #   params:
+  #     function: pangwas.combine
+  #     tags: ["streptococcus_pneumoniae"]
+  #     args:
+  #       rtab:
+  #         - "{results_dir}/structural/structural.Rtab"
+  #         - "{results_dir}/snps/snps.Rtab"
+  #         - "{results_dir}/presence_absence/presence_absence.Rtab"
+  #       outdir: "{outdir}"
+  #     output:
+  #       rtab: "{outdir}/combine.Rtab"
+  #     variables:   
+  #       results_dir: "tests/observed/streptococcus_pneumoniae"
+  #       outdir: "tests/observed/streptococcus_pneumoniae/combine"
+
+  - name: reproducible
+    params:
+      function: pangwas.combine
+      tags: ["default", "cov"]
+      args:
+        rtab:
+          - "{results_dir}/structural/structural.Rtab"
+          - "{results_dir}/snps/snps.Rtab"
+          - "{results_dir}/presence_absence/presence_absence.Rtab"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        rtab: "{outdir}/{prefix}.combine.Rtab"
+      variables:   
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/combine/run{run}"
+        prefix: "run{run}"
+        run:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+
+# -----------------------------------------------------------------------------
+# tree
+
+tree:
+  - name: tree
+    params:
+      function: pangwas.tree
+      tags: ["default", "cov"]
+      args:
+        alignment: "{snps_dir}/snps.core.fasta"
+        constant_sites: "{snps_dir}/snps.constant_sites.txt"
+        outdir: "{outdir}"
+        args: "-safe -m MFP --seed 123456 -o sample1 --ufboot 1000 --alrt 1000 -redo"
+      output:
+        default: "{outdir}/tree.treefile"
+        rooted: "{outdir}/tree.rooted.nwk"
+        branch_support: "{outdir}/tree.rooted.branch_support.tsv"
+        plain: "{outdir}/tree.rooted.plain.nwk"
+        labelled: "{outdir}/tree.rooted.labelled_nodes.nwk"
+      variables:   
+        snps_dir: "tests/observed/test/snps"
+        outdir: "tests/observed/test/tree"
+
+  - name: no_alrt
+    params:
+      function: pangwas.tree
+      tags: ["cov"]
+      args:
+        alignment: "{align_dir}/pangenome.aln"
+        outdir: "{outdir}"
+        threads: 2
+        args: "-safe -m MFP --seed 123456 --ufboot 1000 -redo"
+      output:
+        default: "{outdir}/tree.treefile"
+        rooted: "{outdir}/tree.rooted.nwk"
+        branch_support: "{outdir}/tree.rooted.branch_support.tsv"
+        plain: "{outdir}/tree.rooted.plain.nwk"
+        labelled: "{outdir}/tree.rooted.labelled_nodes.nwk"
+      variables:   
+        align_dir: "tests/observed/test/align"
+        outdir: "tests/observed/test/tree/{name}"
+  
+  - name: no_outgroup
+    params:
+      function: pangwas.tree
+      tags: ["cov"]
+      args:
+        alignment: "{align_dir}/pangenome.aln"
+        outdir: "{outdir}"
+        threads: 2
+        args: "-safe -m MFP --seed 123456 -redo"
+      output:
+        default: "{outdir}/tree.treefile"
+        rooted: "{outdir}/tree.rooted.nwk"
+        branch_support: "{outdir}/tree.rooted.branch_support.tsv"
+        plain: "{outdir}/tree.rooted.plain.nwk"
+        labelled: "{outdir}/tree.rooted.labelled_nodes.nwk"
+      variables:   
+        align_dir: "tests/observed/test/align"
+        outdir: "tests/observed/test/tree/{name}"
+
+  - name: multiple_outgroup
+    params:
+      function: pangwas.tree
+      tags: ["cov"]
+      args:
+        alignment: "{align_dir}/pangenome.aln"
+        outdir: "{outdir}"
+        threads: 2
+        args: "-safe -m MFP --seed 123456 -o sample1,sample4 -redo"
+      output:
+        default: "{outdir}/tree.treefile"
+        rooted: "{outdir}/tree.rooted.nwk"
+        branch_support: "{outdir}/tree.rooted.branch_support.tsv"
+        plain: "{outdir}/tree.rooted.plain.nwk"
+        labelled: "{outdir}/tree.rooted.labelled_nodes.nwk"
+      variables:   
+        align_dir: "tests/observed/test/align"
+        outdir: "tests/observed/test/tree/{name}"
+
+  - name: outgroup_error
+    params:
+      function: pangwas.tree
+      tags: ["cov", "error"]
+      args:
+        alignment: "{align_dir}/pangenome.aln"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        args: "-safe -m MFP --seed 123456 -o sample1,sample3 -redo"
+      error_message: "Branch separating outgroup is not found"
+      variables:   
+        align_dir: "tests/observed/test/align"
+        outdir: "tests/observed/test/tree/{name}"
+        prefix: "{name}"
+
+  # - name: streptococcus_pneumoniae
+  #   params:
+  #     function: pangwas.tree
+  #     tags: ["default", "cov"]
+  #     args:
+  #       alignment: "{snps_dir}/snps.core.fasta"
+  #       constant_sites: "{snps_dir}/snps.constant_sites.txt"
+  #       outdir: "{outdir}"
+  #       args: "-safe -m MFP --ufboot 1000 --alrt 1000 --seed 123456 -o 7553-4-28,6999-7-20 -redo"
+  #     output:
+  #       rooted: "{outdir}/tree.rooted.nwk"
+  #     variables:   
+  #       snps_dir: "tests/observed/streptococcus_pneumoniae/snps"
+  #       outdir: "tests/observed/streptococcus_pneumoniae/tree"
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.tree
+      args:
+        alignment: "{snps_dir}/snps.core.fasta"
+        constant_sites: "{snps_dir}/snps.constant_sites.txt"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        threads: "{threads}"
+        args: "-safe -m MFP --seed 123456 -o sample1 -redo"
+      output:
+        default: "{outdir}/{prefix}.tree.treefile"
+        rooted: "{outdir}/{prefix}.tree.rooted.nwk"
+        branch_support: "{outdir}/{prefix}.tree.rooted.branch_support.tsv"
+        plain: "{outdir}/{prefix}.tree.rooted.plain.nwk"
+        labelled: "{outdir}/{prefix}.tree.rooted.labelled_nodes.nwk"
+      variables:   
+        snps_dir: "tests/observed/test/snps"
+        outdir: "tests/observed/test/tree/t{threads}_run{run}"
+        prefix: "t{threads}_run{run}"
+        # iqtree is not reproducible across multiple threads
+        threads:
+          - 1
+        run:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+
+# -----------------------------------------------------------------------------
+# root tree
+
+root_tree:
+
+  - name: root_tree_no_outgroup
+    params:
+      function: pangwas.root_tree
+      tags: ["cov"]
+      args:
+        tree: "{tree_dir}/tree.rooted.nwk"
+        outdir: "{outdir}"
+      output:
+        tree: "{outdir}/rooted.newick"
+      variables:   
+        tree_dir: "tests/observed/test/tree"
+        outdir: "tests/observed/test/root_tree/{name}"
+
+  - name: root_tree_one_outgroup
+    params:
+      function: pangwas.root_tree
+      tags: ["cov"]
+      args:
+        tree: "{tree_dir}/tree.rooted.nwk"
+        outdir: "{outdir}"
+        outgroup: "sample1"
+      output:
+        tree: "{outdir}/rooted.newick"
+      variables:   
+        tree_dir: "tests/observed/test/tree"
+        outdir: "tests/observed/test/root_tree/{name}"
+
+  - name: root_tree_two_outgroups
+    params:
+      function: pangwas.root_tree
+      tags: ["cov"]
+      args:
+        tree: "{tree_dir}/tree.rooted.nwk"
+        outdir: "{outdir}"      
+        outgroup: "sample1,sample4"
+      output:
+        tree: "{outdir}/rooted.newick"
+      variables:   
+        tree_dir: "tests/observed/test/tree"
+        outdir: "tests/observed/test/root_tree/{name}"
+
+  - name: root_tree_three_outgroups
+    params:
+      function: pangwas.root_tree
+      tags: ["cov"]
+      args:
+        tree: "{tree_dir}/tree.rooted.nwk"
+        outgroup: "sample1,sample4,sample3"
+        outdir: "{outdir}"
+      output:
+        tree: "{outdir}/rooted.newick"
+      variables:   
+        tree_dir: "tests/observed/test/tree"
+        outdir: "tests/observed/test/root_tree/{name}"
+
+  - name: root_tree_all_outgroup_error
+    params:
+      function: pangwas.root_tree
+      tags: ["cov", "error"]
+      args:
+        tree: "{tree_dir}/tree.rooted.nwk"
+        outgroup: "sample1,sample2,sample3,sample4"
+        outdir: "{outdir}"
+      error_message: "Your outgroup contains all taxa in the tree."
+      variables:   
+        tree_dir: "tests/observed/test/tree"
+        outdir: "tests/observed/test/root_tree/{name}"
+
+  - name: root_tree_non_monophyletic_error
+    params:
+      function: pangwas.root_tree
+      tags: ["cov", "error"]
+      args:
+        tree: "{tree_dir}/tree.rooted.nwk"
+        outgroup: "sample1,sample2"
+        outdir: "{outdir}"
+      error_message: "Failed to find the outgroup clade. Are you sure your outgroup is monophyletic?"
+      variables:   
+        tree_dir: "tests/observed/test/tree"
+        outdir: "tests/observed/test/root_tree/{name}"
+
+
+  - name: reproducible
+    params:
+      function: pangwas.root_tree
+      tags: ["reproducible"]
+      args:
+        tree: "{tree_dir}/tree.rooted.nwk"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        outgroup: "sample1"
+      output:
+        tree: "{outdir}/{prefix}.rooted.newick"
+      variables:   
+        tree_dir: "tests/observed/test/tree"
+        outdir: "tests/observed/test/root_tree/run{run}"
+        prefix: "run{run}"
+        run:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+
+# -----------------------------------------------------------------------------
+# GWAS
+
+gwas_lineage:
+  - name: lineage
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "lineage"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+      output:
+        samplesheet:                 "{outdir}/lineage.samplesheet.tsv"
+        variants:                    "{outdir}/lineage.filter.Rtab"
+        tree:                        "{outdir}/lineage.filter.nwk"
+        tree_midpoint:               "{outdir}/lineage.midpoint.nwk"
+        # Lineage 1
+        lineage_1_focal:             "{outdir}/lineage_1.focal.txt"        
+        lineage_1_locus_bonferroni:  "{outdir}/lineage_1.locus_effects.bonferroni.txt"
+        lineage_1_locus_patterns:    "{outdir}/lineage_1.locus_effects.patterns.txt"
+        lineage_1_locus_effects:     "{outdir}/lineage_1.locus_effects.tsv"
+        lineage_1_locus_significant: "{outdir}/lineage_1.locus_effects.significant.tsv"
+        lineage_1_locus_filter:      "{outdir}/lineage_1.locus_effects.significant.filter.tsv"
+        # Lineage 2
+        lineage_2_focal:             "{outdir}/lineage_2.focal.txt"
+        lineage_2_locus_bonferroni:  "{outdir}/lineage_2.locus_effects.bonferroni.txt"
+        lineage_2_locus_patterns:    "{outdir}/lineage_2.locus_effects.patterns.txt"
+        lineage_2_locus_effects:     "{outdir}/lineage_2.locus_effects.tsv"
+        lineage_2_locus_significant: "{outdir}/lineage_2.locus_effects.significant.tsv"
+        lineage_2_locus_filter:      "{outdir}/lineage_2.locus_effects.significant.filter.tsv"
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/lineage"
+
+  - name: print_filtered
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "lineage"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        args: "--lmm --print-filtered"
+      output:
+        samplesheet:                 "{outdir}/lineage.samplesheet.tsv"
+        variants:                    "{outdir}/lineage.filter.Rtab"
+        tree:                        "{outdir}/lineage.filter.nwk"
+        tree_midpoint:               "{outdir}/lineage.midpoint.nwk"
+        # Lineage 1
+        lineage_1_focal:             "{outdir}/lineage_1.focal.txt"        
+        lineage_1_locus_bonferroni:  "{outdir}/lineage_1.locus_effects.bonferroni.txt"
+        lineage_1_locus_patterns:    "{outdir}/lineage_1.locus_effects.patterns.txt"
+        lineage_1_locus_effects:     "{outdir}/lineage_1.locus_effects.tsv"
+        lineage_1_locus_significant: "{outdir}/lineage_1.locus_effects.significant.tsv"
+        lineage_1_locus_filter:      "{outdir}/lineage_1.locus_effects.significant.filter.tsv"
+        # Lineage 2
+        lineage_2_focal:             "{outdir}/lineage_2.focal.txt"
+        lineage_2_locus_bonferroni:  "{outdir}/lineage_2.locus_effects.bonferroni.txt"
+        lineage_2_locus_patterns:    "{outdir}/lineage_2.locus_effects.patterns.txt"
+        lineage_2_locus_effects:     "{outdir}/lineage_2.locus_effects.tsv"
+        lineage_2_locus_significant: "{outdir}/lineage_2.locus_effects.significant.tsv"
+        lineage_2_locus_filter:      "{outdir}/lineage_2.locus_effects.significant.filter.tsv"
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/lineage/{name}"
+
+  # - name: streptococcus_pneumoniae
+  #   params:
+  #     tags: ["streptococcus_pneumoniae"]
+  #     function: pangwas.gwas
+  #     args:
+  #       clusters: "{results_dir}/summarize/clusters.tsv"
+  #       variants: "{results_dir}/combine/combine.Rtab"
+  #       table: "{data_dir}/samplesheet.csv"
+  #       outdir: "{outdir}"
+  #       column: "lineage"
+  #       tree: "{results_dir}/tree/tree.rooted.nwk"
+  #     output:
+  #       samplesheet:                 "{outdir}/lineage.samplesheet.tsv"
+  #       lineage_1_locus_bonferroni:  "{outdir}/lineage_1.locus_effects.bonferroni.txt"
+  #       lineage_1_locus_patterns:    "{outdir}/lineage_1.locus_effects.patterns.txt"
+  #       lineage_1_locus_effects:     "{outdir}/lineage_1.locus_effects.tsv"
+  #       lineage_1_locus_significant: "{outdir}/lineage_1.locus_effects.significant.tsv"
+  #       lineage_1_locus_filter:      "{outdir}/lineage_1.locus_effects.significant.filter.tsv"
+  #       lineage_2_locus_bonferroni:  "{outdir}/lineage_2.locus_effects.bonferroni.txt"
+  #       lineage_2_locus_patterns:    "{outdir}/lineage_2.locus_effects.patterns.txt"
+  #       lineage_2_locus_effects:     "{outdir}/lineage_2.locus_effects.tsv"
+  #       lineage_2_locus_significant: "{outdir}/lineage_2.locus_effects.significant.tsv"
+  #       lineage_2_locus_filter:      "{outdir}/lineage_2.locus_effects.significant.filter.tsv"
+  #       lineage_3_locus_bonferroni:  "{outdir}/lineage_3.locus_effects.bonferroni.txt"
+  #       lineage_3_locus_patterns:    "{outdir}/lineage_3.locus_effects.patterns.txt"
+  #       lineage_3_locus_effects:     "{outdir}/lineage_3.locus_effects.tsv"
+  #       lineage_3_locus_significant: "{outdir}/lineage_3.locus_effects.significant.tsv"
+  #       lineage_3_locus_filter:      "{outdir}/lineage_3.locus_effects.significant.filter.tsv"        
+  #     variables:
+  #       results_dir: "tests/observed/streptococcus_pneumoniae"
+  #       data_dir: "data/streptococcus_pneumoniae"
+  #       outdir: "tests/observed/streptococcus_pneumoniae/gwas/lineage"
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "lineage"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        prefix: "{prefix}"
+        threads: "{threads}"
+      output:
+        samplesheet:                 "{outdir}/{prefix}.lineage.samplesheet.tsv"
+        variants:                    "{outdir}/{prefix}.lineage.filter.Rtab"
+        tree:                        "{outdir}/{prefix}.lineage.filter.nwk"
+        tree_midpoint:               "{outdir}/{prefix}.lineage.midpoint.nwk"
+        # Lineage 1
+        lineage_1_focal:             "{outdir}/{prefix}.lineage_1.focal.txt"        
+        lineage_1_locus_bonferroni:  "{outdir}/{prefix}.lineage_1.locus_effects.bonferroni.txt"
+        lineage_1_locus_patterns:    "{outdir}/{prefix}.lineage_1.locus_effects.patterns.txt"
+        lineage_1_locus_effects:     "{outdir}/{prefix}.lineage_1.locus_effects.tsv"
+        lineage_1_locus_significant: "{outdir}/{prefix}.lineage_1.locus_effects.significant.tsv"
+        lineage_1_locus_filter:      "{outdir}/{prefix}.lineage_1.locus_effects.significant.filter.tsv"
+        # Lineage 2
+        lineage_2_focal:             "{outdir}/{prefix}.lineage_2.focal.txt"
+        lineage_2_locus_bonferroni:  "{outdir}/{prefix}.lineage_2.locus_effects.bonferroni.txt"
+        lineage_2_locus_patterns:    "{outdir}/{prefix}.lineage_2.locus_effects.patterns.txt"
+        lineage_2_locus_effects:     "{outdir}/{prefix}.lineage_2.locus_effects.tsv"
+        lineage_2_locus_significant: "{outdir}/{prefix}.lineage_2.locus_effects.significant.tsv"
+        lineage_2_locus_filter:      "{outdir}/{prefix}.lineage_2.locus_effects.significant.filter.tsv"
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/lineage/t{threads}_run{run}"
+        prefix: "t{threads}_run{run}"
+        run:
+          - 1
+          - 2
+        threads:
+          - 1
+          - 2
+          - 3
+          - 4
+
+gwas_phenotype:
+
+  - name: binary
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "resistant"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        lineage_column: "lineage"
+      output:
+        samplesheet:         "{outdir}/resistant.samplesheet.tsv"
+        variants:            "{outdir}/resistant.filter.Rtab"
+        tree:                "{outdir}/resistant.filter.nwk"
+        tree_midpoint:       "{outdir}/resistant.midpoint.nwk"
+        focal:               "{outdir}/resistant.focal.txt"
+        patristic:           "{outdir}/resistant.patristic.tsv"
+        kinship:             "{outdir}/resistant.kinship.tsv"
+        lineages:            "{outdir}/resistant.lineages.tsv"
+        lineage_effects:     "{outdir}/resistant.lineage_effects.tsv"
+        lineage_significant: "{outdir}/resistant.lineage_effects.significant.tsv"
+        locus_bonferroni:    "{outdir}/resistant.locus_effects.bonferroni.txt"
+        locus_patterns:      "{outdir}/resistant.locus_effects.patterns.txt"
+        locus_effects:       "{outdir}/resistant.locus_effects.tsv"
+        locus_significant:   "{outdir}/resistant.locus_effects.significant.tsv"
+        locus_filter:        "{outdir}/resistant.locus_effects.significant.filter.tsv"
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"
+
+  - name: no_clusters
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.gwas
+      args:
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "resistant"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        lineage_column: "lineage"
+      output:
+        samplesheet:         "{outdir}/resistant.samplesheet.tsv"
+        variants:            "{outdir}/resistant.filter.Rtab"
+        tree:                "{outdir}/resistant.filter.nwk"
+        tree_midpoint:       "{outdir}/resistant.midpoint.nwk"
+        focal:               "{outdir}/resistant.focal.txt"
+        patristic:           "{outdir}/resistant.patristic.tsv"
+        kinship:             "{outdir}/resistant.kinship.tsv"
+        lineages:            "{outdir}/resistant.lineages.tsv"
+        lineage_effects:     "{outdir}/resistant.lineage_effects.tsv"
+        lineage_significant: "{outdir}/resistant.lineage_effects.significant.tsv"
+        locus_bonferroni:    "{outdir}/resistant.locus_effects.bonferroni.txt"
+        locus_patterns:      "{outdir}/resistant.locus_effects.patterns.txt"
+        locus_effects:       "{outdir}/resistant.locus_effects.tsv"
+        locus_significant:   "{outdir}/resistant.locus_effects.significant.tsv"
+        locus_filter:        "{outdir}/resistant.locus_effects.significant.filter.tsv"
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"        
+
+  - name: print_filtered
+    params:
+      tags: ["cov"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "resistant"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        lineage_column: "lineage"
+        args: "--lmm --print-filtered"
+      output:
+        samplesheet:         "{outdir}/resistant.samplesheet.tsv"
+        variants:            "{outdir}/resistant.filter.Rtab"
+        tree:                "{outdir}/resistant.filter.nwk"
+        tree_midpoint:       "{outdir}/resistant.midpoint.nwk"
+        focal:               "{outdir}/resistant.focal.txt"
+        patristic:           "{outdir}/resistant.patristic.tsv"
+        kinship:             "{outdir}/resistant.kinship.tsv"
+        lineages:            "{outdir}/resistant.lineages.tsv"
+        lineage_effects:     "{outdir}/resistant.lineage_effects.tsv"
+        lineage_significant: "{outdir}/resistant.lineage_effects.significant.tsv"
+        locus_bonferroni:    "{outdir}/resistant.locus_effects.bonferroni.txt"
+        locus_patterns:      "{outdir}/resistant.locus_effects.patterns.txt"
+        locus_effects:       "{outdir}/resistant.locus_effects.tsv"
+        locus_significant:   "{outdir}/resistant.locus_effects.significant.tsv"
+        locus_filter:        "{outdir}/resistant.locus_effects.significant.filter.tsv"
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"
+
+  - name: no_midpoint
+    params:
+      tags: ["cov"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "resistant"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        lineage_column: "lineage"
+        midpoint: false
+        args: "--lmm --print-filtered"
+      output:
+        samplesheet:         "{outdir}/resistant.samplesheet.tsv"
+        variants:            "{outdir}/resistant.filter.Rtab"
+        tree:                "{outdir}/resistant.filter.nwk"
+        focal:               "{outdir}/resistant.focal.txt"
+        patristic:           "{outdir}/resistant.patristic.tsv"
+        kinship:             "{outdir}/resistant.kinship.tsv"
+        lineages:            "{outdir}/resistant.lineages.tsv"
+        lineage_effects:     "{outdir}/resistant.lineage_effects.tsv"
+        lineage_significant: "{outdir}/resistant.lineage_effects.significant.tsv"
+        locus_bonferroni:    "{outdir}/resistant.locus_effects.bonferroni.txt"
+        locus_patterns:      "{outdir}/resistant.locus_effects.patterns.txt"
+        locus_effects:       "{outdir}/resistant.locus_effects.tsv"
+        locus_significant:   "{outdir}/resistant.locus_effects.significant.tsv"
+        locus_filter:        "{outdir}/resistant.locus_effects.significant.filter.tsv"
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"        
+
+  - name: continuous
+    params:
+      tags: ["cov"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "mic"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        lineage_column: "lineage"
+        continuous: true
+      output:
+        samplesheet:         "{outdir}/mic.samplesheet.tsv"
+        variants:            "{outdir}/mic.filter.Rtab"
+        tree:                "{outdir}/mic.filter.nwk"
+        tree_midpoint:       "{outdir}/mic.midpoint.nwk"
+        focal:               "{outdir}/mic.focal.txt"      
+        patristic:           "{outdir}/mic.patristic.tsv"
+        kinship:             "{outdir}/mic.kinship.tsv"
+        lineages:            "{outdir}/mic.lineages.tsv"
+        lineage_effects:     "{outdir}/mic.lineage_effects.tsv"
+        lineage_significant: "{outdir}/mic.lineage_effects.significant.tsv"
+        locus_bonferroni:    "{outdir}/mic.locus_effects.bonferroni.txt"
+        locus_patterns:      "{outdir}/mic.locus_effects.patterns.txt"
+        locus_effects:       "{outdir}/mic.locus_effects.tsv"
+        locus_significant:   "{outdir}/mic.locus_effects.significant.tsv"
+        locus_filter:        "{outdir}/mic.locus_effects.significant.filter.tsv"
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"
+
+  - name: no_lineage_effects
+    params:
+      tags: ["cov"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "resistant"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+      output:
+        samplesheet:         "{outdir}/resistant.samplesheet.tsv"
+        variants:            "{outdir}/resistant.filter.Rtab"
+        tree:                "{outdir}/resistant.filter.nwk"
+        tree_midpoint:       "{outdir}/resistant.midpoint.nwk"
+        focal:               "{outdir}/resistant.focal.txt"
+        patristic:           "{outdir}/resistant.patristic.tsv"
+        kinship:             "{outdir}/resistant.kinship.tsv"
+        locus_bonferroni:    "{outdir}/resistant.locus_effects.bonferroni.txt"
+        locus_patterns:      "{outdir}/resistant.locus_effects.patterns.txt"
+        locus_effects:       "{outdir}/resistant.locus_effects.tsv"
+        locus_significant:   "{outdir}/resistant.locus_effects.significant.tsv"
+        locus_filter:        "{outdir}/resistant.locus_effects.significant.filter.tsv"
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"
+
+  - name: exclude_missing
+    params:
+      tags: ["cov"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "count"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        exclude_missing: true
+      output:
+        samplesheet:         "{outdir}/count.samplesheet.tsv"
+        variants:            "{outdir}/count.filter.Rtab"
+        tree:                "{outdir}/count.filter.nwk"
+        tree_midpoint:       "{outdir}/count.midpoint.nwk"
+        patristic:           "{outdir}/count.patristic.tsv"
+        kinship:             "{outdir}/count.kinship.tsv"
+        # Count 1
+        focal:               "{outdir}/count_1.focal.txt"        
+        locus_bonferroni:    "{outdir}/count_1.locus_effects.bonferroni.txt"
+        locus_patterns:      "{outdir}/count_1.locus_effects.patterns.txt"
+        locus_effects:       "{outdir}/count_1.locus_effects.tsv"
+        locus_significant:   "{outdir}/count_1.locus_effects.significant.tsv"
+        locus_filter:        "{outdir}/count_1.locus_effects.significant.filter.tsv"
+        # Count 2
+        focal:               "{outdir}/count_2.focal.txt"        
+        locus_bonferroni:    "{outdir}/count_2.locus_effects.bonferroni.txt"
+        locus_patterns:      "{outdir}/count_2.locus_effects.patterns.txt"
+        locus_effects:       "{outdir}/count_2.locus_effects.tsv"
+        locus_significant:   "{outdir}/count_2.locus_effects.significant.tsv"
+        locus_filter:        "{outdir}/count_2.locus_effects.significant.filter.tsv"
+        # Count 3
+        focal:               "{outdir}/count_2.focal.txt"        
+        locus_bonferroni:    "{outdir}/count_2.locus_effects.bonferroni.txt"
+        locus_patterns:      "{outdir}/count_2.locus_effects.patterns.txt"
+        locus_effects:       "{outdir}/count_2.locus_effects.tsv"
+        locus_significant:   "{outdir}/count_2.locus_effects.significant.tsv"
+        locus_filter:        "{outdir}/count_2.locus_effects.significant.filter.tsv"                
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"
+
+  - name: distance_matrices_error
+    params:
+      tags: ["cov"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{test_data}/{name}.csv"
+        outdir: "{outdir}"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        column: "resistant"
+        continuous: true
+      error_message: "No samples are present in the distance matrices!"
+      variables:
+        results_dir: "tests/observed/test"
+        test_data: "tests/data"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"
+
+  - name: continuous_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{test_data}/{name}.csv"
+        outdir: "{outdir}"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        column: "bad_column"
+        continuous: true
+      error_message: "Failed to convert all values of bad_column as numeric."
+      variables:
+        results_dir: "tests/observed/test"
+        test_data: "tests/data"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"
+
+  - name: phylogeny_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "resistant"
+      error_message: "You must supply a phylogeny if you have not requested --no-distances."
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"
+
+  - name: distances_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "resistant"
+        lineage_column: "lineage"
+        args: "--no-distances"
+      error_message: "The param --no-distances cannot be used if a lineage column was specified."
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"
+
+  - name: phenotype_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{test_data}/{name}.csv"
+        outdir: "{outdir}"
+        column: "resistant"
+        args: "--no-distances"
+      error_message: "Column resistant must have at least two different values."
+      variables:
+        test_data: "tests/data"
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"
+
+  - name: missing_column_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        column: "missing_column"
+        args: "--no-distances"
+      error_message: "Column missing_column is not present in the table"
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/phenotype/{name}"
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.gwas
+      args:
+        clusters: "{results_dir}/summarize/clusters.tsv"
+        variants: "{results_dir}/combine/combine.Rtab"
+        table: "{data_dir}/samplesheet.csv"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        column: "resistant"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        lineage_column: "lineage"
+        threads: "{threads}"
+      output:
+        samplesheet:         "{outdir}/{prefix}.resistant.samplesheet.tsv"
+        variants:            "{outdir}/{prefix}.resistant.filter.Rtab"
+        tree:                "{outdir}/{prefix}.resistant.filter.nwk"
+        tree_midpoint:       "{outdir}/{prefix}.resistant.midpoint.nwk"
+        focal:               "{outdir}/{prefix}.resistant.focal.txt"
+        patristic:           "{outdir}/{prefix}.resistant.patristic.tsv"
+        kinship:             "{outdir}/{prefix}.resistant.kinship.tsv"
+        lineages:            "{outdir}/{prefix}.resistant.lineages.tsv"
+        lineage_effects:     "{outdir}/{prefix}.resistant.lineage_effects.tsv"
+        lineage_significant: "{outdir}/{prefix}.resistant.lineage_effects.significant.tsv"
+        locus_bonferroni:    "{outdir}/{prefix}.resistant.locus_effects.bonferroni.txt"
+        locus_patterns:      "{outdir}/{prefix}.resistant.locus_effects.patterns.txt"
+        locus_effects:       "{outdir}/{prefix}.resistant.locus_effects.tsv"
+        locus_significant:   "{outdir}/{prefix}.resistant.locus_effects.significant.tsv"
+        locus_filter:        "{outdir}/{prefix}.resistant.locus_effects.significant.filter.tsv"
+      variables:
+        results_dir: "tests/observed/test"
+        data_dir: "data/test"
+        outdir: "tests/observed/test/gwas/phenotype/t{threads}_run{run}"
+        prefix: "t{threads}_run{run}"
+        run:
+          - 1
+          - 2
+        threads:
+          - 1
+          - 2
+          - 3
+          - 4             
+
+# -----------------------------------------------------------------------------
+# Manhattan
+
+manhattan:
+
+  - name: default
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.manhattan
+      args:
+        gwas: "{results_dir}/gwas/phenotype/binary/resistant.locus_effects.tsv"
+        bed: "{results_dir}/align/pangenome.bed"
+        outdir: "{outdir}"
+      output:
+        svg: "{outdir}/plot.svg"
+        png: "{outdir}/plot.png"
+        phandango: "{outdir}/phandango.plot"
+      variables:
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/manhattan"
+
+  - name: max_blocks
+    params:
+      tags: ["cov"]
+      function: pangwas.manhattan
+      args:
+        gwas: "{results_dir}/gwas/phenotype/binary/resistant.locus_effects.tsv"
+        bed: "{results_dir}/align/pangenome.bed"
+        outdir: "{outdir}"
+        max_blocks: 1
+      output:
+        svg: "{outdir}/plot.svg"
+        png: "{outdir}/plot.png"
+        phandango: "{outdir}/phandango.plot"
+      variables:
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/manhattan/{name}"
+
+  - name: named_synteny
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.manhattan
+      args:
+        gwas: "{results_dir}/gwas/phenotype/binary/resistant.locus_effects.tsv"
+        bed: "{test_data}/{name}.bed"
+        outdir: "{outdir}"
+      output:
+        svg: "{outdir}/plot.svg"
+        png: "{outdir}/plot.png"
+        phandango: "{outdir}/phandango.plot"
+      variables:
+        results_dir: "tests/observed/test"
+        test_data: "tests/data"
+        outdir: "tests/observed/test/manhattan/{name}"
+
+  - name: unknown_variant_type
+    params:
+      tags: ["cov"]
+      function: pangwas.manhattan
+      args:
+        gwas: "{test_data}/{name}.tsv"
+        bed: "{test_data}/named_synteny.bed"
+        outdir: "{outdir}"
+      result: "None"
+      variables:
+        test_data: "tests/data"
+        outdir: "tests/observed/test/manhattan/{name}"
+
+  - name: single_synteny
+    params:
+      tags: ["cov"]
+      function: pangwas.manhattan
+      args:
+        gwas: "{results_dir}/gwas/phenotype/binary/resistant.locus_effects.tsv"
+        bed: "{test_data}/named_synteny.bed"
+        outdir: "{outdir}"
+        syntenies: "IGR_start"
+      output:
+        svg: "{outdir}/plot.svg"
+        png: "{outdir}/plot.png"
+        phandango: "{outdir}/phandango.plot"
+      variables:
+        test_data: "tests/data"
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/manhattan/{name}"
+
+  - name: single_cluster
+    params:
+      tags: ["cov"]
+      function: pangwas.manhattan
+      args:
+        gwas: "{results_dir}/gwas/phenotype/binary/resistant.locus_effects.tsv"
+        bed: "{test_data}/named_synteny.bed"
+        outdir: "{outdir}"
+        syntenies: "speB"
+        clusters: "speB"
+        width: "200"
+      output:
+        svg: "{outdir}/plot.svg"
+        png: "{outdir}/plot.png"
+        phandango: "{outdir}/phandango.plot"
+      variables:
+        test_data: "tests/data"
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/manhattan/{name}"
+
+  - name: multiple
+    params:
+      tags: ["cov"]
+      function: pangwas.manhattan
+      args:
+        gwas: "{results_dir}/gwas/phenotype/binary/resistant.locus_effects.tsv"
+        bed: "{test_data}/named_synteny.bed"
+        outdir: "{outdir}"
+        syntenies: "IGR_start speB"
+        clusters: "IGR_start_CDS speB"
+        prop_x_axis: True
+        ymax: "25.0"
+      output:
+        svg: "{outdir}/plot.svg"
+        png: "{outdir}/plot.png"
+        phandango: "{outdir}/phandango.plot"
+      variables:
+        test_data: "tests/data"
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/manhattan/{name}"
+
+  # - name: exclude_missing
+  #   params:
+  #     tags: ["cov"]
+  #     function: pangwas.manhattan
+  #     args:
+  #       gwas: "{results_dir}/gwas/phenotype/exclude_missing/count_1.locus_effects.tsv"
+  #       bed: "{results_dir}/align/pangenome.bed"
+  #       outdir: "{outdir}"
+  #     output:
+  #       svg: "{outdir}/plot.svg"
+  #       png: "{outdir}/plot.png"
+  #       phandango: "{outdir}/phandango.plot"
+  #     variables:
+  #       results_dir: "tests/observed/test"
+  #       outdir: "tests/observed/test/manhattan/{name}"
+
+  - name: clusters_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.manhattan
+      args:
+        gwas: "{results_dir}/gwas/phenotype/no_clusters/resistant.locus_effects.tsv"
+        bed: "{results_dir}/align/pangenome.bed"
+        outdir: "{outdir}"
+      error_message: "GWAS table must contain cluster annotations for manhattan plot"
+      variables:
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/manhattan"        
+
+  - name: missing_synteny_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.manhattan
+      args:
+        gwas: "{test_data}/{name}.tsv"
+        bed: "{test_data}/{name}.bed"
+        outdir: "{outdir}"
+      error_message: "Synteny block 10 for speB is not present in the BED file."
+      variables:
+        test_data: "tests/data"
+        outdir: "tests/observed/test/manhattan/{name}"
+
+  - name: no_variants_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.manhattan
+      args:
+        gwas: "{results_dir}/gwas/phenotype/binary/resistant.locus_effects.tsv"
+        bed: "{results_dir}/align/pangenome.bed"
+        outdir: "{outdir}"
+        clusters: "non-existant"
+      result: "None"
+      variables:
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/manhattan"
+
+  - name: reproducible
+    params:
+      tags: ["reproducible"]
+      function: pangwas.manhattan
+      args:
+        gwas: "{results_dir}/gwas/phenotype/binary/resistant.locus_effects.tsv"
+        bed: "{results_dir}/align/pangenome.bed"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        svg: "{outdir}/{prefix}.plot.svg"
+        png: "{outdir}/{prefix}.plot.png"
+        phandango: "{outdir}/{prefix}.phandango.plot"
+      variables:   
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/manhattan/run{run}"
+        prefix: "run{run}"
+        run:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+
+# -----------------------------------------------------------------------------
+# Heatmap
+
+heatmap:
+
+  - name: heatmap
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.heatmap
+      args:
+        gwas: "{results_dir}/gwas/phenotype/binary/resistant.locus_effects.significant.tsv"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        outdir: "{outdir}"
+      output:
+        svg: "{outdir}/plot.svg"
+        png: "{outdir}/plot.png"
+      variables:
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/heatmap"
+
+  - name: tree
+    params:
+      tags: ["cov"]
+      function: pangwas.heatmap
+      args:
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        svg: "{outdir}/{prefix}.plot.svg"
+        png: "{outdir}/{prefix}.plot.png"
+      variables:
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/heatmap/{name}"
+        prefix: "{name}"
+
+  - name: rtab
+    params:
+      tags: ["cov"]
+      function: pangwas.heatmap
+      args:
+        rtab: "{results_dir}/table_to_rtab/csv_to_rtab/lineage.output.Rtab"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        svg: "{outdir}/{prefix}.plot.svg"
+        png: "{outdir}/{prefix}.plot.png"
+      variables:
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/heatmap/{name}"
+        prefix: "{name}"
+     
+  - name: exhaustive
+    params:
+      tags: ["cov"]
+      function: pangwas.heatmap
+      args:
+        gwas: "{results_dir}/gwas/phenotype/binary/resistant.locus_effects.significant.tsv"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+        tree_width: 300
+        focal: "{test_data}/focal.txt"
+        root_branch: 50
+        font_size: 20
+        font_family: "Ubuntu Mono"
+        margin: 50
+        tip_pad: 20
+        heatmap_scale: 2.0
+        png_scale: 3.0
+      output:
+        svg: "{outdir}/{prefix}.plot.svg"
+        png: "{outdir}/{prefix}.plot.png"
+      variables:
+        test_data: "tests/data"
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/heatmap/{name}"
+        prefix: "{name}"
+
+  - name: tree_extra_sample
+    params:
+      tags: ["cov"]
+      function: pangwas.heatmap
+      args:
+        tree: "{test_data}/{name}.nwk"
+        rtab: "{results_dir}/table_to_rtab/csv_to_rtab/lineage.output.Rtab"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        svg: "{outdir}/{prefix}.plot.svg"
+        png: "{outdir}/{prefix}.plot.png"
+      variables:
+        test_data: "tests/data"
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/heatmap/{name}"
+        prefix: "{name}"
+
+  - name: rtab_extra_sample
+    params:
+      tags: ["cov"]
+      function: pangwas.heatmap
+      args:
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        rtab: "{test_data}/{name}.Rtab"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        svg: "{outdir}/{prefix}.plot.svg"
+        png: "{outdir}/{prefix}.plot.png"
+      variables:
+        test_data: "tests/data"
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/heatmap/{name}"
+        prefix: "{name}"
+
+  - name: rtab_missing_data
+    params:
+      tags: ["cov"]
+      function: pangwas.heatmap
+      args:
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        rtab: "{test_data}/{name}.Rtab"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        svg: "{outdir}/{prefix}.plot.svg"
+        png: "{outdir}/{prefix}.plot.png"
+      variables:
+        test_data: "tests/data"
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/heatmap/{name}"
+        prefix: "{name}"
+
+  - name: rtab_single_sample
+    params:
+      tags: ["cov"]
+      function: pangwas.heatmap
+      args:
+        rtab: "{test_data}/{name}.Rtab"
+        focal: "{test_data}/{name}_focal.txt"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        svg: "{outdir}/{prefix}.plot.svg"
+        png: "{outdir}/{prefix}.plot.png"
+      variables:
+        test_data: "tests/data"
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/heatmap/{name}"
+        prefix: "{name}"
+
+  - name: gwas_extra_sample
+    params:
+      tags: ["cov"]
+      function: pangwas.heatmap
+      args:
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        gwas: "{test_data}/{name}.tsv"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        svg: "{outdir}/{prefix}.plot.svg"
+        png: "{outdir}/{prefix}.plot.png"
+      variables:
+        test_data: "tests/data"
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/heatmap/{name}"
+        prefix: "{name}"
+
+  - name: exclude_missing
+    params:
+      tags: ["cov"]
+      function: pangwas.heatmap
+      args:
+        gwas: "{results_dir}/gwas/phenotype/exclude_missing/count_1.locus_effects.significant.tsv"
+        tree: "{results_dir}/gwas/phenotype/exclude_missing/count.filter.nwk"
+        outdir: "{outdir}"
+      output:
+        svg: "{outdir}/plot.svg"
+        png: "{outdir}/plot.png"
+      variables:
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/heatmap/{name}"
+
+  - name: missing_all_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.heatmap
+      error_message: "Either a tree (--tree), a GWAS table (--gwas) or an Rtab --rtab) must be supplied."
+
+  - name: multiple_error
+    params:
+      tags: ["cov", "error"]
+      function: pangwas.heatmap
+      args:
+        rtab: "{results_dir}/table_to_rtab/csv_to_rtab/lineage.output.Rtab"
+        gwas: "{results_dir}/gwas/phenotype/binary/resistant.locus_effects.significant.tsv"
+      error_message: "A GWAS table (--gwas) is mutually exclusive with an Rtab (--rtab) file."
+      variables:
+        results_dir: "tests/observed/test"
+
+  - name: reproducible
+    params:
+      tags: ["default", "cov"]
+      function: pangwas.heatmap
+      args:
+        gwas: "{results_dir}/gwas/phenotype/binary/resistant.locus_effects.significant.tsv"
+        tree: "{results_dir}/tree/tree.rooted.nwk"
+        outdir: "{outdir}"
+        prefix: "{prefix}"
+      output:
+        svg: "{outdir}/{prefix}.plot.svg"
+        png: "{outdir}/{prefix}.plot.png"
+      variables:
+        results_dir: "tests/observed/test"
+        outdir: "tests/observed/test/heatmap/run{run}"
+        prefix: "run{run}"
+        run:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8

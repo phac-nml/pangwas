@@ -1,0 +1,25 @@
+##gff-version 3
+##feature-ontology https://github.com/The-Sequence-Ontology/SO-Ontologies/blob/v3.1/so.obo
+##sequence-region sample2_pesticin 1 430
+sample2_pesticin	Bakta	region	1	430	.	+	.	ID=sample2_pesticin;sample2_pesticin
+sample2_pesticin	Prodigal	CDS	1	231	.	+	.	ID=SAMPL02_00005;Name=pesticin immunity protein A;locus_tag=SAMPL02_00005;product=pesticin immunity protein A;Dbxref=CDD:435570;gene=PimA
+sample2_pesticin	Prodigal	CDS	308	394	.	+	.	ID=SAMPL02_00010;Name=pesticin immunity protein B;locus_tag=SAMPL02_00010;product=pesticin immunity protein B;Dbxref=CDD:435570;gene=PimB
+sample2_pesticin	Prodigal	CDS	395	428	.	+	.	ID=SAMPL02_00050;Name=pesticin immunity protein B;locus_tag=SAMPL02_00050;product=pesticin immunity protein B;Dbxref=CDD:435570;gene=PimB
+##sequence-region sample2_IGR_full 1 78
+sample2_IGR_full	Bakta	region	1	78	.	+	.	ID=sample2_IGR_full;sample2_IGR_full
+##sequence-region sample2_pesticin 1 137
+sample2_pesticin	Bakta	region	1	137	.	+	.	ID=sample2_speB;sample2_speB
+sample2_pesticin	Prodigal	CDS	1	137	.	-	0	ID=SAMPL02_00015;Name=Exotoxin SpeB;locus_tag=SAMPL02_00015;product=Exotoxin SpeB;gene=speB
+##FASTA
+>sample2_pesticin
+ATGATCTCAAAGTTATTTTGCTTGGCTCTCATATTTTTATCATCAAGTGGCCTTGCAGAAAAAAACACATATACAGCA
+AAAGACATCTTGCAAAACCTAGAATTAAATACCTTTGGCAATTCATTGTCTCATGGCATCTATGGGAAACAGACAACC
+TTCAAGCAAACCGAGTTTACAAATATTAAAAGCAACACCAAAAAACACATTGCACTTATCAATAAAGACAACTGA
+TGGCACGATGATATCATTAAAAATACTAGGAATTAAGAGAGATGAGTATACTGTCTGTTTTGAAGATTTCTCTCTA
+ATGAGACCGCCAACATATGTAGCCATACATCCTCTACTTATAAAAAAAGTAAAATCTGGAAACTTTATAGTAGTGAAA
+GAAATATAG
+AAATCTATCCCTGGTTGCACTGTATATTATCATTAA
+AAATCTATCCCTGGTTGCACTGTATATTATCAT
+>sample2_pesticin
+TTAAATGTGATAGCGCTATCTTTTGCTTCTTTTTCGTTACGAGCAAAGTTTTGATCGGCAAATACTGGGTTAGCAAGA
+ACAAATCCACCTAATGCTAAAAGACTTAATAATCTGATACCTAATTTCTTTTTATTCAT

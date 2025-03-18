@@ -1,0 +1,48 @@
+H	VN:Z:1.0
+S	duplicate_product.2	*	LN:i:1
+S	duplicate_product.2__duplicate_product.1	*	LN:i:1
+S	duplicate_product.1	*	LN:i:1
+S	dup_gene.1	*	LN:i:1
+S	dup_gene.1__dup_gene.2	*	LN:i:1
+S	dup_gene.2	*	LN:i:1
+S	TERMINAL__CDS_middle	*	LN:i:1
+S	CDS_middle	*	LN:i:1
+S	CDS_middle__TERMINAL	*	LN:i:1
+S	multi_CDS1	*	LN:i:1
+S	multi_CDS1__TERMINAL	*	LN:i:1
+S	IGR_end_CDS	*	LN:i:1
+S	IGR_end_CDS__TERMINAL	*	LN:i:1
+S	TERMINAL__IGR_middle_CDS1	*	LN:i:1
+S	IGR_middle_CDS1	*	LN:i:1
+S	TERMINAL__IGR_start_CDS	*	LN:i:1
+S	IGR_start_CDS	*	LN:i:1
+S	gene_conflict_1	*	LN:i:1
+S	pim	*	LN:i:1
+S	speB	*	LN:i:1
+S	Cluster_6	*	LN:i:1
+S	snps_ambig	*	LN:i:1
+S	snps_close_to_indel	*	LN:i:1
+S	snps_high_density	*	LN:i:1
+S	snps_multiallelic	*	LN:i:1
+S	snps_unique_to_sample4	*	LN:i:1
+S	snps_shared_sample2_sample3	*	LN:i:1
+S	snps_unique_to_sample1	*	LN:i:1
+S	snps_unique_to_sample3	*	LN:i:1
+S	Cluster_30	*	LN:i:1
+S	product_conflict_1	*	LN:i:1
+S	smeZ	*	LN:i:1
+S	snps_close_to_terminal	*	LN:i:1
+S	speG	*	LN:i:1
+S	speM	*	LN:i:1
+L	duplicate_product.2	+	duplicate_product.2__duplicate_product.1	+	0M
+L	dup_gene.1	+	dup_gene.1__dup_gene.2	+	0M
+L	CDS_middle	+	CDS_middle__TERMINAL	+	0M
+L	multi_CDS1	+	multi_CDS1__TERMINAL	+	0M
+L	IGR_end_CDS	+	IGR_end_CDS__TERMINAL	+	0M
+L	IGR_middle_CDS1	+	TERMINAL__IGR_middle_CDS1	+	0M
+L	duplicate_product.2__duplicate_product.1	+	duplicate_product.1	+	0M
+L	dup_gene.1__dup_gene.2	+	dup_gene.2	+	0M
+L	multi_CDS1__TERMINAL	+	multi_CDS1	+	0M
+L	TERMINAL__CDS_middle	+	CDS_middle	+	0M
+L	TERMINAL__IGR_middle_CDS1	+	IGR_middle_CDS1	+	0M
+L	TERMINAL__IGR_start_CDS	+	IGR_start_CDS	+	0M

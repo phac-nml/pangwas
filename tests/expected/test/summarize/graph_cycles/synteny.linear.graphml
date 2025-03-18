@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <graph edgedefault="directed">
+    <node id="gene3" />
+    <node id="gene3.5" />
+    <node id="gene5" />
+    <node id="gene4" />
+    <node id="gene1" />
+    <node id="gene2" />
+    <node id="gene6" />
+    <node id="gene7" />
+    <node id="gene9" />
+    <node id="gene8" />
+    <edge source="gene3" target="gene3.5" />
+    <edge source="gene3.5" target="gene5" />
+    <edge source="gene5" target="gene4" />
+    <edge source="gene1" target="gene2" />
+  </graph>
+</graphml>

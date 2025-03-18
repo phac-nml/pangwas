@@ -1,0 +1,21 @@
+H	VN:Z:1.0
+S	gene3	*	LN:i:1
+S	gene3.5	*	LN:i:1
+S	gene5	*	LN:i:1
+S	gene4	*	LN:i:1
+S	gene1	*	LN:i:1
+S	gene2	*	LN:i:1
+S	gene6	*	LN:i:1
+S	gene7	*	LN:i:1
+S	gene9	*	LN:i:1
+S	gene8	*	LN:i:1
+L	gene1	+	gene2	+	0M
+L	gene2	+	gene3	+	0M
+L	gene3	+	gene3.5	+	0M
+L	gene3.5	+	gene5	-	0M
+L	gene5	-	gene4	+	0M
+L	gene4	+	gene3	+	0M
+L	gene6	+	gene7	+	0M
+L	gene6	+	gene8	+	0M
+L	gene7	+	gene9	+	0M
+L	gene8	+	gene9	+	0M

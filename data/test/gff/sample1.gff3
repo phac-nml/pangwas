@@ -1,0 +1,219 @@
+##gff-version 3
+##feature-ontology https://github.com/The-Sequence-Ontology/SO-Ontologies/blob/v3.1/so.obo
+
+##sequence-region sample1_pim 1 426
+sample1_pim	Bakta	region	1	426	.	+	.	ID=sample1_pim;sample1_pim
+sample1_pim	Prodigal	CDS	1	426	.	+	0	ID=pim;Name=pesticin immunity protein;locus_tag=pim;product=pesticin immunity protein;Dbxref=CDD:435570;gene=pim
+
+##sequence-region sample1_speB 1 137
+sample1_speB	Bakta	region	1	137	.	+	.	ID=sample1_speB;sample1_speB
+sample1_speB	Prodigal	CDS	1	137	.	+	0	ID=speB;Name=Exotoxin SpeB;locus_tag=speB;product=Exotoxin SpeB;gene=speB
+
+##sequence-region sample1_speG 1 280
+sample1_speG	Bakta	region	1	280	.	+	.	ID=sample1_speG;sample1_speG
+sample1_speG	Prodigal	CDS	1	280	.	+	0	ID=speG;Name=Exotoxin SpeG;locus_tag=speG;product=Exotoxin SpeG;gene=speG
+
+##sequence-region sample1_IGR_full_frag 1 60
+sample1_IGR_full_frag	Bakta	region	1	60	.	+	.	ID=sample1_IGR_full_frag;sample1_IGR_full_frag
+
+##sequence-region sample1_IGR_start 1 99
+sample1_IGR_start	Bakta	region	1	93	.	+	.	ID=sample1_IGR_start;sample1_IGR_start
+sample1_IGR_start	Prodigal	CDS	79	99	.	+	0	ID=IGR_start_CDS;Name=Fragmented protein 1;locus_tag=IGR_start_CDS;product=Fragmented protein 1;gene=IGR_start_CDS
+
+##sequence-region sample1_IGR_middle 1 71
+sample1_IGR_middle	Bakta	region	1	71	.	+	.	ID=sample1_IGR_middle;sample1_IGR_middle
+sample1_IGR_middle	Prodigal	CDS	1	21	.	+	0	ID=IGR_middle_CDS1;Name=Fragmented protein 1;locus_tag=IGR_middle_CDS1;product=Fragmented protein 1;gene=IGR_middle_CDS1
+sample1_IGR_middle	Prodigal	CDS	51	71	.	+	0	ID=IGR_middle_CDS2;Name=Fragmented protein 1;locus_tag=IGR_middle_CDS2;product=Fragmented protein 1;gene=IGR_middle_CDS2
+
+##sequence-region sample1_IGR_end 1 99
+sample1_IGR_end	Bakta	region	1	71	.	+	.	ID=sample1_IGR_end;sample1_IGR_end
+sample1_IGR_end	Prodigal	CDS	1	21	.	+	0	ID=IGR_end_CDS;Name=Fragmented protein 1;locus_tag=IGR_end_CDS;product=Fragmented protein 1;gene=IGR_end_CDS
+
+##sequence-region sample1_CDS_middle 1 73
+sample1_CDS_middle	Bakta	region	1	73	.	+	.	ID=sample1_CDS_middle;sample1_CDS_middle
+sample1_CDS_middle	Prodigal	CDS	30	50	.	+	0	ID=CDS_middle;Name=Fragmented protein 1;locus_tag=CDS_middle;product=Fragmented protein 1;gene=CDS_middle
+
+##sequence-region sample1_multi 1 130
+sample1_multi	Bakta	region	1	130	.	+	.	ID=sample1_multi;sample1_multi
+sample1_multi	Prodigal	CDS	1	36	.	+	0	ID=multi_CDS1;Name=Fake protein 1;locus_tag=multi_CDS1;product=Fake protein 1;gene=multi_CDS1
+sample1_multi	Prodigal	CDS	66	101	.	+	0	ID=multi_CDS2;Name=Fake protein 1;locus_tag=multi_CDS2;product=Fake protein 1;gene=multi_CDS2
+
+##sequence-region sample1_snps_unique_to_sample1 1 29
+sample1_snps_unique_to_sample1	Bakta	region	1	29	.	+	.	ID=sample1_snps_unique_to_sample1;sample1_snps_unique_to_sample1
+sample1_snps_unique_to_sample1	Prodigal	CDS	1	29	.	+	0	ID=snps_unique_to_sample1;Name=SNPs unique to sample1;locus_tag=snps_unique_to_sample1;product=SNPs unique to sample1;gene=snps_unique_to_sample1
+
+##sequence-region sample1_snps_shared_sample2_sample3 1 29
+sample1_snps_shared_sample2_sample3	Bakta	region	1	29	.	+	.	ID=sample1_snps_shared_sample2_sample3;sample1_snps_shared_sample2_sample3
+sample1_snps_shared_sample2_sample3	Prodigal	CDS	1	29	.	+	0	ID=snps_shared_sample2_sample3;Name=SNPs shared sample2 sample3;locus_tag=snps_shared_sample2_sample3;product=SNPs shared sample2 sample3;gene=snps_shared_sample2_sample3
+
+##sequence-region sample1_snps_unique_to_sample3 1 47
+sample1_snps_unique_to_sample3	Bakta	region	1	47	.	+	.	ID=sample1_snps_unique_to_sample3;sample1_snps_unique_to_sample3
+sample1_snps_unique_to_sample3	Prodigal	CDS	1	47	.	+	0	ID=snps_unique_to_sample3;Name=SNPs unique to sample3;locus_tag=snps_unique_to_sample3;product=SNPs unique to sample3;gene=snps_unique_to_sample3
+
+##sequence-region sample1_snps_unique_to_sample4 1 33
+sample1_snps_unique_to_sample4	Bakta	region	1	33	.	+	.	ID=sample1_snps_unique_to_sample4;sample1_snps_unique_to_sample4
+sample1_snps_unique_to_sample4	Prodigal	CDS	1	33	.	+	0	ID=snps_unique_to_sample4;Name=SNPs unique to sample4;locus_tag=snps_unique_to_sample4;product=SNPs unique to sample4;gene=snps_unique_to_sample4
+
+##sequence-region sample1_snps_close_to_indel 1 35
+sample1_snps_close_to_indel	Bakta	region	1	35	.	+	.	ID=sample1_snps_close_to_indel;sample1_snps_close_to_indel
+sample1_snps_close_to_indel	Prodigal	CDS	1	35	.	+	0	ID=snps_close_to_indel;Name=SNPs close to indel;locus_tag=snps_close_to_indel;product=SNPs close to indel protein;gene=snps_close_to_indel
+
+##sequence-region sample1_snps_close_to_terminal 1 70
+sample1_snps_close_to_terminal	Bakta	region	1	70	.	+	.	ID=sample1_snps_close_to_terminal;sample1_snps_close_to_terminal
+sample1_snps_close_to_terminal	Prodigal	CDS	1	70	.	+	0	ID=snps_close_to_terminal;Name=SNPs close to terminal;locus_tag=snps_close_to_terminal;product=SNPs close to terminal protein;gene=snps_close_to_terminal
+
+##sequence-region sample1_snps_high_density 1 50
+sample1_snps_high_density	Bakta	region	1	50	.	+	.	ID=sample1_snps_high_density;sample1_snps_high_density
+sample1_snps_high_density	Prodigal	CDS	1	50	.	+	0	ID=snps_high_density;Name=SNPs high density;locus_tag=snps_high_density;product=SNPs high density;gene=snps_high_density
+
+##sequence-region sample1_snps_multiallelic 1 30
+sample1_snps_multiallelic	Bakta	region	1	30	.	+	.	ID=sample1_snps_multiallelic;sample1_snps_multiallelic
+sample1_snps_multiallelic	Prodigal	CDS	1	30	.	+	0	ID=snps_multiallelic;Name=SNPs multiallelic;locus_tag=snps_multiallelic;product=SNPs multiallelic;gene=snps_multiallelic
+
+##sequence-region sample1_snps_ambig 1 30
+sample1_snps_ambig	Bakta	region	1	30	.	+	.	ID=sample1_snps_ambig;sample1_snps_ambig
+sample1_snps_ambig	Prodigal	CDS	1	30	.	+	0	ID=snps_ambig;Name=SNPs ambiguous;locus_tag=snps_ambig;product=SNPs ambiguous;gene=snps_ambig
+
+##sequence-region sample1_dup_gene 1 120
+sample1_dup_gene	Bakta	region	1	120	.	+	.	ID=sample1_dup_gene;sample1_dup_gene
+sample1_dup_gene	Prodigal	CDS	1	30	.	+	0	ID=dup_gene;Name=Duplicate gene name 1;locus_tag=dup_gene;Duplicate gene name 1;gene=dup_gene
+sample1_dup_gene	Prodigal	CDS	61	90	.	+	0	ID=dup_gene;Name=Duplicate gene name 2.1;locus_tag=dup_gene;Duplicate gene name 2.1;gene=dup_gene
+sample1_dup_gene	Prodigal	CDS	91	120	.	+	0	ID=dup_gene;Name=Duplicate gene name 2.2;locus_tag=dup_gene;Duplicate gene name 2.2;gene=dup_gene
+
+##sequence-region sample1_dup_product 1 120
+sample1_dup_product	Bakta	region	1	120	.	+	.	ID=sample1_dup_product;sample1_dup_product
+sample1_dup_product	Prodigal	CDS	1	30	.	+	0	ID=dup_product;Name=duplicate product 1;locus_tag=dup_product;product=__duplicate product_
+sample1_dup_product	Prodigal	CDS	61	90	.	+	0	ID=dup_product;Name=duplicate product 2.1;locus_tag=dup_product;product=duplicate product
+sample1_dup_product	Prodigal	CDS	91	120	.	+	0	ID=dup_product;Name=duplicate product 2.2;locus_tag=dup_product;product=duplicate product
+
+##sequence-region sample1_gene_conflict 1 30
+sample1_gene_conflict	Bakta	region	1	30	.	+	.	ID=sample1_gene_conflict;sample1_gene_conflict
+sample1_gene_conflict	Prodigal	CDS	1	30	.	+	0	ID=gene_conflict;Name=gene conflict 1;locus_tag=gene_conflict;gene=gene_conflict_1
+
+##sequence-region sample1_product_conflict 1 30
+sample1_product_conflict	Bakta	region	1	30	.	+	.	ID=sample1_product_conflict;sample1_product_conflict
+sample1_product_conflict	Prodigal	CDS	1	30	.	+	0	ID=product_conflict;Name=product conflict 1;locus_tag=product_conflict;product=product conflict 1
+
+##sequence-region sample1_feature_rescue 1 30
+sample1_feature_rescue	Bakta	region	1	30	.	+	.	ID=sample1_feature_rescue;sample1_feature_rescue
+sample1_feature_rescue	Prodigal	CDS	1	30	.	+	0	ID=feature_rescue;Name=feature rescue;locus_tag=feature_rescue;product=feature rescue;gene=feature_rescue
+
+##FASTA
+>sample1_pim
+ATGATCTCAAAGTTATTTTGCTTGGCTCTCATATTTTTATCATCAAGTGGCCTTGCAGAAAAAAACACATATACAGCA
+AAAGACATCTTGCAAAACCTAGAATTAAATACCTTTGGCAATTCATTGTCTCATGGCATCTATGGGAAACAGACAACC
+TTCAAGCAAACCGAGTTTACAAATATTAAAAGCAACACCAAAAAACACATTGCACTTATCAATAAAGACAACTCA
+TGG
+ATGATATCATTAAAAATACTAGGAATTAAGAGAGATGAGTATACTGTCTGTTTTGAAGATTTCTCTCTA
+ATAAGACCG
+CCAACATATGTAGCCATACATCCTCTACTTATAAAAAAAGTAAAATCTGGAAACTTTATAGTAGTGAAAGAAATAAAG
+AAATCTATCCCTGGTTGCACTGTATATTATCATTAA
+
+>sample1_speB
+ATGAATAAAAAGAAATTAGGTATCAGATTATTAAGTCTTTTAGCATTAGGTGGATTTGTTCTTGCTAACCCAGTATTT
+GCCGATCAAAACTTTGCTCGTAACGAAAAAGAAGCAAAAGATAGCGCTATCACATTTAA
+
+>sample1_speG
+ATGCCAAGCGCCCACAGTGTTAAGCTACGCCCGCTGGAGCGTGAAGATTTACGCTATGTACATCAACTCG
+ACAATAACGCCAGTGTGATGCGTTACTGGTTTGAGGAACCCTACGAAGCCTTTGTTGAACTCTCTGATCT
+GTATGATAAGCATATTCACGATCAGAGCGAACGGCGCTTTGTGGTGGAATGTGACGGCGAAAAAGCCGGT
+CTGGTGGAGCTGGTGGAAATTAACCATGTTCATCGCCGCGCAGAATTTCAGATAATTATCTCCCCGGAGT
+
+>sample1_IGR_full_frag
+ACGTCGAGC
+N
+GCTAGCTGA
+-
+TCGATCGACGATGCATCGGACGATCGATGCGAGCGACGATC
+
+>sample1_IGR_start
+CGAGCTGCAGCGCATGCATTTGCATGCGTAAAAAAAAATGGGTGCATGCTGGCGACGATCTGACTGCTACGTGGCGCG
+ATGATCTCAAAGCAAGACTAG
+
+>sample1_IGR_middle
+ATGCGAGCGTAAGGGCATTAA
+GCGATCAGCGCTGATGCGACGGCAATGTT
+ATGCGAGCGTAAGGGCATTAA
+
+>sample1_IGR_end
+ATCGTGAGCTAGGTATGGTGG
+GGCGATCGAGCGCATGCTCGAGGGCGACTAGCGACTAGCTACGGCGCATGCGATGCGGGGATGCGATCGATCGACTGC
+
+>sample1_CDS_middle
+GGGCGACCGACCTACGCGACGCATACGCG
+ATGAGCGATATATAAGCGTGG
+CATCGATCGTAGTGTCGTAGCAC
+
+>sample1_multi
+ATGCGACGTAGCATGCAGCGCAGCTGAGCATCATAA
+GGATCGATGCATCGGCGATTCACTGCATC
+ATGCGACGTAGCATGCAGCGCAGCTGAGCATCATAA
+GGATCGATGCATCGGCGATTCACTGCATC
+
+>sample1_snps_unique_to_sample1
+CGACGTCAG
+T
+GCAGTCGCT
+A
+ACGTGGCAG
+
+>sample1_snps_shared_sample2_sample3
+TACGTAGCG
+C
+GGACTGCGT
+C
+GCAGTCGTA
+
+>sample1_snps_unique_to_sample3
+GCGCGCTTG
+T
+GCTAGCTAGGCGCGATCGATCGACGCTGCAGCATGCT
+
+>sample1_snps_unique_to_sample4
+AAGGCTACG
+A
+ACGTCTGGCGGCGTAGGCATTCG
+
+>sample1_snps_close_to_indel
+ATTCTCTGCGTGCGCTATCGTAGCTAGCTATAGAC
+
+>sample1_snps_close_to_terminal
+ACAGCGAGCATGTGCATCTCGACAGTCAAC
+AATCATCTG
+ACTAGCGCATGCAGCTACGCATGCATCGCTA
+
+>sample1_snps_high_density
+TTGAGCAGC
+CGA
+AATCATCTGACTAGCGCATGCAGCTACGCATGCATCGC
+
+>sample1_snps_multiallelic
+AGCGCTGAC
+T
+GCATGCGATTACGGCATCGA
+
+>sample1_snps_ambig
+CAGTACGAG
+C
+ATATGGCATGACAGAGATTG
+
+>sample1_dup_gene
+GACTATGCACTGCTCGCGCAGATCGTAGCG
+ATATTATTCGGCATCTGATGTCTGCATGTG
+TTTAGAGTGCATGTGCACGGATGCATGCAC
+TTTAGAGTGCATGTGCACGGATGCATGCAC
+
+>sample1_dup_product
+TAGCTGACGGCATTACGATCGATGCATGTG
+GCTAGATCATTAGCGATCGCGCTATTACGT
+TACGATCGCTCGGTACCGCGCGCGGCTGCT
+TACGATCGCTCGGTACCGCGCGCGGCTGCT
+
+>sample1_gene_conflict
+TTATATCGGCGATTCAGTTCAGATGCATTG
+
+>sample1_product_conflict
+ATATTAATAAGGGCGGCGGCGCGATTGAGC
+
+>sample1_feature_rescue
+GGCGCTGCATGATATATCGCCATCGATACT

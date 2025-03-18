@@ -1,0 +1,66 @@
+[project]
+name = "pangwas"
+version = "0.1.0"
+description = "A pipeline for pangenome-wide association studies (panGWAS)"
+authors = [
+    {name = "Katherine Eaton", email = "katherine.eaton@phac-aspc.gc.ca"},
+]
+maintainers = [
+    {name = "Katherine Eaton", email = "katherine.eaton@phac-aspc.gc.ca"},
+]
+readme = "README.md"
+# license = {file="LICENSE"}
+keywords = ["Pangenome", "GWAS", "Nextflow"]
+
+requires-python = ">=3.10,<3.11"
+
+# dependencies are managed through conda environment.yml
+dependencies = []
+
+
+[project.optional-dependencies]
+test = [
+    "pytest==8.*",
+    "pytest-cov==6.*",
+    "pytest-sugar==1.*",
+    "parametrize-from-file==0.20.*",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+pangwas = "pangwas:cli"
+
+[tool.pytest.ini_options]
+addopts = "-vv --no-header --cov-report term --cov-report html:coverage --cov=pangwas"
+testpaths = ["tests/config"]
+python_files = "test_pangwas.py"
+#retries = 0
+#retry_delay = 0.5
+#cumulative_timing = false
+python_functions = [
+    "*dev",
+    "*annotate",
+    "*extract",
+    "*collect",
+    "*cluster",
+    "*defrag",
+    "*summarize",
+    "*align",
+    "*structural",
+    "*snps",
+    "*presence_absence",
+    "*combine",
+    "*tree",
+    "*binarize",
+    "*_to_rtab",
+    "*gwas_*",
+    "*heatmap",
+    "*manhattan",
+    "*utility",
+]

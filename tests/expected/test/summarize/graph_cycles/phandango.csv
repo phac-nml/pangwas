@@ -1,0 +1,11 @@
+Gene,Non-unique Gene name,Annotation,No. isolates,No. sequences,Avg sequences per isolate,Genome Fragment,Order within Fragment,Accessory Fragment,Accessory Order with Fragment,QC,sample1
+gene3,Cluster_3,,1,1,1.0,1,1,,,,1
+gene3.5,Cluster_4,,1,1,1.0,1,2,,,,1
+gene5,Cluster_6,,1,1,1.0,1,3,,,,1
+gene4,Cluster_5,,1,1,1.0,1,4,,,,1
+gene1,Cluster_1,,1,1,1.0,2,1,,,,1
+gene2,Cluster_2,,1,1,1.0,2,2,,,,1
+gene6,Cluster_7,,1,1,1.0,3,1,,,,1
+gene7,Cluster_8,,1,1,1.0,4,1,,,,1
+gene9,Cluster_10,,1,1,1.0,5,1,,,,1
+gene8,Cluster_9,,1,1,1.0,6,1,,,,1

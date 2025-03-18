@@ -1,0 +1,17 @@
+Variant	sample1	sample2	sample3	sample4
+pim|snp:C230G	0	1	0	0
+pim|snp:A306G	0	1	0	0
+pim|snp:A388T	0	1	0	0
+speB|snp:G93T	1	1	0	0
+snps_ambig|snp:G10C	1	0	0	.
+snps_unique_to_sample4|snp:A10T	0	0	0	1
+snps_unique_to_sample4|snp:G20C	0	0	0	1
+snps_shared_sample2_sample3|snp:C10G	0	1	1	0
+snps_shared_sample2_sample3|snp:C20G	0	1	1	0
+snps_unique_to_sample1|snp:A10T	1	0	0	0
+snps_unique_to_sample1|snp:T20A	1	0	0	0
+snps_unique_to_sample3|snp:T10C	0	0	1	0
+snps_close_to_terminal|snp:A3T	0	1	1	0
+snps_close_to_terminal|snp:A28T	0	1	1	0
+snps_close_to_terminal|snp:G42T	1	0	0	1
+snps_close_to_terminal|snp:C68G	0	1	1	0

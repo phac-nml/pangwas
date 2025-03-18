@@ -1,0 +1,6 @@
+variant	af	filter-pvalue	lrt-pvalue	beta	beta-std-err	variant_h2	lineage	notes	-log10(p)	bonferroni	match	mismatch	score	sample1	sample2	sample3	sample4
+speB|structural:1-137	5.00E-01	4.55E-02	0.00E+00	-1.00E+00	0.00E+00	1.00E+00	2	bad-chisq	100.0	0.0071428571428571435	4/4|1.0	0/4|0.0	1.0	1	1	0	0
+speB|structural:1-93	5.00E-01	4.55E-02	0.00E+00	1.00E+00	0.00E+00	1.00E+00	2	bad-chisq	100.0	0.0071428571428571435	4/4|1.0	0/4|0.0	1.0	0	0	1	1
+speB|structural:94-137	5.00E-01	4.55E-02	0.00E+00	1.00E+00	0.00E+00	1.00E+00	2	bad-chisq	100.0	0.0071428571428571435	4/4|1.0	0/4|0.0	1.0	0	0	1	1
+speB|snp:G93T	5.00E-01	4.55E-02	0.00E+00	-1.00E+00	0.00E+00	1.00E+00	2	bad-chisq	100.0	0.0071428571428571435	4/4|1.0	0/4|0.0	1.0	1	1	0	0
+speM|presence_absence	5.00E-01	4.55E-02	0.00E+00	1.00E+00	0.00E+00	1.00E+00	2	bad-chisq	100.0	0.0071428571428571435	4/4|1.0	0/4|0.0	1.0	0	0	1	1

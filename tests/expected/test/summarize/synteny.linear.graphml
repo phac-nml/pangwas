@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <graph edgedefault="directed">
+    <node id="duplicate_product.2" />
+    <node id="Cluster_1" />
+    <node id="duplicate_product.1" />
+    <node id="dup_gene.1" />
+    <node id="Cluster_8" />
+    <node id="dup_gene.2" />
+    <node id="Cluster_23" />
+    <node id="CDS_middle" />
+    <node id="Cluster_16" />
+    <node id="multi_CDS1" />
+    <node id="Cluster_18" />
+    <node id="IGR_end_CDS" />
+    <node id="Cluster_25" />
+    <node id="Cluster_27" />
+    <node id="IGR_middle_CDS1" />
+    <node id="Cluster_29" />
+    <node id="IGR_start_CDS" />
+    <node id="gene_conflict_1" />
+    <node id="pim" />
+    <node id="speB" />
+    <node id="Cluster_6" />
+    <node id="snps_ambig" />
+    <node id="snps_close_to_indel" />
+    <node id="snps_high_density" />
+    <node id="snps_multiallelic" />
+    <node id="snps_unique_to_sample4" />
+    <node id="snps_shared_sample2_sample3" />
+    <node id="snps_unique_to_sample1" />
+    <node id="snps_unique_to_sample3" />
+    <node id="Cluster_30" />
+    <node id="product_conflict_1" />
+    <node id="smeZ" />
+    <node id="snps_close_to_terminal" />
+    <node id="speG" />
+    <node id="speM" />
+    <node id="duplicate_product.2__duplicate_product.1" />
+    <node id="dup_gene.1__dup_gene.2" />
+    <node id="TERMINAL__CDS_middle" />
+    <node id="CDS_middle__TERMINAL" />
+    <node id="multi_CDS1__TERMINAL" />
+    <node id="IGR_end_CDS__TERMINAL" />
+    <node id="TERMINAL__IGR_middle_CDS1" />
+    <node id="TERMINAL__IGR_start_CDS" />
+    <edge source="duplicate_product.2" target="duplicate_product.2__duplicate_product.1" />
+    <edge source="dup_gene.1" target="dup_gene.1__dup_gene.2" />
+    <edge source="CDS_middle" target="CDS_middle__TERMINAL" />
+    <edge source="multi_CDS1" target="multi_CDS1__TERMINAL" />
+    <edge source="IGR_end_CDS" target="IGR_end_CDS__TERMINAL" />
+    <edge source="duplicate_product.2__duplicate_product.1" target="duplicate_product.1" />
+    <edge source="dup_gene.1__dup_gene.2" target="dup_gene.2" />
+    <edge source="TERMINAL__CDS_middle" target="CDS_middle" />
+    <edge source="TERMINAL__IGR_middle_CDS1" target="IGR_middle_CDS1" />
+    <edge source="TERMINAL__IGR_start_CDS" target="IGR_start_CDS" />
+  </graph>
+</graphml>

@@ -1,0 +1,32 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+    - "*.md"
+  output-dir: ../site
+
+format:
+  html:
+    theme: simplex
+    css: styles.css
+    toc: true
+    toc-location: left
+
+website:
+  title: "panGWAS"
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+
+      - text: Manual
+        href: manual/table_of_contents.md
+
+      - text: Pipeline
+        href: pipeline/pipeline.md
+
+      - text: Code Coverage
+        href: coverage/index.html
+
+      - text: Developers
+        href: developers/developers.md

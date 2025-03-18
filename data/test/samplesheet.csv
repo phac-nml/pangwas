@@ -1,0 +1,5 @@
+sample,resistant,assembly,gff,lineage,mic,count
+sample1,0,data/test/sequences/sample1.fasta,data/test/gff/sample1.gff3,1,0.0,1
+sample2,0,data/test/sequences/sample2.fasta,data/test/gff/sample2.gff3,2,0.0,2
+sample3,1,data/test/sequences/sample3.fasta,data/test/gff/sample3.gff3,2,2.1,3
+sample4,1,data/test/sequences/sample4.fasta,data/test/gff/sample4.gff3,1,2.9,

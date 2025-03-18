@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/nf-core/gwas/master/assets/schema_input.json",
+    "title": "nf-core/gwas pipeline - params.input schema",
+    "description": "Schema for the file provided with params.input",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "sample": {
+                "type": "string",
+                "pattern": "^\\S{0,13}$",
+                "errorMessage": "Sample name must be provided, cannot contain spaces, and cannot be more than 13 characters due to a constraint in bakta.",
+                "meta": ["id"]
+            },
+            "assembly": {
+                "type": "string",
+                "format": "file-path",
+                "exists": true,
+                "pattern": "^\\S+\\.f(ast)?a$",
+                "errorMessage": "Assembly contigs must be provided, cannot contain spaces and must have extension '.fasta' or '.fa'",
+                "meta": ["assembly"]
+            },
+            "gff": {
+                "type": "string",
+                "format": "file-path",
+                "exists": true,
+                "pattern": "^\\S+\\.gff(3)$",
+                "errorMessage": "Assembly annotations, cannot contain spaces and must have extension '.gff' or '.gff3'",
+                "meta": ["gff"]
+            }
+        },
+        "required": ["sample"]
+    }
+}

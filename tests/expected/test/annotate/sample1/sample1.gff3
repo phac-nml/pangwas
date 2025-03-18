@@ -1,0 +1,125 @@
+##gff-version 3
+##feature-ontology https://github.com/The-Sequence-Ontology/SO-Ontologies/blob/v3.1/so.obo
+# Annotated with Bakta
+# Software: v1.9.2
+# Database: v5.1, light
+# DOI: 10.1099/mgen.0.000685
+# URL: github.com/oschwengers/bakta
+##sequence-region sample1_contig_1 1 426
+sample1_contig_1	Bakta	region	1	426	.	+	.	ID=sample1_contig_1;Name=sample1_contig_1
+sample1_contig_1	Prodigal	CDS	1	426	.	+	0	ID=DBIEPK_00005;Name=Pesticin immunity protein;locus_tag=DBIEPK_00005;product=Pesticin immunity protein;Dbxref=SO:0001217,UniRef:UniRef50_A0A826MEL2
+##sequence-region sample1_contig_2 1 137
+sample1_contig_2	Bakta	region	1	137	.	+	.	ID=sample1_contig_2;Name=sample1_contig_2
+##sequence-region sample1_contig_3 1 280
+sample1_contig_3	Bakta	region	1	280	.	+	.	ID=sample1_contig_3;Name=sample1_contig_3
+sample1_contig_3	Prodigal	CDS	49	243	.	-	0	ID=DBIEPK_00010;Name=hypothetical protein;locus_tag=DBIEPK_00010;product=hypothetical protein
+##sequence-region sample1_contig_4 1 60
+sample1_contig_4	Bakta	region	1	60	.	+	.	ID=sample1_contig_4;Name=sample1_contig_4
+sample1_contig_4	Bakta	gap	10	10	.	.	.	ID=DBIEPKLKHN_3;Name=gap (1 bp);product=gap (1 bp)
+##sequence-region sample1_contig_5 1 99
+sample1_contig_5	Bakta	region	1	99	.	+	.	ID=sample1_contig_5;Name=sample1_contig_5
+##sequence-region sample1_contig_6 1 71
+sample1_contig_6	Bakta	region	1	71	.	+	.	ID=sample1_contig_6;Name=sample1_contig_6
+##sequence-region sample1_contig_7 1 99
+sample1_contig_7	Bakta	region	1	99	.	+	.	ID=sample1_contig_7;Name=sample1_contig_7
+##sequence-region sample1_contig_8 1 73
+sample1_contig_8	Bakta	region	1	73	.	+	.	ID=sample1_contig_8;Name=sample1_contig_8
+##sequence-region sample1_contig_9 1 130
+sample1_contig_9	Bakta	region	1	130	.	+	.	ID=sample1_contig_9;Name=sample1_contig_9
+##sequence-region sample1_contig_10 1 29
+sample1_contig_10	Bakta	region	1	29	.	+	.	ID=sample1_contig_10;Name=sample1_contig_10
+##sequence-region sample1_contig_11 1 29
+sample1_contig_11	Bakta	region	1	29	.	+	.	ID=sample1_contig_11;Name=sample1_contig_11
+##sequence-region sample1_contig_12 1 47
+sample1_contig_12	Bakta	region	1	47	.	+	.	ID=sample1_contig_12;Name=sample1_contig_12
+##sequence-region sample1_contig_13 1 33
+sample1_contig_13	Bakta	region	1	33	.	+	.	ID=sample1_contig_13;Name=sample1_contig_13
+##sequence-region sample1_contig_14 1 35
+sample1_contig_14	Bakta	region	1	35	.	+	.	ID=sample1_contig_14;Name=sample1_contig_14
+##sequence-region sample1_contig_15 1 70
+sample1_contig_15	Bakta	region	1	70	.	+	.	ID=sample1_contig_15;Name=sample1_contig_15
+##sequence-region sample1_contig_16 1 50
+sample1_contig_16	Bakta	region	1	50	.	+	.	ID=sample1_contig_16;Name=sample1_contig_16
+##sequence-region sample1_contig_17 1 30
+sample1_contig_17	Bakta	region	1	30	.	+	.	ID=sample1_contig_17;Name=sample1_contig_17
+##sequence-region sample1_contig_18 1 30
+sample1_contig_18	Bakta	region	1	30	.	+	.	ID=sample1_contig_18;Name=sample1_contig_18
+##sequence-region sample1_contig_19 1 120
+sample1_contig_19	Bakta	region	1	120	.	+	.	ID=sample1_contig_19;Name=sample1_contig_19
+##sequence-region sample1_contig_20 1 120
+sample1_contig_20	Bakta	region	1	120	.	+	.	ID=sample1_contig_20;Name=sample1_contig_20
+##sequence-region sample1_contig_21 1 30
+sample1_contig_21	Bakta	region	1	30	.	+	.	ID=sample1_contig_21;Name=sample1_contig_21
+##sequence-region sample1_contig_22 1 30
+sample1_contig_22	Bakta	region	1	30	.	+	.	ID=sample1_contig_22;Name=sample1_contig_22
+##sequence-region sample1_contig_23 1 30
+sample1_contig_23	Bakta	region	1	30	.	+	.	ID=sample1_contig_23;Name=sample1_contig_23
+##FASTA
+>sample1_contig_1
+ATGATCTCAAAGTTATTTTGCTTGGCTCTCATATTTTTATCATCAAGTGGCCTTGCAGAA
+AAAAACACATATACAGCAAAAGACATCTTGCAAAACCTAGAATTAAATACCTTTGGCAAT
+TCATTGTCTCATGGCATCTATGGGAAACAGACAACCTTCAAGCAAACCGAGTTTACAAAT
+ATTAAAAGCAACACCAAAAAACACATTGCACTTATCAATAAAGACAACTCATGGATGATA
+TCATTAAAAATACTAGGAATTAAGAGAGATGAGTATACTGTCTGTTTTGAAGATTTCTCT
+CTAATAAGACCGCCAACATATGTAGCCATACATCCTCTACTTATAAAAAAAGTAAAATCT
+GGAAACTTTATAGTAGTGAAAGAAATAAAGAAATCTATCCCTGGTTGCACTGTATATTAT
+CATTAA
+>sample1_contig_2
+ATGAATAAAAAGAAATTAGGTATCAGATTATTAAGTCTTTTAGCATTAGGTGGATTTGTT
+CTTGCTAACCCAGTATTTGCCGATCAAAACTTTGCTCGTAACGAAAAAGAAGCAAAAGAT
+AGCGCTATCACATTTAA
+>sample1_contig_3
+ATGCCAAGCGCCCACAGTGTTAAGCTACGCCCGCTGGAGCGTGAAGATTTACGCTATGTA
+CATCAACTCGACAATAACGCCAGTGTGATGCGTTACTGGTTTGAGGAACCCTACGAAGCC
+TTTGTTGAACTCTCTGATCTGTATGATAAGCATATTCACGATCAGAGCGAACGGCGCTTT
+GTGGTGGAATGTGACGGCGAAAAAGCCGGTCTGGTGGAGCTGGTGGAAATTAACCATGTT
+CATCGCCGCGCAGAATTTCAGATAATTATCTCCCCGGAGT
+>sample1_contig_4
+ACGTCGAGCNGCTAGCTGATCGATCGACGATGCATCGGACGATCGATGCGAGCGACGATC
+>sample1_contig_5
+CGAGCTGCAGCGCATGCATTTGCATGCGTAAAAAAAAATGGGTGCATGCTGGCGACGATC
+TGACTGCTACGTGGCGCGATGATCTCAAAGCAAGACTAG
+>sample1_contig_6
+ATGCGAGCGTAAGGGCATTAAGCGATCAGCGCTGATGCGACGGCAATGTTATGCGAGCGT
+AAGGGCATTAA
+>sample1_contig_7
+ATCGTGAGCTAGGTATGGTGGGGCGATCGAGCGCATGCTCGAGGGCGACTAGCGACTAGC
+TACGGCGCATGCGATGCGGGGATGCGATCGATCGACTGC
+>sample1_contig_8
+GGGCGACCGACCTACGCGACGCATACGCGATGAGCGATATATAAGCGTGGCATCGATCGT
+AGTGTCGTAGCAC
+>sample1_contig_9
+ATGCGACGTAGCATGCAGCGCAGCTGAGCATCATAAGGATCGATGCATCGGCGATTCACT
+GCATCATGCGACGTAGCATGCAGCGCAGCTGAGCATCATAAGGATCGATGCATCGGCGAT
+TCACTGCATC
+>sample1_contig_10
+CGACGTCAGTGCAGTCGCTAACGTGGCAG
+>sample1_contig_11
+TACGTAGCGCGGACTGCGTCGCAGTCGTA
+>sample1_contig_12
+GCGCGCTTGTGCTAGCTAGGCGCGATCGATCGACGCTGCAGCATGCT
+>sample1_contig_13
+AAGGCTACGAACGTCTGGCGGCGTAGGCATTCG
+>sample1_contig_14
+ATTCTCTGCGTGCGCTATCGTAGCTAGCTATAGAC
+>sample1_contig_15
+ACAGCGAGCATGTGCATCTCGACAGTCAACAATCATCTGACTAGCGCATGCAGCTACGCA
+TGCATCGCTA
+>sample1_contig_16
+TTGAGCAGCCGAAATCATCTGACTAGCGCATGCAGCTACGCATGCATCGC
+>sample1_contig_17
+AGCGCTGACTGCATGCGATTACGGCATCGA
+>sample1_contig_18
+CAGTACGAGCATATGGCATGACAGAGATTG
+>sample1_contig_19
+GACTATGCACTGCTCGCGCAGATCGTAGCGATATTATTCGGCATCTGATGTCTGCATGTG
+TTTAGAGTGCATGTGCACGGATGCATGCACTTTAGAGTGCATGTGCACGGATGCATGCAC
+>sample1_contig_20
+TAGCTGACGGCATTACGATCGATGCATGTGGCTAGATCATTAGCGATCGCGCTATTACGT
+TACGATCGCTCGGTACCGCGCGCGGCTGCTTACGATCGCTCGGTACCGCGCGCGGCTGCT
+>sample1_contig_21
+TTATATCGGCGATTCAGTTCAGATGCATTG
+>sample1_contig_22
+ATATTAATAAGGGCGGCGGCGCGATTGAGC
+>sample1_contig_23
+GGCGCTGCATGATATATCGCCATCGATACT

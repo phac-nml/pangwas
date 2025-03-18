@@ -1,0 +1,11 @@
+sample	contig	locus	feature	start	end	length	strand	upstream	downstream	attributes	sequence_id	sequence
+sample1	contig1	1	CDS	1	1	1	+	contig1_TERMINAL	2	gene=gene1	1	
+sample1	contig1	2	CDS	1	1	1	+	1	3	gene=gene2	2	
+sample1	contig1	3	CDS	1	1	1	+	2	3.5	gene=gene3	3	
+sample1	contig1	3.5	CDS	1	1	1	+	3	5	gene=gene3.5	3.5	
+sample1	contig1	4	CDS	1	1	1	+	5	3	gene=gene4	4	
+sample1	contig1	5	CDS	1	1	1	-	3.5	4	gene=gene5	5	
+sample1	contig2	6	CDS	1	1	1	+	contig2_TERMINAL	7	gene=gene6	6	
+sample1	contig2	7	CDS	1	1	1	+	6	9	gene=gene7	7	
+sample1	contig2	8	CDS	1	1	1	+	6	9	gene=gene8	8	
+sample1	contig2	9	CDS	1	1	1	+	7	contig2_TERMINAL	gene=gene9	9	

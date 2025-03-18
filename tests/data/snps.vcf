@@ -1,0 +1,7 @@
+##fileformat=VCFv4.2
+##contig=<ID=pangenome,length=100>
+##INFO=<ID=PR,Number=0,Type=Flag,Description="Provisional reference allele, may not be based on real reference genome">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	sample1	sample2	sample3	sample4
+pangenome	1	.	A	C	.	.	.	GT	0/0	0/0	0/0	1/1
+pangenome	2	.	C	G	.	.	.	GT	1/1	0/0	1/0	.

@@ -1,0 +1,31 @@
+name: pangwas
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  # general utility
+  - conda-forge::python=3.10
+  - conda-forge::pip=24.3.1
+  - conda-forge::tqdm=4.66.5              # progress bar
+  - conda-forge::tar=1.34                 # compress alignment directories
+  # annotate
+  - bioconda::bakta=1.9.2                 # Genome annotation
+  - bioconda::diamond=2.1.8               # Protein alignment
+  - bioconda::ncbi-amrfinderplus=3.11.26  # AMR Classification
+  # cluster
+  - bioconda::mmseqs2=15.6f452            # sequence clustering
+  # summarize
+  - conda-forge::networkx=3.4.2           # synteny graph
+  # align
+  - conda-forge::mafft=7.526              # multiple sequence alignment
+  # tree
+  - bioconda::dendropy=5.0.1              # Tree manipulation
+  - bioconda::iqtree=2.3.6                # maximum-likelihood tree estimation
+  # gwas
+  - bioconda::pyseer=1.3.12               # GWAS models
+  # plot
+  - conda-forge::pycairo=1.27.0           # convert text to svg paths
+  - conda-forge::cairosvg=2.7.1           # convert svg to png
+  - conda-forge::svgpathtools=1.6.0       # calculate svg path dimensions
+  # runtime
+  - bioconda::nextflow=24.10.3            # Nextflow runtime
