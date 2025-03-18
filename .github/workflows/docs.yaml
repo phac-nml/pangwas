@@ -1,0 +1,59 @@
+name: Docs
+
+# Workflow conditions
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+  release:
+    types: [published]
+
+env:
+  GITHUB_USERNAME: ${{ github.actor }}
+  GITHUB_TOKEN: ${{ github.token }}
+
+jobs:
+
+  # ---------------------------------------------------------------------------
+  #  Run the tests to get code coverage first
+  test:
+    uses: ./.github/workflows/test.yaml
+
+  # ---------------------------------------------------------------------------          
+  render:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup micromamba
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: environment.yml
+          generate-run-shell: true
+          init-shell: >-
+            bash
+            powershell
+          cache-environment: true
+          post-cleanup: 'all'
+          environment-name: quarto
+          create-args: >-
+            quarto=1.5.57
+
+      - name: Render
+        shell: micromamba-shell {0}
+        run: |
+          quarto render docs
+
+        #  mv coverage docs/
+        #  quarto render docs
+        #  mv docs/coverage/* site/coverage/
