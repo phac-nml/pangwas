@@ -125,6 +125,25 @@ jobs:
           if-no-files-found: error
 
   # ---------------------------------------------------------------------------
+  # test nextflow runtime
+  nextflow:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup nextflow
+        uses: nf-core/setup-nextflow@v1
+
+      - name: Nextflow Help
+        run: |
+          nextflow run . --help
+
+  # ---------------------------------------------------------------------------
   # render documentation site using quarto   
   docs:
     needs: micromamba
@@ -132,9 +151,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-
     runs-on: ${{ matrix.os }}
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -189,7 +206,7 @@ jobs:
         uses: actions/download-artifact@v4
         #if: github.ref == 'refs/heads/main'
         with:
-          name: site
+          name: website
           path: public/
 
       - name: Deploy
