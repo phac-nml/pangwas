@@ -55,23 +55,18 @@ jobs:
         with:
           name: coverage
           path: coverage/
-      
-      - name: Check coverage
+
+      - name: Render
+        shell: micromamba-shell {0}
         run: |
-          ls -l
-          ls -l coverage
+          mv coverage docs/
+          quarto render docs
+          mv docs/coverage/* site/coverage/
 
-      # - name: Render
-      #   shell: micromamba-shell {0}
-      #   run: |
-      #     mv coverage docs/
-      #     quarto render docs
-      #     mv docs/coverage/* site/coverage/
-
-      # - name: Upload Site
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: website
-      #     path: site/
-      #     retention-days: 7
-      #     if-no-files-found: error
+      - name: Upload Site
+        uses: actions/upload-artifact@v4
+        with:
+          name: website
+          path: site/
+          retention-days: 7
+          if-no-files-found: error
