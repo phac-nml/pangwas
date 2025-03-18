@@ -155,10 +155,15 @@ jobs:
           quarto render docs
           mv docs/coverage/* site/coverage/
 
-      - name: Upload Site
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: website
           path: site/
           retention-days: 7
           if-no-files-found: error
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: site
