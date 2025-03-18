@@ -66,7 +66,8 @@ jobs:
   #       run: |
   #         docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG nextflow run . -profile test
 
-  # ---------------------------------------------------------------------------          
+  # ---------------------------------------------------------------------------
+  # Test micromamba runtime  
   micromamba:
     strategy:
       fail-fast: false
@@ -122,3 +123,77 @@ jobs:
           path: coverage/
           retention-days: 7
           if-no-files-found: error
+
+  # ---------------------------------------------------------------------------
+  # render documentation site using quarto   
+  docs:
+    needs: micromamba
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup micromamba
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          generate-run-shell: true
+          init-shell: >-
+            bash
+          cache-environment: true
+          post-cleanup: 'all'
+          environment-name: quarto
+          create-args: >-
+            quarto=1.5.57
+
+      - name: Download Code Coverage
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage
+          path: coverage/
+  
+      - name: Render
+        shell: micromamba-shell {0}
+        run: |
+          mv coverage docs/
+          quarto render docs
+          mv docs/coverage/* site/coverage/
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: website
+          path: site/
+          retention-days: 7
+          if-no-files-found: error
+
+  # ---------------------------------------------------------------------------
+  # deploy documentation site to github pages
+  deploy:
+    needs: docs
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        #if: github.ref == 'refs/heads/main'
+        with:
+          name: site
+          path: public/
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        #if: github.ref == 'refs/heads/main'
+        with:
+          folder: public
