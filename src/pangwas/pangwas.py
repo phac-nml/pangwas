@@ -6541,7 +6541,6 @@ def cli(args:str=None):
     if options.version:
         import importlib.metadata
         version = importlib.metadata.version("pangwas")
-        print(f"pangwas v{version}")
         return f"pangwas v{version}"
 
     logging.info("Begin")
@@ -6549,8 +6548,12 @@ def cli(args:str=None):
 
     # Organize options as kwargs for functions
     kwargs = {k:v for k,v in vars(options).items() if k not in ["version", "subcommand"]}
-    fn = globals()[options.subcommand]
-    fn(**kwargs)
+    try:
+        fn = globals()[options.subcommand]
+        fn(**kwargs)
+    except KeyError:
+        logging.error(f"A pangwas subcommand is required (ex. pangwas extract).")
+        return 1
 
     logging.info("Done")
 

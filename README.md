@@ -3,9 +3,8 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#credits)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/phac-nml/pangwas/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/phac-nml/pangwas.svg)](https://github.com/phac-nml/pangwas/issues)
-<!--
-[![Test CI](https://github.com/phac-nml/pangwas/actions/workflows/test.yaml/badge.svg)](https://github.com/phac-nml/pangwas/actions/workflows/test.yaml)
--->
+[![Tests](https://github.com/phac-nml/pangwas/actions/workflows/test.yaml/badge.svg)](https://github.com/phac-nml/pangwas/actions/workflows/test.yaml)
+
 
 **panGWAS** is a pipeline for pangenome wide association studies. It reconstructs a pangenome from genomic assemblies, performs annotation and variant calling, estimates population structure, and models the association between genomic variants and variables of interest.
 
@@ -41,10 +40,6 @@ Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
 
 ## Install
 
-### Post-Release
-
->❗ These instructions apply after public release.
-
 1. Install with `conda`:
 
     ```bash
@@ -55,39 +50,6 @@ Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
 
     ```bash
     docker pull ghcr.io/phac-nml/pangwas:latest
-    ```
-
-### Pre-Release
-
->❗ These instructions apply before public release.
-
-1. Clone repository.
-
-    ```bash
-    git clone https://github.com/phac-nml/pangwas.git
-    cd pangwas
-    ```
-
-1. Install with `conda`.
-
-    ```bash
-    conda env create -y -f environment.yml -n pangwas
-    conda activate pangwas
-    pip install .
-
-    # Help and usage
-    pangwas --help
-    nextflow run . --help
-    ```
-
-1. Install with `docker`.
-
-    ```bash
-    docker build -t phac-nml/pangwas:latest -f Dockerfile .
-
-    # Help and usage
-    docker run phac-nml/pangwas:latest pangwas --help
-    docker run phac-nml/pangwas:latest nextflow run . --help
     ```
 
 ## Usage

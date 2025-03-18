@@ -1,0 +1,21 @@
+database/
+results/
+work/
+*.nextflow*
+.nf-test*
+test/
+.coverage*
+
+*.egg-info
+*__pycache__
+tests/observed/
+tests/config/__pycache__
+tmp*
+run_cmd_*
+*.log
+null/
+build/
+
+# Datasets to exclude
+data/tutorial*
+

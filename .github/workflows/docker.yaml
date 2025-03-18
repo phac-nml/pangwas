@@ -1,0 +1,88 @@
+# Re-usable workflow to create the docker image
+name: Docker
+
+on:
+  workflow_call:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+
+  # ---------------------------------------------------------------------------
+  image:
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Registry Login
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          outputs: type=docker,dest=pangwas.tar
+
+      - name: Load
+        run: |
+          load=$(docker load --input pangwas.tar | tee /dev/stderr)
+          TAGS=$(echo $load | sed "s/Loaded image: //g")
+          echo TAGS="$TAGS" >> $GITHUB_ENV
+
+      # output.tags can be an array (ex. v0.2.0, main, latest)
+      - name: Help
+        run: >
+          for tag in $TAGS; do
+            echo $tag
+            docker run $tag pangwas --help
+          done
+
+      # On a tag that starts with v, push to registry
+      - name: Build and Push
+        uses: docker/build-push-action@v5
+        if: startsWith(github.event.ref, 'refs/tags/v')
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Upload Image Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pangwas-docker
+          path: pangwas.tar
+          retention-days: 1
+          if-no-files-found: error
