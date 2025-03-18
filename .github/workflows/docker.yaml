@@ -84,5 +84,5 @@ jobs:
         with:
           name: pangwas-docker
           path: pangwas.tar
-          retention-days: 7
+          retention-days: 3
           if-no-files-found: error
