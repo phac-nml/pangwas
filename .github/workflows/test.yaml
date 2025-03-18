@@ -107,10 +107,58 @@ jobs:
           nextflow run . -profile test
 
       - name: Upload Code Coverage
-        if: job.name == 'coverage'
         uses: actions/upload-artifact@v4
         with:
           name: coverage
           path: coverage/
+          retention-days: 7
+          if-no-files-found: error
+
+  # ---------------------------------------------------------------------------          
+  docs:
+    needs: micromamba
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup micromamba
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: environment.yml
+          generate-run-shell: true
+          init-shell: >-
+            bash
+            powershell
+          cache-environment: true
+          post-cleanup: 'all'
+          environment-name: quarto
+          create-args: >-
+            quarto=1.5.57
+
+      - name: Download Code Coverage
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage
+          path: coverage/
+
+      - name: Render
+        shell: micromamba-shell {0}
+        run: |
+          mv coverage docs/
+          quarto render docs
+          mv docs/coverage/* site/coverage/
+
+      - name: Upload Site
+        uses: actions/upload-artifact@v4
+        with:
+          name: website
+          path: site/
           retention-days: 7
           if-no-files-found: error
