@@ -202,6 +202,9 @@ jobs:
 
     steps:
 
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
       - name: Download Artifact
         uses: actions/download-artifact@v4
         #if: github.ref == 'refs/heads/main'
