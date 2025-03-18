@@ -40,10 +40,6 @@ Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
 
 ## Install
 
-### Post-Release
-
->❗ These instructions apply after public release.
-
 1. Install with `conda`:
 
     ```bash
@@ -54,39 +50,6 @@ Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
 
     ```bash
     docker pull ghcr.io/phac-nml/pangwas:latest
-    ```
-
-### Pre-Release
-
->❗ These instructions apply before public release.
-
-1. Clone repository.
-
-    ```bash
-    git clone https://github.com/phac-nml/pangwas.git
-    cd pangwas
-    ```
-
-1. Install with `conda`.
-
-    ```bash
-    conda env create -y -f environment.yml -n pangwas
-    conda activate pangwas
-    pip install .
-
-    # Help and usage
-    pangwas --help
-    nextflow run . --help
-    ```
-
-1. Install with `docker`.
-
-    ```bash
-    docker build -t phac-nml/pangwas:latest -f Dockerfile .
-
-    # Help and usage
-    docker run phac-nml/pangwas:latest pangwas --help
-    docker run phac-nml/pangwas:latest nextflow run . --help
     ```
 
 ## Usage

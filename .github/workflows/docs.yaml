@@ -1,23 +1,19 @@
 # Re-usable workflow to create the website documentation
 name: Docs
 
-# Workflow conditions
 on:
-  push:
-    branches:
-      - '*'
-  pull_request:
-    branches:
-      - '*'
-  release:
-    types: [published]
+  # Only run after Test workflow is completed
+  # because we need the code coverage artifact
+  workflow_run:
+    workflows: [Test]
+    types:
+      - completed
 
 jobs:
   # ---------------------------------------------------------------------------
   # render documentation site using quarto
       
   render:
-
     strategy:
       fail-fast: false
       matrix:
@@ -69,7 +65,7 @@ jobs:
   # ---------------------------------------------------------------------------
   # deploy documentation site to github pages
   deploy:
-
+    needs: render
     strategy:
       fail-fast: false
       matrix:
@@ -81,13 +77,13 @@ jobs:
 
       - name: Download Artifact
         uses: actions/download-artifact@v4
-        if: github.ref == 'refs/heads/main'
+        #if: github.ref == 'refs/heads/main'
         with:
           name: site
           path: public/
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
-        if: github.ref == 'refs/heads/main'
+        #if: github.ref == 'refs/heads/main'
         with:
           folder: public
