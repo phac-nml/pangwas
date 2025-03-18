@@ -18,13 +18,13 @@ env:
 jobs:
 
   # ---------------------------------------------------------------------------
-  #  Run the tests to get code coverage first
-  test:
-    uses: ./.github/workflows/test.yaml
+  #  Run the python tests to get code coverage first
+  coverage:
+    uses: ./.github/workflows/python.yaml
 
   # ---------------------------------------------------------------------------          
   render:
-    needs: test
+    needs: coverage
     strategy:
       fail-fast: false
       matrix:
@@ -36,19 +36,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # - name: Setup micromamba
-      #   uses: mamba-org/setup-micromamba@v2
-      #   with:
-      #     environment-file: environment.yml
-      #     generate-run-shell: true
-      #     init-shell: >-
-      #       bash
-      #       powershell
-      #     cache-environment: true
-      #     post-cleanup: 'all'
-      #     environment-name: quarto
-      #     create-args: >-
-      #       quarto=1.5.57
+      - name: Setup micromamba
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: environment.yml
+          generate-run-shell: true
+          init-shell: >-
+            bash
+            powershell
+          cache-environment: true
+          post-cleanup: 'all'
+          environment-name: quarto
+          create-args: >-
+            quarto=1.5.57
 
       - name: Download Code Coverage
         uses: actions/download-artifact@v4
