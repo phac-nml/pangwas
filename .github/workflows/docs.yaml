@@ -20,7 +20,7 @@ jobs:
   # ---------------------------------------------------------------------------
   #  Run the python tests to get code coverage first
   coverage:
-    uses: ./.github/workflows/python.yaml
+    uses: ./.github/workflows/test.yaml
 
   # ---------------------------------------------------------------------------          
   render:
