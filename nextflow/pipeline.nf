@@ -113,7 +113,8 @@ workflow {
                 def hash = CacheHelper.hasher([ tsv.text ]).hash().toString()
                 "${tsv}\t${hash}\n"
             }
-            .collectFile(name: "input.tsv", storeDir: "${outdir}/collect", sort: "index", cache: true)        
+            .collectFile(name: "input.tsv", storeDir: "${outdir}/collect", sort: "index", cache: true)
+            .map { tsv -> file(tsv) }   
 
     // ------------------------------------------------------------------------
     // Collect
