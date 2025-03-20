@@ -24,7 +24,7 @@ RUN cp -r /opt/pangwas /tmp/pangwas
 RUN cd /tmp/pangwas && micromamba run -n pangwas nextflow run . --help
 
 # Install python package and CLI
-RUN cd /tmp/pangwas && micromamba run -n pangwas pip install .
+RUN cd /tmp/pangwas && micromamba run -n pangwas pip install .[test]
 
 # Minimal test of CLI and import
 RUN micromamba run -n pangwas pangwas --help

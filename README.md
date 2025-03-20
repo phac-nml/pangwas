@@ -51,8 +51,7 @@ Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
 1. Install with `docker`/`singularity`:
 
     ```bash
-    docker pull ktmeaton/pangwas:0.1.0
-    docker run ktmeaton/pangwas:0.1.0 pangwas --help
+    docker run quay.io/biocontainers/pangwas:0.1.0 pangwas --help
     ```
 
 ## Usage
