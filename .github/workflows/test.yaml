@@ -18,53 +18,53 @@ env:
 
 jobs:
 
-  # # ---------------------------------------------------------------------------
-  # #  Build the docker container first
-  # docker:
-  #   uses: ./.github/workflows/docker.yaml
+  # ---------------------------------------------------------------------------
+  #  Build the docker container first
+  docker:
+    uses: ./.github/workflows/docker.yaml
 
-  # # ---------------------------------------------------------------------------
-  # test-docker:
-  #   needs: docker
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       os: [ubuntu-latest]
+  # ---------------------------------------------------------------------------
+  test-docker:
+    needs: docker
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
 
-  #   runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
 
-  #   steps:
-  #     - name: Download Docker Image
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: pangonet-docker
-  #         path: .
+    steps:
+      - name: Download Docker Image
+        uses: actions/download-artifact@v4
+        with:
+          name: pangonet-docker
+          path: .
 
-  #     # parse tag from load output, PR have unusual formats, also sometimes multiple tags
-  #     - name: Load Docker Image
-  #       run: |
-  #         load=$(docker load --input pangonet.tar | tee /dev/stderr)
-  #         echo -e $load
-  #         TAG=$(echo -e $load | sed 's/Loaded image: //g' | head -n 1 | cut -d ":" -f 2 | cut -d " " -f 1)
-  #         echo DOCKER_TAG="$TAG" >> $GITHUB_ENV
+      # parse tag from load output, PR have unusual formats, also sometimes multiple tags
+      - name: Load Docker Image
+        run: |
+          load=$(docker load --input pangonet.tar | tee /dev/stderr)
+          echo -e $load
+          TAG=$(echo -e $load | sed 's/Loaded image: //g' | head -n 1 | cut -d ":" -f 2 | cut -d " " -f 1)
+          echo DOCKER_TAG="$TAG" >> $GITHUB_ENV
 
-  #     - name: CLI Help
-  #       run: |
-  #         docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG pangwas --help
+      - name: CLI Help
+        run: |
+          docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG pangwas --help
 
-  #     - name: Pytest
-  #       run: |
-  #         docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG pytest -v
+      - name: Pytest
+        run: |
+          docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG pytest -v
 
-  #     - name: Nextflow Help
-  #       shell: micromamba-shell {0}
-  #       run: |
-  #         docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG nextflow run . --help
+      - name: Nextflow Help
+        shell: micromamba-shell {0}
+        run: |
+          docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG nextflow run . --help
 
-  #     - name: Nextflow Test
-  #       shell: micromamba-shell {0}
-  #       run: |
-  #         docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG nextflow run . -profile test
+      - name: Nextflow Test
+        shell: micromamba-shell {0}
+        run: |
+          docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG nextflow run . -profile test
 
   # ---------------------------------------------------------------------------
   # Test micromamba runtime  
