@@ -218,12 +218,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="install">Install</h2>
 <ol type="1">
 <li><p>Install with <code>conda</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-c</span> conda-forge <span class="at">-c</span> bioconda <span class="at">-n</span> pangwas</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> pangwas <span class="at">-c</span> conda-forge <span class="at">-c</span> bioconda pangwas</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate pangwas</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Install with <code>docker</code>/<code>singularity</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull ghcr.io/phac-nml/pangwas:latest</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run phac-nml/pangwas:latest pangwas <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull ktmeaton/pangwas:0.1.0</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run ktmeaton/pangwas:0.1.0 pangwas <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 </section>
 <section id="usage" class="level2">
@@ -249,15 +249,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> test <span class="at">--trait</span> resistant</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The samples <code>sample4</code> and <code>sample3</code> are the ones that are labelled as “resistant” and we can see the following variants are significantly associated with this trait:</p>
 <p><img src="docs/images/test_resistant_heatmap.png" class="img-fluid"></p>
-<p>We also provide tutorials profile that runs the dataset from the <a href="https://pyseer.readthedocs.io/en/master/tutorial.html"><code>pyseer</code> GWAS tutorial</a>. It demonstrates how to use pre-computed variants and tree, and only runs the GWAS and PLOT stages:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Core genome GWAS</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_core/snps.Rtab.gz</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_core <span class="at">--trait</span> penicillin</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pangenome GWAS</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_pangenome/variants.Rtab.gz</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_pangenome/clusters.tsv.gz</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_pangenome <span class="at">--trait</span> penicillin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We also provide tutorials profile that runs the dataset from the <a href="https://pyseer.readthedocs.io/en/master/tutorial.html"><code>pyseer</code> GWAS tutorial</a>. It demonstrates how to use pre-computed variants and tree, and only runs the GWAS and PLOT stages.</p>
+<ol type="1">
+<li><p>Download the tutorial data.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 1: Git clone (slow)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/phac-nml/pangwas.git</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 2. Via nextflow (fast)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> pull phac-nml/pangwas</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/.nextflow/assets/phac-nml/pangwas/data .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Decompress the data.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_core/snps.Rtab.gz</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_pangenome/variants.Rtab.gz</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_pangenome/clusters.tsv.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Run the pipeline.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Core genome GWAS</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_core <span class="at">--trait</span> penicillin</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pangenome GWAS</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_pangenome <span class="at">--trait</span> penicillin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
 <p>Penicillin resistance is primarily controlled by core genome genes, and we can see that the major genes are identical between a pangenome and core genome GWAS.</p>
 <p><img src="docs/images/core_vs_pangenome.png" class="img-fluid"></p>
 <p>For more information on end-to-end analysis, please see the <a href="https://phac-nml.github.io/pangwas/pipeline/pipeline.html">Pipeline Documentation</a>.</p>
