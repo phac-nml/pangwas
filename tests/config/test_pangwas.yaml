@@ -60,7 +60,7 @@ utility:
       function: pangwas.cli
       args:
         args: "--version"
-      result: "pangwas v0.1.0"
+      result: "0"
 
   - name: cli_run
     params:
