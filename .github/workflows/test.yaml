@@ -28,10 +28,8 @@ jobs:
     needs: docker
     strategy:
       fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Download Docker Image
@@ -71,11 +69,8 @@ jobs:
   micromamba:
     strategy:
       fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
-        #os: [ubuntu-latest, macos-latest]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
