@@ -13,37 +13,6 @@ jobs:
     uses: ./.github/workflows/test.yaml
 
   #----------------------------------------------------------------------------
-  docker:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      # parse tag from load output, PR have unusual formats, also sometimes multiple tags
-      - name: Load Docker Image
-        run: |
-          load=$(docker load --input pangwas.tar | tee /dev/stderr)
-          echo -e $load
-          TAG=$(echo -e $load | sed 's/Loaded image: //g' | head -n 1 | cut -d ":" -f 2 | cut -d " " -f 1)
-          echo DOCKER_TAG="$TAG" >> $GITHUB_ENV
-
-      # output.tags can be an array (ex. v0.2.0, main, latest)
-      - name: Help
-        run: >
-          for tag in $TAGS; do
-            echo $tag
-            docker run $tag pangwas --help
-          done
-
-      # On a tag that starts with v, push to registry
-      - name: Build and Push
-        uses: docker/build-push-action@v5
-        if: startsWith(github.event.ref, 'refs/tags/v')
-        with:
-          context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-
-  #----------------------------------------------------------------------------
   release:
     needs: test
     runs-on: ubuntu-latest

@@ -43,7 +43,7 @@ Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
 1. Install with `conda`:
 
     ```bash
-    conda create -c conda-forge -c bioconda -n pangwas
+    conda create -n pangwas -c conda-forge -c bioconda pangwas
     conda activate pangwas
     pangwas --help
     ```
@@ -51,8 +51,8 @@ Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
 1. Install with `docker`/`singularity`:
 
     ```bash
-    docker pull ghcr.io/phac-nml/pangwas:latest
-    docker run phac-nml/pangwas:latest pangwas --help
+    docker pull ktmeaton/pangwas:0.1.0
+    docker run ktmeaton/pangwas:0.1.0 pangwas --help
     ```
 
 ## Usage
