@@ -134,7 +134,15 @@ jobs:
 
       - name: Nextflow Help
         run: |
-          nextflow run . --help
+          nextflow run ${{ github.repository }} -r ${{ github.sha }} --help
+
+      # - name: Nextflow Docker
+      #   run: |
+      #     nextflow run ${{ github.repository }} -r ${{ github.sha }} -profile test,docker
+
+      # - name: Nextflow Micromamba
+      #   run: |
+      #     nextflow run ${{ github.repository }} -r ${{ github.sha }} -profile test,micromamba
 
   # ---------------------------------------------------------------------------
   # render documentation site using quarto   
