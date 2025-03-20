@@ -19,6 +19,15 @@ website:
       - text: Home
         href: index.qmd
 
+      - text: Tutorials
+        menu:
+          - text: 01 - Test
+            href: tutorials/01_test.md
+          - text: 02 - Streptococcus pneumoniae
+            href: tutorials/02_strep_pneumo.md
+          - text: 03 - Pyseer Tutorial
+            href: tutorials/03_pyseer_tutorial.md
+
       - text: Manual
         href: manual/table_of_contents.md
 

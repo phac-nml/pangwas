@@ -1,10 +1,9 @@
 # panGWAS
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#credits)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#credits)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/phac-nml/pangwas/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/phac-nml/pangwas.svg)](https://github.com/phac-nml/pangwas/issues)
 [![Tests](https://github.com/phac-nml/pangwas/actions/workflows/test.yaml/badge.svg)](https://github.com/phac-nml/pangwas/actions/workflows/test.yaml)
-
 
 **panGWAS** is a pipeline for pangenome wide association studies. It reconstructs a pangenome from genomic assemblies, performs annotation and variant calling, estimates population structure, and models the association between genomic variants and variables of interest.
 
@@ -44,17 +43,19 @@ Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
 
     ```bash
     conda create -n pangwas -c conda-forge -c bioconda pangwas
-    conda activate pangwas
-    pangwas --help
     ```
 
-1. Install with `docker`/`singularity`:
+1. Install with `nextflow`:
 
     ```bash
-    docker run quay.io/biocontainers/pangwas:0.1.0 pangwas --help
+    nextflow pull phac-nml/pangwas
     ```
 
 ## Usage
+
+> For more information, please see the [Manual](https://phac-nml.github.io/pangwas/manual/table_of_contents.html) and [Pipeline Documentation](https://phac-nml.github.io/pangwas/pipeline/pipeline.html).
+
+### CLI
 
 Individual commands can be run via the command-line interface:
 
@@ -66,7 +67,11 @@ pangwas cluster --fasta sequences.fasta
 ...
 ```
 
-Or as `python` functions:
+For an end-to-end example using the CLI, please see the [Command-Line Interface](https://phac-nml.github.io/pangwas/pipeline/pipeline.html#command-line-interface) example.
+
+### Python
+
+Individual commands can be run as `python` functions:
 
 ```python
 import pangwas
@@ -78,62 +83,26 @@ pangwas.cluster(fasta="sequences.fasta")
 ...
 ```
 
-For a detailed guide on each command please see the [Manual](https://phac-nml.github.io/pangwas/manual/table_of_contents.html).
+For an end-to-end example using package, please see the [Python Package](https://phac-nml.github.io/pangwas/pipeline/pipeline.html#python-package) example.
 
 ### Nextflow
 
-An end-to-end pipeline is provided via `nextflow`. We provide a minimal `test` profile of synthetic data that runs quickly:
+An end-to-end pipeline is provided via `nextflow`:
 
 ```bash
-nextflow run phac-nml/pangwas -profile test --trait resistant
+nextflow run phac-nml/pangwas -profile test
 ```
 
-The samples `sample4` and `sample3` are the ones that are labelled as "resistant" and we can see the following variants are significantly associated with this trait:
-
-![](docs/images/test_resistant_heatmap.png)
-
-We also provide tutorials profile that runs the dataset from the [`pyseer` GWAS tutorial](https://pyseer.readthedocs.io/en/master/tutorial.html). It demonstrates how to use pre-computed variants and tree, and only runs the GWAS and PLOT stages.
-
-1. Download the tutorial data.
-
-    ```bash
-    # Option 1: Git clone (slow)
-    git clone https://github.com/phac-nml/pangwas.git
-
-    # Option 2. Via nextflow (fast)
-    nextflow pull phac-nml/pangwas
-    cp -r ~/.nextflow/assets/phac-nml/pangwas/data .
-    ```
-
-1. Decompress the data.
-
-    ```bash
-    gunzip data/tutorial_core/snps.Rtab.gz
-    gunzip data/tutorial_pangenome/variants.Rtab.gz
-    gunzip data/tutorial_pangenome/clusters.tsv.gz
-    ```
-
-1. Run the pipeline.
-
-    ```bash
-    # Core genome GWAS
-    nextflow run phac-nml/pangwas -profile tutorial_core --trait penicillin
-
-    # Pangenome GWAS
-    nextflow run phac-nml/pangwas -profile tutorial_pangenome --trait penicillin
-    ```
-
-Penicillin resistance is primarily controlled by core genome genes, and we can see that the major genes are identical between a pangenome and core genome GWAS.
+For more examples, please see the [tutorials](https://phac-nml.github.io/pangwas/tutorials/tutorials.html). We recommend the [Pyseer tutorial](https://phac-nml.github.io/pangwas/tutorials/03_pyseer_tutorial.html), which automates and reproduces the results from the [penicillin resistance GWAS](https://pyseer.readthedocs.io/en/master/tutorial.html) created by the `pyseer` authors:
 
 ![](docs/images/core_vs_pangenome.png)
 
-For more information on end-to-end analysis, please see the [Pipeline Documentation](https://phac-nml.github.io/pangwas/pipeline/pipeline.html).
 
 ## Credits
 
 [panGWAS](https://github.com/phac-nml/pangwas) is built and maintained by [Katherine Eaton](https://ktmeaton.github.io/) at the [National Microbiology Laboratory (NML)](https://github.com/phac-nml) of the Public Health Agency of Canada (PHAC).
 
-If you have any questions, please email katherine.eaton@phac-aspc.gc.ca.
+If you have any questions, please email ktmeaton@gmail.com.
 
 <table>
   <tr>
@@ -233,6 +202,24 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
       </a>
       <br />
       <a href="https://github.com/phac-nml" title="Design: GWAS">🎨</a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/DarianHole"><img src="https://avatars.githubusercontent.com/u/46600008?v=4" width="100px;" alt=""/>
+        <br />
+        <sub><b>Darian Hole</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/DarianHole" title="Testing, Security">⚠️🛡️</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ConnorChato"><img src="https://avatars.githubusercontent.com/u/24962136?v=4" width="100px;" alt=""/>
+        <br />
+        <sub><b>Connor Chato</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/ConnorChato" title="Design, Research, Ideas: Clustering">🎨🔬🤔</a>
     </td>
   </tr>
 </table>
