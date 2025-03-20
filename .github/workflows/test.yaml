@@ -5,8 +5,6 @@ on:
   push:
     branches:
       - '*'
-    tags:        
-      - '*'
   pull_request:
     branches:
       - '*'
@@ -39,13 +37,13 @@ jobs:
       - name: Download Docker Image
         uses: actions/download-artifact@v4
         with:
-          name: pangonet-docker
+          name: pangwas-docker
           path: .
 
       # parse tag from load output, PR have unusual formats, also sometimes multiple tags
       - name: Load Docker Image
         run: |
-          load=$(docker load --input pangonet.tar | tee /dev/stderr)
+          load=$(docker load --input pangwas.tar | tee /dev/stderr)
           echo -e $load
           TAG=$(echo -e $load | sed 's/Loaded image: //g' | head -n 1 | cut -d ":" -f 2 | cut -d " " -f 1)
           echo DOCKER_TAG="$TAG" >> $GITHUB_ENV
