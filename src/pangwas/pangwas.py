@@ -6541,7 +6541,8 @@ def cli(args:str=None):
     if options.version:
         import importlib.metadata
         version = importlib.metadata.version("pangwas")
-        return f"pangwas v{version}"
+        print(f"pangwas v{version}")
+        return 0
 
     logging.info("Begin")
     logging.info(f"Command: {command}")
