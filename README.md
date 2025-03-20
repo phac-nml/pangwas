@@ -97,7 +97,6 @@ For more examples, please see the [tutorials](https://phac-nml.github.io/pangwas
 
 ![](docs/images/core_vs_pangenome.png)
 
-
 ## Credits
 
 [panGWAS](https://github.com/phac-nml/pangwas) is built and maintained by [Katherine Eaton](https://ktmeaton.github.io/) at the [National Microbiology Laboratory (NML)](https://github.com/phac-nml) of the Public Health Agency of Canada (PHAC).
@@ -109,6 +108,8 @@ If you have any questions, please email ktmeaton@gmail.com.
     <td align="center"><a href="https://ktmeaton.github.io"><img src="https://s.gravatar.com/avatar/0b9dc28b3e64b59f5ce01e809d214a4e?s=80" width="100px;" alt=""/><br /><sub><b>Katherine Eaton</b></sub></a><br /><a href="https://github.com/phac-nml/pangwas/commits?author=ktmeaton" title="Code">💻</a> <a href="https://github.com/phac-nml/pangwas/commits?author=ktmeaton" title="Documentation">📖</a> <a href="#design-ktmeaton" title="Design">🎨</a> <a href="#ideas-ktmeaton" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-ktmeaton" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-ktmeaton" title="Maintenance">🚧</a></td>
   </tr>
 </table>
+
+### Contributors
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification ([emoji key](https://allcontributors.org/docs/en/emoji-key)). Contributions of any kind welcome!
 
@@ -221,6 +222,14 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
       <br />
       <a href="https://github.com/ConnorChato" title="Design, Research, Ideas: Clustering">🎨🔬🤔</a>
     </td>
+    <td align="center">
+      <a href="https://github.com/phac-nml"><img src="https://ui-avatars.com/api/?name=APapineau?s=100" width="100px;" alt=""/>
+        <br />
+        <sub><b>Amber Papineau</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/phac-nml" title="Ideas, Design: Heatmap">🎨🤔</a>
+    </td>    
   </tr>
 </table>
 
