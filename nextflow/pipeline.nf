@@ -62,7 +62,7 @@ workflow {
     
     // Set up the samplesheet
     ch_samplesheet = PIPELINE_INITIALISATION.out.samplesheet
-    ch_samplesheet_file = Channel.of(input)
+    ch_samplesheet_file = Channel.fromPath(input)
     ch_versions = Channel.empty()
 
     // Split samplesheet into separate channels for assembly and gff
@@ -155,7 +155,7 @@ workflow {
     ch_summarize = SUMMARIZE.out.clusters
 
     if (clusters) {
-        ch_summarize = Channel.of(clusters)
+        ch_summarize = Channel.fromPath(clusters)
     }
 
     // ------------------------------------------------------------------------
@@ -171,7 +171,7 @@ workflow {
     ch_bed        = ALIGN.out.pangenome_bed
 
     if (bed) {
-        ch_bed = Channel.of(bed)
+        ch_bed = Channel.fromPath(bed)
     }
 
     // ------------------------------------------------------------------------
@@ -216,7 +216,7 @@ workflow {
     ch_variants = COMBINE.out.rtab
 
     if (variants){
-        ch_variants = Channel.of(variants)
+        ch_variants = Channel.fromPath(variants)
     }
 
     // ------------------------------------------------------------------------
@@ -224,7 +224,7 @@ workflow {
 
     if (tree){
         TREE ( ch_empty, ch_empty )
-        ch_tree = Channel.of(tree)
+        ch_tree = Channel.fromPath(tree)
     }
     else if (params.skip_tree) {
         TREE ( ch_empty, ch_empty )
