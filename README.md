@@ -44,12 +44,15 @@ Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
 
     ```bash
     conda create -c conda-forge -c bioconda -n pangwas
+    conda activate pangwas
+    pangwas --help
     ```
 
 1. Install with `docker`/`singularity`:
 
     ```bash
     docker pull ghcr.io/phac-nml/pangwas:latest
+    docker run phac-nml/pangwas:latest pangwas --help
     ```
 
 ## Usage

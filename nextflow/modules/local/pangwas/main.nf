@@ -6,8 +6,6 @@ process ANNOTATE {
 
     publishDir path: "${params.outdir}/annotate/${prefix}", mode: "copy", overwrite: true
 
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
     containerOptions "--writable-tmpfs"
 
     input:
@@ -65,9 +63,6 @@ process EXTRACT {
 
     publishDir path: "${params.outdir}/extract/${meta.id}", mode: "copy", overwrite: true
 
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
-
     input:
     tuple val(meta), path(gff)
 
@@ -110,11 +105,8 @@ process COLLECT {
 
     publishDir path: "${params.outdir}/collect", mode: "copy", overwrite: true
 
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
-
     input:
-    val(tsv_paths) // TXT file of tsv paths from concatenated EXTRACT TSV
+    path(tsv_paths) // TXT file of tsv paths from concatenated EXTRACT TSV
 
     output:
     path("*.tsv"),    emit: tsv
@@ -154,9 +146,6 @@ process CLUSTER {
     label "process_high"
 
     publishDir path: "${params.outdir}/cluster", mode: "copy", overwrite: true
-
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
 
     input:
     path(sequences)
@@ -205,9 +194,6 @@ process DEFRAG {
     label "process_high"
 
     publishDir path: "${params.outdir}/defrag", mode: "copy", overwrite: true
-
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
 
     input:
     path(clusters)       // Clusters in TSV format from CLUSTER
@@ -265,9 +251,6 @@ process SUMMARIZE {
 
     publishDir path: "${params.outdir}/summarize", mode: "copy", overwrite: true
 
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
-
     input:
     path(clusters)   // Clusters in TSV format from CLUSTER or DEFRAG
     path(regions)    // Sequence regions in TSV format from COLLECT
@@ -319,9 +302,6 @@ process ALIGN {
     label "process_high"
 
     publishDir path: "${params.outdir}/align", mode: "copy", overwrite: true
-
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
 
     input:
     path(clusters)   // Clusters in TSV format from SUMMARIZE
@@ -388,9 +368,6 @@ process STRUCTURAL {
 
     publishDir path: "${params.outdir}/structural", mode: "copy", overwrite: true
 
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
-
     input:
     path(clusters)   // Clusters in TSV format from SUMMARIZE
     path(alignments) // Alignments directory in tar.bz2 format from ALIGN
@@ -436,9 +413,6 @@ process SNPS {
     label 'process_single'
 
     publishDir path: "${params.outdir}/snps", mode: "copy", overwrite: true
-
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
 
     input:
     path(alignment)  // Pangenome alignment in FASTA format from ALIGN
@@ -501,9 +475,6 @@ process PRESENCE_ABSENCE {
 
     publishDir path: "${params.outdir}/presence_absence", mode: "copy", overwrite: true
 
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
-
     input:
     path(clusters)   // Clusters in TSV format from SUMMARIZE
 
@@ -549,11 +520,8 @@ process COMBINE {
 
     publishDir path: "${params.outdir}/combine", mode: "copy", overwrite: true
 
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
-
     input:
-    val(rtab)
+    path(rtab)
 
     output:
     path("*combine.Rtab"), emit: rtab
@@ -588,9 +556,6 @@ process TREE {
     label "process_high"
 
     publishDir path: "${params.outdir}/tree", mode: "copy", overwrite: true
-
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
 
     input:
     path(alignment)
@@ -655,9 +620,6 @@ process GWAS {
     label "process_high"
 
     publishDir path: "${params.outdir}/gwas/${trait}", mode: "copy", overwrite: true
-
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
 
     input:
     val(trait)      // Variable to test with a GWAS, must match a column in the table
@@ -730,9 +692,6 @@ process HEATMAP {
 
     publishDir path: "${params.outdir}/heatmap/${params.trait}", mode: "copy", overwrite: true
 
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
-
     input:
     path(gwas)  // GWAS results in TSV format from GWAS
     path(tree)  // Optional: Rooted phylogeny in NEWICK format from TREE, set to [] to disable
@@ -788,13 +747,9 @@ process MANHATTAN {
 
     publishDir path: "${params.outdir}/manhattan/${params.trait}", mode: "copy", overwrite: true
 
-    container "ghcr.io/phac-nml/pangwas:0.1.0"
-    conda "pangwas=0.1.0"
-
     input:
     path(gwas)  // GWAS results in TSV format from GWAS
     path(bed)   // BED coordinates from ALIGN
-
 
     output:
     // plots will only be present if there are significant variants to plot
