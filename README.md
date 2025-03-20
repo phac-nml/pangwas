@@ -93,18 +93,36 @@ The samples `sample4` and `sample3` are the ones that are labelled as "resistant
 
 ![](docs/images/test_resistant_heatmap.png)
 
-We also provide tutorials profile that runs the dataset from the [`pyseer` GWAS tutorial](https://pyseer.readthedocs.io/en/master/tutorial.html). It demonstrates how to use pre-computed variants and tree, and only runs the GWAS and PLOT stages:
+We also provide tutorials profile that runs the dataset from the [`pyseer` GWAS tutorial](https://pyseer.readthedocs.io/en/master/tutorial.html). It demonstrates how to use pre-computed variants and tree, and only runs the GWAS and PLOT stages.
 
-```bash
-# Core genome GWAS
-gunzip data/tutorial_core/snps.Rtab.gz
-nextflow run phac-nml/pangwas -profile tutorial_core --trait penicillin
+1. Download the tutorial data.
 
-# Pangenome GWAS
-gunzip data/tutorial_pangenome/variants.Rtab.gz
-gunzip data/tutorial_pangenome/clusters.tsv.gz
-nextflow run phac-nml/pangwas -profile tutorial_pangenome --trait penicillin
-```
+    ```bash
+    # Option 1: Git clone (slow)
+    git clone https://github.com/phac-nml/pangwas.git
+
+    # Option 2. Via nextflow (fast)
+    nextflow pull phac-nml/pangwas
+    cp -r ~/.nextflow/assets/phac-nml/pangwas/data .
+    ```
+
+1. Decompress the data.
+
+    ```bash
+    gunzip data/tutorial_core/snps.Rtab.gz
+    gunzip data/tutorial_pangenome/variants.Rtab.gz
+    gunzip data/tutorial_pangenome/clusters.tsv.gz
+    ```
+
+1. Run the pipeline.
+
+    ```bash
+    # Core genome GWAS
+    nextflow run phac-nml/pangwas -profile tutorial_core --trait penicillin
+
+    # Pangenome GWAS
+    nextflow run phac-nml/pangwas -profile tutorial_pangenome --trait penicillin
+    ```
 
 Penicillin resistance is primarily controlled by core genome genes, and we can see that the major genes are identical between a pangenome and core genome GWAS.
 
