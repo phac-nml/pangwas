@@ -55,12 +55,10 @@ jobs:
           docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG pytest -v
 
       - name: Nextflow Help
-        shell: micromamba-shell {0}
         run: |
           docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG nextflow run . --help
 
       - name: Nextflow Test
-        shell: micromamba-shell {0}
         run: |
           docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG nextflow run . -profile test
 
