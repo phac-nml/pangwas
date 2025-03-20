@@ -126,6 +126,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+        <li>
+    <a class="dropdown-item" href="./tutorials/01_test.html">
+ <span class="dropdown-text">01 - Test</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./tutorials/02_strep_pneumo.md">
+ <span class="dropdown-text">02 - Streptococcus pneumoniae</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./tutorials/03_pyseer_tutorial.html">
+ <span class="dropdown-text">03 - Pyseer Tutorial</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./manual/table_of_contents.html"> 
 <span class="menu-text">Manual</span></a>
@@ -164,6 +183,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#install" id="toc-install" class="nav-link" data-scroll-target="#install">Install</a></li>
   <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a>
   <ul class="collapse">
+  <li><a href="#cli" id="toc-cli" class="nav-link" data-scroll-target="#cli">CLI</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
   <li><a href="#nextflow" id="toc-nextflow" class="nav-link" data-scroll-target="#nextflow">Nextflow</a></li>
   </ul></li>
   <li><a href="#credits" id="toc-credits" class="nav-link" data-scroll-target="#credits">Credits</a></li>
@@ -184,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="pangwas" class="level1">
 <h1>panGWAS</h1>
-<p><a href="#credits"><img src="https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square" class="img-fluid" alt="All Contributors"></a> <a href="https://github.com/phac-nml/pangwas/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" class="img-fluid" alt="License"></a> <a href="https://github.com/phac-nml/pangwas/issues"><img src="https://img.shields.io/github/issues/phac-nml/pangwas.svg" class="img-fluid" alt="GitHub issues"></a> <a href="https://github.com/phac-nml/pangwas/actions/workflows/test.yaml"><img src="https://github.com/phac-nml/pangwas/actions/workflows/test.yaml/badge.svg" class="img-fluid" alt="Tests"></a></p>
+<p><a href="#credits"><img src="https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square" class="img-fluid" alt="All Contributors"></a> <a href="https://github.com/phac-nml/pangwas/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" class="img-fluid" alt="License"></a> <a href="https://github.com/phac-nml/pangwas/issues"><img src="https://img.shields.io/github/issues/phac-nml/pangwas.svg" class="img-fluid" alt="GitHub issues"></a> <a href="https://github.com/phac-nml/pangwas/actions/workflows/test.yaml"><img src="https://github.com/phac-nml/pangwas/actions/workflows/test.yaml/badge.svg" class="img-fluid" alt="Tests"></a></p>
 <p><strong>panGWAS</strong> is a pipeline for pangenome wide association studies. It reconstructs a pangenome from genomic assemblies, performs annotation and variant calling, estimates population structure, and models the association between genomic variants and variables of interest.</p>
 <p><img src="docs/images/pipeline.png" class="img-fluid"></p>
 <p><strong>panGWAS</strong> is implemented as a <code>python</code> package and CLI tool, that can be run on any POSIX-based system (Linux, Mac). We additionally provide a <code>nextflow</code> pipeline for end-to-end analysis.</p>
@@ -218,22 +239,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="install">Install</h2>
 <ol type="1">
 <li><p>Install with <code>conda</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> pangwas <span class="at">-c</span> conda-forge <span class="at">-c</span> bioconda pangwas</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate pangwas</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Install with <code>docker</code>/<code>singularity</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run quay.io/biocontainers/pangwas:0.1.0 pangwas <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> pangwas <span class="at">-c</span> conda-forge <span class="at">-c</span> bioconda pangwas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Install with <code>nextflow</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> pull phac-nml/pangwas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 </section>
 <section id="usage" class="level2">
 <h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<blockquote class="blockquote">
+<p>For more information, please see the <a href="https://phac-nml.github.io/pangwas/manual/table_of_contents.html">Manual</a> and <a href="https://phac-nml.github.io/pangwas/pipeline/pipeline.html">Pipeline Documentation</a>.</p>
+</blockquote>
+<section id="cli" class="level3">
+<h3 class="anchored" data-anchor-id="cli">CLI</h3>
 <p>Individual commands can be run via the command-line interface:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> extract <span class="at">--gff</span> sample1.gff3</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> extract <span class="at">--gff</span> sample2.gff3</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> collect <span class="at">--tsv</span> sample1.tsv sample2.tsv</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pangwas</span> cluster <span class="at">--fasta</span> sequences.fasta</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Or as <code>python</code> functions:</p>
+<p>For an end-to-end example using the CLI, please see the <a href="https://phac-nml.github.io/pangwas/pipeline/pipeline.html#command-line-interface">Command-Line Interface</a> example.</p>
+</section>
+<section id="python" class="level3">
+<h3 class="anchored" data-anchor-id="python">Python</h3>
+<p>Individual commands can be run as <code>python</code> functions:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pangwas</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pangwas.extract(gff<span class="op">=</span><span class="st">"sample1.gff3"</span>)</span>
@@ -241,42 +269,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>pangwas.collect(tsv<span class="op">=</span>[<span class="st">"sample1.tsv"</span>, <span class="st">"sample2.tsv"</span>])</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>pangwas.cluster(fasta<span class="op">=</span><span class="st">"sequences.fasta"</span>)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>For a detailed guide on each command please see the <a href="https://phac-nml.github.io/pangwas/manual/table_of_contents.html">Manual</a>.</p>
+<p>For an end-to-end example using package, please see the <a href="https://phac-nml.github.io/pangwas/pipeline/pipeline.html#python-package">Python Package</a> example.</p>
+</section>
 <section id="nextflow" class="level3">
 <h3 class="anchored" data-anchor-id="nextflow">Nextflow</h3>
-<p>An end-to-end pipeline is provided via <code>nextflow</code>. We provide a minimal <code>test</code> profile of synthetic data that runs quickly:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> test <span class="at">--trait</span> resistant</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The samples <code>sample4</code> and <code>sample3</code> are the ones that are labelled as “resistant” and we can see the following variants are significantly associated with this trait:</p>
-<p><img src="docs/images/test_resistant_heatmap.png" class="img-fluid"></p>
-<p>We also provide tutorials profile that runs the dataset from the <a href="https://pyseer.readthedocs.io/en/master/tutorial.html"><code>pyseer</code> GWAS tutorial</a>. It demonstrates how to use pre-computed variants and tree, and only runs the GWAS and PLOT stages.</p>
-<ol type="1">
-<li><p>Download the tutorial data.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 1: Git clone (slow)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/phac-nml/pangwas.git</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 2. Via nextflow (fast)</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> pull phac-nml/pangwas</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/.nextflow/assets/phac-nml/pangwas/data .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Decompress the data.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_core/snps.Rtab.gz</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_pangenome/variants.Rtab.gz</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_pangenome/clusters.tsv.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Run the pipeline.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Core genome GWAS</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_core <span class="at">--trait</span> penicillin</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pangenome GWAS</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_pangenome <span class="at">--trait</span> penicillin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-<p>Penicillin resistance is primarily controlled by core genome genes, and we can see that the major genes are identical between a pangenome and core genome GWAS.</p>
+<p>An end-to-end pipeline is provided via <code>nextflow</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For more examples, please see the <a href="https://phac-nml.github.io/pangwas/tutorials/tutorials.html">tutorials</a>. We recommend the <a href="https://phac-nml.github.io/pangwas/tutorials/03_pyseer_tutorial.html">Pyseer tutorial</a>, which automates and reproduces the results from the <a href="https://pyseer.readthedocs.io/en/master/tutorial.html">penicillin resistance GWAS</a> created by the <code>pyseer</code> authors:</p>
 <p><img src="docs/images/core_vs_pangenome.png" class="img-fluid"></p>
-<p>For more information on end-to-end analysis, please see the <a href="https://phac-nml.github.io/pangwas/pipeline/pipeline.html">Pipeline Documentation</a>.</p>
 </section>
 </section>
 <section id="credits" class="level2">
 <h2 class="anchored" data-anchor-id="credits">Credits</h2>
 <p><a href="https://github.com/phac-nml/pangwas">panGWAS</a> is built and maintained by <a href="https://ktmeaton.github.io/">Katherine Eaton</a> at the <a href="https://github.com/phac-nml">National Microbiology Laboratory (NML)</a> of the Public Health Agency of Canada (PHAC).</p>
-<p>If you have any questions, please email katherine.eaton@phac-aspc.gc.ca.</p>
+<p>If you have any questions, please email ktmeaton@gmail.com.</p>
 <table>
 <tbody><tr>
 <td align="center">
@@ -323,6 +329,14 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
 </td>
 <td align="center">
 <a href="https://github.com/phac-nml"><img src="https://ui-avatars.com/api/?name=ATyler?s=100" width="100px;" alt=""> <br> <sub><b>Andrea Tyler</b></sub> </a> <br> <a href="https://github.com/phac-nml" title="Design: GWAS">🎨</a>
+</td>
+</tr>
+<tr>
+<td align="center">
+<a href="https://github.com/DarianHole"><img src="https://avatars.githubusercontent.com/u/46600008?v=4" width="100px;" alt=""> <br> <sub><b>Darian Hole</b></sub> </a> <br> <a href="https://github.com/DarianHole" title="Testing, Security">⚠️🛡️</a>
+</td>
+<td align="center">
+<a href="https://github.com/ConnorChato"><img src="https://avatars.githubusercontent.com/u/24962136?v=4" width="100px;" alt=""> <br> <sub><b>Connor Chato</b></sub> </a> <br> <a href="https://github.com/ConnorChato" title="Design, Research, Ideas: Clustering">🎨🔬🤔</a>
 </td>
 </tr>
 </tbody></table>
