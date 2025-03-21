@@ -9,31 +9,24 @@ This tutorial automates and reproduces the results from the [penicillin resistan
     cd pangwas
     ```
 
-1. Decompress the core genome data.
+1. Decompress the data.
 
     ```bash
     gunzip data/tutorial_core/snps.Rtab.gz
-    gunzip data/tutorial_core/gff.gz
-    gunzip data/tutorial_core/clusters.tsv.gz
-    ```
-
-1. Decompress the pan genome data.
-
-    ```bash
     gunzip data/tutorial_pangenome/variants.Rtab.gz
     gunzip data/tutorial_pangenome/clusters.tsv.gz
     ```
 
-1. Run the core genome GWAS.
+1. Run the core genome GWAS on pencillin resistance.
 
     ```bash
-    nextflow run phac-nml/pangwas -profile tutorial_core --trait penicillin
+    nextflow run phac-nml/pangwas -profile tutorial_core --max_cpus 4
     ```
 
-1. Run the pangenome GWAS.
+1. Run the pangenome GWAS on penicillin resistance.
 
     ```bash
-    nextflow run phac-nml/pangwas -profile tutorial_pangenome --trait penicillin
+    nextflow run phac-nml/pangwas -profile tutorial_pangenome --max_cpus 4
     ```
 
 Penicillin resistance is primarily controlled by core genome genes, and we can see that the major genes are identical between a pangenome and core genome GWAS.
