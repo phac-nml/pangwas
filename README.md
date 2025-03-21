@@ -1,6 +1,6 @@
 # panGWAS
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#credits)
+[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#credits)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/phac-nml/pangwas/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/phac-nml/pangwas.svg)](https://github.com/phac-nml/pangwas/issues)
 [![Tests](https://github.com/phac-nml/pangwas/actions/workflows/test.yaml/badge.svg)](https://github.com/phac-nml/pangwas/actions/workflows/test.yaml)
@@ -305,7 +305,15 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
       </a>
       <br />
       <a href="https://github.com/molpratt" title="Design: Workflow Flowchart">🎨</a>
-    </td>    
+    </td>
+    <td align="center">
+      <a href="https://github.com/KirstenPalmier"><img src="https://avatars.githubusercontent.com/u/60520877?v=4" width="100px;" alt=""/>
+        <br />
+        <sub><b>Kirsten Palmier</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/KirstenPalmier" title="Literature Review, Research: GWAS">🔬</a>
+    </td>
   </tr>
 </table>
 
