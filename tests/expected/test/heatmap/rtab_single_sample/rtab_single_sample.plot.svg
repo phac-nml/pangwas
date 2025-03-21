@@ -48,10 +48,14 @@
             </g>
             <g id='Heatmap Boxes'>
                 <g id='1'>
-                    <rect width='24.0' height='24.0' x='106.0' y='39.0' rx='2' ry='2' style='fill:#636362;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='106.0' y='39.0' rx='2' ry='2' style='fill:#636362;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>Variant: 1</title>
+                    </rect>
                 </g>
                 <g id='2'>
-                    <rect width='24.0' height='24.0' x='135.8984375' y='39.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='135.8984375' y='39.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>Variant: 2</title>
+                    </rect>
                 </g>
             </g>
         </g>

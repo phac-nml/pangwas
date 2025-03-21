@@ -174,39 +174,539 @@
             </g>
             <g id='Heatmap Boxes'>
                 <g id='speM|presence_absence'>
-                    <rect width='24.0' height='24.0' x='216.0' y='224.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='216.0' y='254.0' rx='2' ry='2' style='fill:#140d91;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='216.0' y='284.0' rx='2' ry='2' style='fill:#140d91;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='216.0' y='314.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='216.0' y='344.0' rx='2' ry='2' style='fill:#140d91;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='216.0' y='224.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speM|presence_absence
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speM
+cluster_id: Cluster_26
+num_samples: 2
+representative: sample4_SAMPL04_speM
+feature: CDS
+gene: speM
+product: Exotoxin SpeM
+name: Exotoxin SpeM
+dbxref: RefSeq:WP_038431384.1</title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='216.0' y='254.0' rx='2' ry='2' style='fill:#140d91;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speM|presence_absence
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speM
+cluster_id: Cluster_26
+num_samples: 2
+representative: sample4_SAMPL04_speM
+feature: CDS
+gene: speM
+product: Exotoxin SpeM
+name: Exotoxin SpeM
+dbxref: RefSeq:WP_038431384.1</title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='216.0' y='284.0' rx='2' ry='2' style='fill:#140d91;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speM|presence_absence
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speM
+cluster_id: Cluster_26
+num_samples: 2
+representative: sample4_SAMPL04_speM
+feature: CDS
+gene: speM
+product: Exotoxin SpeM
+name: Exotoxin SpeM
+dbxref: RefSeq:WP_038431384.1</title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='216.0' y='314.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speM|presence_absence
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speM
+cluster_id: Cluster_26
+num_samples: 2
+representative: sample4_SAMPL04_speM
+feature: CDS
+gene: speM
+product: Exotoxin SpeM
+name: Exotoxin SpeM
+dbxref: RefSeq:WP_038431384.1</title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='216.0' y='344.0' rx='2' ry='2' style='fill:#140d91;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speM|presence_absence
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speM
+cluster_id: Cluster_26
+num_samples: 2
+representative: sample4_SAMPL04_speM
+feature: CDS
+gene: speM
+product: Exotoxin SpeM
+name: Exotoxin SpeM
+dbxref: RefSeq:WP_038431384.1</title>
+                    </rect>
                 </g>
                 <g id='speB|structural:1-137'>
-                    <rect width='24.0' height='24.0' x='258.0' y='224.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='258.0' y='254.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='258.0' y='284.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='258.0' y='314.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='258.0' y='344.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='258.0' y='224.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:1-137
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='258.0' y='254.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:1-137
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='258.0' y='284.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:1-137
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='258.0' y='314.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:1-137
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='258.0' y='344.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:1-137
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='speB|structural:1-93'>
-                    <rect width='24.0' height='24.0' x='288.0' y='224.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='288.0' y='254.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='288.0' y='284.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='288.0' y='314.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='288.0' y='344.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='288.0' y='224.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:1-93
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='288.0' y='254.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:1-93
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='288.0' y='284.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:1-93
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='288.0' y='314.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:1-93
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='288.0' y='344.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:1-93
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='speB|structural:94-137'>
-                    <rect width='24.0' height='24.0' x='318.0' y='224.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='318.0' y='254.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='318.0' y='284.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='318.0' y='314.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='318.0' y='344.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='318.0' y='224.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:94-137
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='318.0' y='254.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:94-137
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='318.0' y='284.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:94-137
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='318.0' y='314.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:94-137
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='318.0' y='344.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|structural:94-137
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='speB|snp:G93T'>
-                    <rect width='24.0' height='24.0' x='360.0' y='224.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='360.0' y='254.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='360.0' y='284.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='360.0' y='314.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='360.0' y='344.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='360.0' y='224.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|snp:G93T
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='360.0' y='254.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|snp:G93T
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='360.0' y='284.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|snp:G93T
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='360.0' y='314.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|snp:G93T
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='360.0' y='344.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speB|snp:G93T
+af: 5.00E-01
+filter-pvalue: 4.55E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+lineage: 2
+notes: bad-chisq
+bonferroni: 0.0071428571428571435
+cluster: speB
+cluster_id: Cluster_4
+num_samples: 4
+representative: sample1_SAMPL01_speB
+feature: CDS
+gene: speB
+product: Exotoxin SpeB
+name: Exotoxin SpeB
+dbxref: </title>
+                    </rect>
                 </g>
             </g>
         </g>
