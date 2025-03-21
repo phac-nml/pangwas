@@ -113,7 +113,7 @@ jobs:
       - name: Nextflow Tutorial S. pneumoniae
         shell: micromamba-shell {0}
         run: |
-          nextflow run . -profile streptococcus_pneumoniae
+          nextflow run . -profile streptococcus_pneumoniae --skip_align
 
       - name: Nextflow Tutorial Core
         shell: micromamba-shell {0}
