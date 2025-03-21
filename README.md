@@ -19,6 +19,7 @@ Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
 1. [Method](#method)
 1. [Install](#install)
 1. [Usage](#usage)
+1. [Output](#output)
 1. [Credits](#credits)
 
 ## Why panGWAS?
@@ -109,7 +110,7 @@ pangwas.cluster(fasta="sequences.fasta")
 ...
 ```
 
-For an end-to-end example using package, please see the [Python Package](https://phac-nml.github.io/pangwas/pipeline/pipeline.html#python-package) example.
+For an end-to-end example using python, please see the [Python Package](https://phac-nml.github.io/pangwas/pipeline/pipeline.html#python-package) example.
 
 ### Nextflow
 
@@ -122,6 +123,36 @@ nextflow run phac-nml/pangwas -profile test
 For more examples, please see the [tutorials](https://phac-nml.github.io/pangwas/tutorials/tutorials.html). We recommend the [Pyseer tutorial](https://phac-nml.github.io/pangwas/tutorials/03_pyseer_tutorial.html), which automates and reproduces the results from the [penicillin resistance GWAS](https://pyseer.readthedocs.io/en/master/tutorial.html) created by the `pyseer` authors:
 
 ![](docs/images/core_vs_pangenome.png)
+
+## Output
+
+1. **Plots**: PNG and SVG files under the `manhattan` and `heatmap` directories.
+
+    > ❗**Tip**: Open the SVG in Edge or Firefox, to get hovertext!
+
+    | Manhattan | Heatmap | QQ Plot |
+    | ----------| ------- | ------- |
+    |     ![manhattan](docs/images/core_manhattan_hovertext.png)   |     ![heatmap](docs/images/heatmap_hovertext.png) |     ![](docs/images/penicillin.qq_plot.png) |
+
+
+1. **GWAS Tables**: Statistic results per variant.
+
+    |variant        |af      |filter-pvalue|lrt-pvalue|beta    |beta-std-err|variant_h2|notes|-log10(p)         |bonferroni           |...|
+    |:--------------|:-------|:------------|:---------|:-------|:-----------|:---------|:----|:-----------------|:--------------------|:---|
+    |pbpX\|snp:G761A |3.78E-01|6.12E-94     |3.01E-25  |7.42E-01|6.82E-02    |4.05E-01  |     |24.521433504406158|1.180414561594032e-06|...|
+    |pbpX\|snp:T1077C|3.85E-01|1.11E-95     |1.43E-24  |7.23E-01|6.76E-02    |4.00E-01  |     |23.844663962534938|1.180414561594032e-06|...|
+
+1. **Trees**: We recommend [Arborview](https://phac-nml.github.io/ArborView/html/table.html) for interactive visualization of the newick files!
+
+    ![arborview](docs/images/arborview_tree.png)
+
+1. **Pangenome**: We recommend [Bandage](https://github.com/rrwick/Bandage) for interactive visualization of the pangenome graph!
+
+    - [GFA](https://github.com/GFA-spec/GFA-spec) files can be found under `summarize` for both the full and linearized version of the pangenome.
+
+    ![](docs/images/pangenome_bandage.png)
+
+And much more!
 
 ## Credits
 
