@@ -110,6 +110,24 @@ jobs:
         run: |
           nextflow run . -profile test
 
+      - name: Nextflow Tutorial S. pneumoniae
+        shell: micromamba-shell {0}
+        run: |
+          nextflow run . -profile streptococcus_pneumoniae
+
+      - name: Nextflow Tutorial Core
+        shell: micromamba-shell {0}
+        run: |
+          gunzip data/tutorial_core/snps.Rtab.gz
+          nextflow run . -profile tutorial_core
+
+      - name: Nextflow Tutorial Pangenome
+        shell: micromamba-shell {0}
+        run: |
+          gunzip data/tutorial_pangenome/variants.Rtab.gz
+          gunzip data/tutorial_pangenome/clusters.tsv.gz
+          nextflow run . -profile tutorial_pangenome
+
       - name: Upload Code Coverage
         uses: actions/upload-artifact@v4
         with:
