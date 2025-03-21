@@ -53,7 +53,7 @@ jobs:
 
       - name: Pytest
         run: |
-          docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG pytest -v
+          docker run -e GITHUB_TOKEN=${{ github.token }} $DOCKER_IMAGE:$DOCKER_TAG pytest --validate
 
       - name: Nextflow Help
         run: |
@@ -98,7 +98,7 @@ jobs:
       - name: Pytest
         shell: micromamba-shell {0}
         run: |
-          pytest
+          pytest --validate
 
       - name: Nextflow Help
         shell: micromamba-shell {0}
