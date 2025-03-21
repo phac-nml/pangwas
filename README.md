@@ -1,6 +1,6 @@
 # panGWAS
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#credits)
+[![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#credits)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/phac-nml/pangwas/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/phac-nml/pangwas.svg)](https://github.com/phac-nml/pangwas/issues)
 [![Tests](https://github.com/phac-nml/pangwas/actions/workflows/test.yaml/badge.svg)](https://github.com/phac-nml/pangwas/actions/workflows/test.yaml)
@@ -314,6 +314,35 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
       <br />
       <a href="https://github.com/KirstenPalmier" title="Literature Review, Research: GWAS">🔬</a>
     </td>
+  </tr>
+    <td align="center">
+      <a href="https://github.com/TheZetner"><img src="https://avatars.githubusercontent.com/u/11616351?v=4" width="100px;" alt=""/>
+        <br />
+        <sub><b>Adrian Azetner</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/TheZetner" title="Ideas: Plots">🤔</a>
+    </td>  
+    <td align="center">
+      <a href="https://github.com/phac-nml"><img src="https://ui-avatars.com/api/?name=ADuggan?s=100" width="100px;" alt=""/>
+        <br />
+        <sub><b>Ana Duggan</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/phac-nml" title="Ideas: GWAS">🤔</a>
+      <a href="https://github.com/phac-nml" title="Review: Pull Request">👀</a>
+      <a href="https://github.com/phac-nml" title="Project Management">📆</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/GH-Emily"><img src="https://avatars.githubusercontent.com/u/52721825?v=4" width="100px;" alt=""/>
+        <br />
+        <sub><b>Emily Haverhold</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/GH-Emily" title="Project Management">📆</a>
+    </td>    
+  <tr>
+
   </tr>
 </table>
 
