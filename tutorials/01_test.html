@@ -126,25 +126,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Tutorials</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
-        <li>
-    <a class="dropdown-item" href="../tutorials/01_test.html">
- <span class="dropdown-text">01 - Test</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../tutorials/tutorials.html"> 
+<span class="menu-text">Tutorials</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../tutorials/02_strep_pneumo.md">
- <span class="dropdown-text">02 - Streptococcus pneumoniae</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tutorials/03_pyseer_tutorial.html">
- <span class="dropdown-text">03 - Pyseer Tutorial</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item">
     <a class="nav-link" href="../manual/table_of_contents.html"> 
 <span class="menu-text">Manual</span></a>
@@ -192,11 +177,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="tutorial-01---test" class="level1">
 <h1>Tutorial 01 - Test</h1>
+<p>This tutorial demonstrates the use of <strong>panGWAS</strong> on a tiny, synthetic dataset.</p>
 <ol type="1">
 <li><p>Run the test data through a GWAS on the trait <code>resistant</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> test <span class="at">--trait</span> resistant</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 <p>The samples <code>sample4</code> and <code>sample3</code> are the ones that are labelled as “resistant” and we can see the following variants are significantly associated with this trait:</p>
+<ul>
+<li>Heatmap: <code>results/test/heatmap/resistant/resistant.plot.svg</code></li>
+</ul>
 <p><img src="../images/test_resistant_heatmap.png" class="img-fluid"></p>
 
 

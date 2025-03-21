@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>strep_pnuemo – panGWAS</title>
+<title>strep_pneumo – panGWAS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,25 +126,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Tutorials</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
-        <li>
-    <a class="dropdown-item" href="../tutorials/01_test.html">
- <span class="dropdown-text">01 - Test</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../tutorials/tutorials.html"> 
+<span class="menu-text">Tutorials</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../tutorials/02_strep_pneumo.md">
- <span class="dropdown-text">02 - Streptococcus pneumoniae</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tutorials/03_pyseer_tutorial.html">
- <span class="dropdown-text">03 - Pyseer Tutorial</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item">
     <a class="nav-link" href="../manual/table_of_contents.html"> 
 <span class="menu-text">Manual</span></a>
@@ -192,9 +177,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="tutorial-02---streptococcus-pneumoniae" class="level1">
 <h1>Tutorial 02 - Streptococcus pneumoniae</h1>
+<p>This tutorial analyzes 15 <em>Streptococcus pneumoniae</em> genomes from the <a href="https://pyseer.readthedocs.io/en/master/tutorial.html">penicillin resistance GWAS</a> example.</p>
 <ol type="1">
 <li><p>Run the test data through a GWAS on the trait <code>penicillin</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> streptococcus_pneumoniae <span class="at">--trait</span> penicillin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> streptococcus_pneumoniae <span class="at">--max_cpus</span> 4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 
 

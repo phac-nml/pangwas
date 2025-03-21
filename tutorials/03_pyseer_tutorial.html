@@ -126,25 +126,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Tutorials</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
-        <li>
-    <a class="dropdown-item" href="../tutorials/01_test.html">
- <span class="dropdown-text">01 - Test</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../tutorials/tutorials.html"> 
+<span class="menu-text">Tutorials</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../tutorials/02_strep_pneumo.md">
- <span class="dropdown-text">02 - Streptococcus pneumoniae</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tutorials/03_pyseer_tutorial.html">
- <span class="dropdown-text">03 - Pyseer Tutorial</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item">
     <a class="nav-link" href="../manual/table_of_contents.html"> 
 <span class="menu-text">Manual</span></a>
@@ -192,20 +177,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="tutorial-03---pyseer-tutorial" class="level1">
 <h1>Tutorial 03 - Pyseer Tutorial</h1>
+<p>This tutorial automates and reproduces the results from the <a href="https://pyseer.readthedocs.io/en/master/tutorial.html">penicillin resistance GWAS</a> written by the <code>pyseer</code> authors.</p>
 <ol type="1">
 <li><p>Download the tutorial data.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> pull phac-nml/pangwas</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/.nextflow/assets/phac-nml/pangwas/data .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--depth</span> 1 https://github.com/phac-nml/pangwas.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> pangwas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Decompress the data.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_core/snps.Rtab.gz</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_pangenome/variants.Rtab.gz</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> data/tutorial_pangenome/clusters.tsv.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Run the core genome GWAS.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_core <span class="at">--trait</span> penicillin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Run the pangenome GWAS.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_pangenome <span class="at">--trait</span> penicillin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Run the core genome GWAS on pencillin resistance.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_core</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Open up the manhattan plot in Edge or Firefox.</p>
+<ul>
+<li>Path: <code>results/tutorial_core/manhattan/penicillin/penicillin.plot.svg</code></li>
+<li>Hover your mouse over variants to see contextual information.</li>
+</ul>
+<p><img src="../images/core_manhattan_hovertext.png" class="img-fluid"></p></li>
+<li><p>Run the pangenome GWAS on penicillin resistance.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run phac-nml/pangwas <span class="at">-profile</span> tutorial_pangenome</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 <p>Penicillin resistance is primarily controlled by core genome genes, and we can see that the major genes are identical between a pangenome and core genome GWAS.</p>
+<p>The following image was made by importing the raw SVG plots into a vector graphics program (ex. <a href="https://affinity.serif.com/en-us/designer">Affinity</a>) and adding text and box overlays to highlight the significant variants.</p>
 <p><img src="..//images/core_vs_pangenome.png" class="img-fluid"></p>
 
 
