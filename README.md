@@ -1,6 +1,6 @@
 # panGWAS
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#credits)
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#credits)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/phac-nml/pangwas/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/phac-nml/pangwas.svg)](https://github.com/phac-nml/pangwas/issues)
 [![Tests](https://github.com/phac-nml/pangwas/actions/workflows/test.yaml/badge.svg)](https://github.com/phac-nml/pangwas/actions/workflows/test.yaml)
@@ -12,6 +12,14 @@
 **panGWAS** is implemented as a `python` package and CLI tool, that can be run on any POSIX-based system (Linux, Mac). We additionally provide a `nextflow` pipeline for end-to-end analysis.
 
 Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
+
+## Table of Contents
+
+1. [Why panGWAS?](#why-pangwas)
+1. [Method](#method)
+1. [Install](#install)
+1. [Usage](#usage)
+1. [Credits](#credits)
 
 ## Why panGWAS?
 
@@ -184,7 +192,7 @@ Thanks go to the following people, who participated in the development of **panG
         <sub><b>Irene Martin</b></sub>
       </a>
       <br />
-      <a href="https://github.com/phac-nml" title="Design: GWAS">🎨</a>      
+      <a href="https://github.com/phac-nml" title="Ideas: GWAS">🤔</a>
       <a href="https://github.com/phac-nml" title="Data: iGAS">🔣</a>
     </td>
     <td align="center">
@@ -193,7 +201,7 @@ Thanks go to the following people, who participated in the development of **panG
         <sub><b>Alyssa Golden</b></sub>
       </a>
       <br />
-      <a href="https://github.com/phac-nml" title="Design: GWAS">🎨</a>      
+      <a href="https://github.com/phac-nml" title="Ideas: GWAS">🤔</a>
       <a href="https://github.com/phac-nml" title="Data: iGAS">🔣</a>
     </td>  
     <td align="center">
@@ -203,7 +211,7 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
         <sub><b>Shelley Peterson</b></sub>
       </a>
       <br />
-      <a href="https://github.com/phac-nml" title="Design: GWAS">🎨</a>      
+      <a href="https://github.com/phac-nml" title="Ideas: GWAS">🤔</a>
       <a href="https://github.com/ShelleyPeterson" title="Data: iGAS">🔣</a>
     </td>
     <td align="center">
@@ -212,7 +220,7 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
         <sub><b>Natalie Knox</b></sub>
       </a>
       <br />
-      <a href="https://github.com/phac-nml" title="Design: GWAS">🎨</a>
+      <a href="https://github.com/phac-nml" title="Ideas: GWAS">🤔</a>
     </td>
     <td align="center">
       <a href="https://github.com/phac-nml"><img src="https://ui-avatars.com/api/?name=ATyler?s=100" width="100px;" alt=""/>
@@ -220,7 +228,7 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
         <sub><b>Andrea Tyler</b></sub>
       </a>
       <br />
-      <a href="https://github.com/phac-nml" title="Design: GWAS">🎨</a>
+      <a href="https://github.com/phac-nml" title="Ideas: GWAS">🤔</a>
     </td>
   </tr>
   <tr>
@@ -229,8 +237,9 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
         <br />
         <sub><b>Darian Hole</b></sub>
       </a>
-      <br />
-      <a href="https://github.com/DarianHole" title="Testing, Security">⚠️🛡️</a>
+      <br/>
+      <a href="https://github.com/DarianHole" title="Testing">⚠️</a>
+      <a href="https://github.com/DarianHole" title="Security">🛡️</a>
     </td>
     <td align="center">
       <a href="https://github.com/ConnorChato"><img src="https://avatars.githubusercontent.com/u/24962136?v=4" width="100px;" alt=""/>
@@ -238,7 +247,8 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
         <sub><b>Connor Chato</b></sub>
       </a>
       <br />
-      <a href="https://github.com/ConnorChato" title="Design, Research, Ideas: Clustering">🎨🔬🤔</a>
+      <a href="https://github.com/ConnorChato" title="Research: Clustering">🔬</a>
+      <a href="https://github.com/ConnorChato" title="Ideas: Clustering">🤔</a>
     </td>
     <td align="center">
       <a href="https://github.com/phac-nml"><img src="https://ui-avatars.com/api/?name=APapineau?s=100" width="100px;" alt=""/>
@@ -246,7 +256,16 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
         <sub><b>Amber Papineau</b></sub>
       </a>
       <br />
-      <a href="https://github.com/phac-nml" title="Ideas, Design: Heatmap">🎨🤔</a>
+      <a href="https://github.com/phac-nml" title="Data: Heatmap">🔣</a>
+      <a href="https://github.com/phac-nml" title="Research: Heatmap">🔬</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/molpratt"><img src="https://avatars.githubusercontent.com/u/141779800?v=4" width="100px;" alt=""/>
+        <br />
+        <sub><b>Molly Pratt</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/molpratt" title="Design: Workflow Flowchart">🎨</a>
     </td>    
   </tr>
 </table>
