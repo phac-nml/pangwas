@@ -574,84 +574,1572 @@
             </g>
             <g id='Heatmap Boxes'>
                 <g id='Cluster_6|structural:1-78'>
-                    <rect width='24.0' height='24.0' x='216.0' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='216.0' y='405.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='216.0' y='435.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='216.0' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: Cluster_6|structural:1-78
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: Cluster_6
+cluster_id: Cluster_6
+synteny: 11
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample2_IGR_full
+upstream: TERMINAL
+downstream: TERMINAL
+feature: unannotated
+strand: +
+gene: 
+product: 
+name: 
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='216.0' y='405.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: Cluster_6|structural:1-78
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: Cluster_6
+cluster_id: Cluster_6
+synteny: 11
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample2_IGR_full
+upstream: TERMINAL
+downstream: TERMINAL
+feature: unannotated
+strand: +
+gene: 
+product: 
+name: 
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='216.0' y='435.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: Cluster_6|structural:1-78
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: Cluster_6
+cluster_id: Cluster_6
+synteny: 11
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample2_IGR_full
+upstream: TERMINAL
+downstream: TERMINAL
+feature: unannotated
+strand: +
+gene: 
+product: 
+name: 
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='Cluster_6|structural:1-60'>
-                    <rect width='24.0' height='24.0' x='246.0' y='375.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='246.0' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='246.0' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='246.0' y='375.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: Cluster_6|structural:1-60
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: Cluster_6
+cluster_id: Cluster_6
+synteny: 11
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample2_IGR_full
+upstream: TERMINAL
+downstream: TERMINAL
+feature: unannotated
+strand: +
+gene: 
+product: 
+name: 
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='246.0' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: Cluster_6|structural:1-60
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: Cluster_6
+cluster_id: Cluster_6
+synteny: 11
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample2_IGR_full
+upstream: TERMINAL
+downstream: TERMINAL
+feature: unannotated
+strand: +
+gene: 
+product: 
+name: 
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='246.0' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: Cluster_6|structural:1-60
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: Cluster_6
+cluster_id: Cluster_6
+synteny: 11
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample2_IGR_full
+upstream: TERMINAL
+downstream: TERMINAL
+feature: unannotated
+strand: +
+gene: 
+product: 
+name: 
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='snps_close_to_terminal|structural:1-70'>
-                    <rect width='24.0' height='24.0' x='277.453125' y='375.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='277.453125' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='277.453125' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='277.453125' y='375.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|structural:1-70
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='277.453125' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|structural:1-70
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='277.453125' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|structural:1-70
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='snps_close_to_terminal|structural:1-30'>
-                    <rect width='24.0' height='24.0' x='307.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='307.453125' y='405.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='307.453125' y='435.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='307.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|structural:1-30
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='307.453125' y='405.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|structural:1-30
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='307.453125' y='435.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|structural:1-30
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='snps_close_to_terminal|structural:40-70'>
-                    <rect width='24.0' height='24.0' x='337.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='337.453125' y='405.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='337.453125' y='435.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='337.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|structural:40-70
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='337.453125' y='405.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|structural:40-70
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='337.453125' y='435.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|structural:40-70
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='speG|structural:1-280'>
-                    <rect width='24.0' height='24.0' x='367.453125' y='375.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='367.453125' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='367.453125' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='367.453125' y='375.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speG|structural:1-280
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: speG
+cluster_id: Cluster_34
+synteny: 24
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 1
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample4_speG_frag
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: speG
+product: Exotoxin SpeG
+name: Exotoxin SpeG
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='367.453125' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speG|structural:1-280
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: speG
+cluster_id: Cluster_34
+synteny: 24
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 1
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample4_speG_frag
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: speG
+product: Exotoxin SpeG
+name: Exotoxin SpeG
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='367.453125' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speG|structural:1-280
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: speG
+cluster_id: Cluster_34
+synteny: 24
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 1
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample4_speG_frag
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: speG
+product: Exotoxin SpeG
+name: Exotoxin SpeG
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='speG|structural:1-140'>
-                    <rect width='24.0' height='24.0' x='397.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='397.453125' y='405.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='397.453125' y='435.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='397.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speG|structural:1-140
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: speG
+cluster_id: Cluster_34
+synteny: 24
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 1
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample4_speG_frag
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: speG
+product: Exotoxin SpeG
+name: Exotoxin SpeG
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='397.453125' y='405.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speG|structural:1-140
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: speG
+cluster_id: Cluster_34
+synteny: 24
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 1
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample4_speG_frag
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: speG
+product: Exotoxin SpeG
+name: Exotoxin SpeG
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='397.453125' y='435.0' rx='2' ry='2' style='fill:#7a0505;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: speG|structural:1-140
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: speG
+cluster_id: Cluster_34
+synteny: 24
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 1
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample4_speG_frag
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: speG
+product: Exotoxin SpeG
+name: Exotoxin SpeG
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='snps_close_to_terminal|snp:A3T'>
-                    <rect width='24.0' height='24.0' x='439.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='439.453125' y='405.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='439.453125' y='435.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='439.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|snp:A3T
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='439.453125' y='405.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|snp:A3T
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='439.453125' y='435.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|snp:A3T
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='snps_close_to_terminal|snp:A28T'>
-                    <rect width='24.0' height='24.0' x='469.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='469.453125' y='405.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='469.453125' y='435.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='469.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|snp:A28T
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='469.453125' y='405.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|snp:A28T
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='469.453125' y='435.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|snp:A28T
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='snps_close_to_terminal|snp:G42T'>
-                    <rect width='24.0' height='24.0' x='499.453125' y='375.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='499.453125' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='499.453125' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='499.453125' y='375.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|snp:G42T
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='499.453125' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|snp:G42T
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='499.453125' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|snp:G42T
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='snps_close_to_terminal|snp:C68G'>
-                    <rect width='24.0' height='24.0' x='529.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='529.453125' y='405.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='529.453125' y='435.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='529.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|snp:C68G
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='529.453125' y='405.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|snp:C68G
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='529.453125' y='435.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_close_to_terminal|snp:C68G
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_close_to_terminal
+cluster_id: Cluster_33
+synteny: 23
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 2
+num_sequences: 6
+mean_sequences_per_sample: 1.5
+representative: sample4_snps_close_to_terminal
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_close_to_terminal
+product: SNPs close to terminal protein
+name: SNPs close to terminal
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='snps_ambig|snp:G10C'>
-                    <rect width='24.0' height='24.0' x='559.453125' y='375.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='559.453125' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='559.453125' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='559.453125' y='375.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_ambig|snp:G10C
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_ambig
+cluster_id: Cluster_11
+synteny: 12
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample2_snps_ambig
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_ambig
+product: SNPs ambiguous
+name: SNPs ambiguous
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='559.453125' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_ambig|snp:G10C
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_ambig
+cluster_id: Cluster_11
+synteny: 12
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample2_snps_ambig
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_ambig
+product: SNPs ambiguous
+name: SNPs ambiguous
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='559.453125' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_ambig|snp:G10C
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_ambig
+cluster_id: Cluster_11
+synteny: 12
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample2_snps_ambig
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_ambig
+product: SNPs ambiguous
+name: SNPs ambiguous
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='snps_shared_sample2_sample3|snp:C10G'>
-                    <rect width='24.0' height='24.0' x='589.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='589.453125' y='405.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='589.453125' y='435.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='589.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_shared_sample2_sample3|snp:C10G
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_shared_sample2_sample3
+cluster_id: Cluster_19
+synteny: 17
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample3_snps_shared_sample2_sample3
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_shared_sample2_sample3
+product: SNPs shared sample2 sample3
+name: SNPs shared sample2 sample3
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='589.453125' y='405.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_shared_sample2_sample3|snp:C10G
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_shared_sample2_sample3
+cluster_id: Cluster_19
+synteny: 17
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample3_snps_shared_sample2_sample3
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_shared_sample2_sample3
+product: SNPs shared sample2 sample3
+name: SNPs shared sample2 sample3
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='589.453125' y='435.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_shared_sample2_sample3|snp:C10G
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_shared_sample2_sample3
+cluster_id: Cluster_19
+synteny: 17
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample3_snps_shared_sample2_sample3
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_shared_sample2_sample3
+product: SNPs shared sample2 sample3
+name: SNPs shared sample2 sample3
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='snps_shared_sample2_sample3|snp:C20G'>
-                    <rect width='24.0' height='24.0' x='619.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='619.453125' y='405.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='619.453125' y='435.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='619.453125' y='375.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_shared_sample2_sample3|snp:C20G
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_shared_sample2_sample3
+cluster_id: Cluster_19
+synteny: 17
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample3_snps_shared_sample2_sample3
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_shared_sample2_sample3
+product: SNPs shared sample2 sample3
+name: SNPs shared sample2 sample3
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='619.453125' y='405.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_shared_sample2_sample3|snp:C20G
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_shared_sample2_sample3
+cluster_id: Cluster_19
+synteny: 17
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample3_snps_shared_sample2_sample3
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_shared_sample2_sample3
+product: SNPs shared sample2 sample3
+name: SNPs shared sample2 sample3
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='619.453125' y='435.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_shared_sample2_sample3|snp:C20G
+af: 6.67E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: -1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_shared_sample2_sample3
+cluster_id: Cluster_19
+synteny: 17
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample3_snps_shared_sample2_sample3
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_shared_sample2_sample3
+product: SNPs shared sample2 sample3
+name: SNPs shared sample2 sample3
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='snps_unique_to_sample1|snp:A10T'>
-                    <rect width='24.0' height='24.0' x='649.453125' y='375.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='649.453125' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='649.453125' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='649.453125' y='375.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_unique_to_sample1|snp:A10T
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_unique_to_sample1
+cluster_id: Cluster_20
+synteny: 18
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample3_snps_unique_to_sample1
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_unique_to_sample1
+product: SNPs unique to sample1
+name: SNPs unique to sample1
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='649.453125' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_unique_to_sample1|snp:A10T
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_unique_to_sample1
+cluster_id: Cluster_20
+synteny: 18
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample3_snps_unique_to_sample1
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_unique_to_sample1
+product: SNPs unique to sample1
+name: SNPs unique to sample1
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='649.453125' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_unique_to_sample1|snp:A10T
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_unique_to_sample1
+cluster_id: Cluster_20
+synteny: 18
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample3_snps_unique_to_sample1
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_unique_to_sample1
+product: SNPs unique to sample1
+name: SNPs unique to sample1
+dbxref: </title>
+                    </rect>
                 </g>
                 <g id='snps_unique_to_sample1|snp:T20A'>
-                    <rect width='24.0' height='24.0' x='679.453125' y='375.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='679.453125' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
-                    <rect width='24.0' height='24.0' x='679.453125' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'/>
+                    <rect width='24.0' height='24.0' x='679.453125' y='375.0' rx='2' ry='2' style='fill:#0e6b07;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_unique_to_sample1|snp:T20A
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_unique_to_sample1
+cluster_id: Cluster_20
+synteny: 18
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample3_snps_unique_to_sample1
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_unique_to_sample1
+product: SNPs unique to sample1
+name: SNPs unique to sample1
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='679.453125' y='405.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_unique_to_sample1|snp:T20A
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_unique_to_sample1
+cluster_id: Cluster_20
+synteny: 18
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample3_snps_unique_to_sample1
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_unique_to_sample1
+product: SNPs unique to sample1
+name: SNPs unique to sample1
+dbxref: </title>
+                    </rect>
+                    <rect width='24.0' height='24.0' x='679.453125' y='435.0' rx='2' ry='2' style='fill:white;fill-opacity:1.0;stroke-width:1;stroke:black'>
+                    <title>variant: snps_unique_to_sample1|snp:T20A
+af: 3.33E-01
+filter-pvalue: 8.33E-02
+lrt-pvalue: 0.00E+00
+beta: 1.00E+00
+beta-std-err: 0.00E+00
+variant_h2: 1.00E+00
+notes: bad-chisq
+-log10(p): 100.0
+bonferroni: 0.008333333333333333
+match: 3/3|1.0
+mismatch: 0/3|0.0
+score: 1.0
+cluster: snps_unique_to_sample1
+cluster_id: Cluster_20
+synteny: 18
+synteny_pos: 1
+num_samples: 4
+num_samples_non_fragmented: 4
+num_sequences: 4
+mean_sequences_per_sample: 1.0
+representative: sample3_snps_unique_to_sample1
+upstream: TERMINAL
+downstream: TERMINAL
+feature: CDS
+strand: +
+gene: snps_unique_to_sample1
+product: SNPs unique to sample1
+name: SNPs unique to sample1
+dbxref: </title>
+                    </rect>
                 </g>
             </g>
         </g>
