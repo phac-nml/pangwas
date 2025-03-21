@@ -6169,6 +6169,7 @@ def heatmap(
 
     logging.info(f"Positioning heatmap boxes.")
     for i,variant in enumerate(variants):
+        variant_type = variants[variant]["type"]
         data = variants[variant]["data"]
         label = variants[variant]["label"]
         x = variants[variant]["box"]["x"]
@@ -6179,12 +6180,16 @@ def heatmap(
             v = int(v) if v.isdigit() else str(v)
             fill_opacity = 1.0
             # Light grey for missing values (".")
+            score = data["score"] if "score" in data else None
             if v == 1:
                 box_fill = variants[variant]["fill"]
                 # Use score range if possible
                 if score_min != None and "score" in data:
                     score = float(data["score"])
-                    fill_opacity = linear_scale(score, score_min, score_max, score_min_alpha, score_max_alpha)
+                    # Option 1: Fixed range from 0 to 1
+                    fill_opacity = linear_scale(score, 0, 1.0, score_min_alpha, score_max_alpha)
+                    # Option 2. Relative range from score_min to score_max
+                    # fill_opacity = linear_scale(score, score_min, score_max, score_min_alpha, score_max_alpha)
                 box_stroke = "black"
             elif v == 0:
                 box_fill = "white"
@@ -6193,7 +6198,11 @@ def heatmap(
                 box_fill = "none"
                 box_stroke = "none"
             y = plot_data[node]["y"] - (heatmap_s / 2)
-            d = {"v": v, "x": x, "y": y, "w": heatmap_s, "h": heatmap_s, "r": heatmap_r, "fill": box_fill, "fill_opacity": fill_opacity, "stroke": box_stroke }        
+            d = {
+                "v": v, "x": x, "y": y, "w": heatmap_s, "h": heatmap_s,
+                "r": heatmap_r, "fill": box_fill, "fill_opacity": fill_opacity, "stroke": box_stroke,
+                "hovertext": data,
+            }
             plot_data[node]["heatmap"][variant] = d
 
     # -----------------------------------------------------------------------------
@@ -6212,11 +6221,13 @@ def heatmap(
     if score_min != None and score_max != None:    
         logging.info(f"Drawing legend at: {legend_x}, {legend_y}")
         legend_h = (heatmap_s * 3) + (heatmap_pad * 2)
-        # Legend values: ex. ["0.00", "0.25", "0.50", "0.75", "1.00"]
         # TBD: Think about negative score handling?
-        interval = score_max / 4
-        legend_values = [round(i * interval,2) for i in range(0,4)] + [round(score_max, 2)]
-        legend_values = ["{:.2f}".format(v) for v in legend_values]
+        # Option 1. Fixed Values
+        legend_values = ["0.00", "0.25", "0.50", "0.75", "1.00"]
+        # # Option 2. Relative to score max
+        # interval = score_max / 4
+        # legend_values = [round(i * interval,2) for i in range(0,4)] + [round(score_max, 2)]
+        # legend_values = ["{:.2f}".format(v) for v in legend_values]
 
         # Tick labels: convert to path
         tick_labels = [text_to_path(text, size=font_size * 0.50, family=font_family) for text in legend_values]
@@ -6377,8 +6388,11 @@ def heatmap(
             # Heatmap
             if node in all_samples:
                 for variant,d in data["heatmap"].items():
-                    rect = f"<rect width='{d['w']}' height='{d['h']}' x='{d['x']}' y='{d['y']}' rx='{d['r']}' ry='{d['r']}' style='fill:{d['fill']};fill-opacity:{d['fill_opacity']};stroke-width:1;stroke:{d['stroke']}'/>"
-                    heatmap_boxes[variant].append(rect)
+
+                    hover_text = "\n".join([f"{k}: {v}" for k,v in d["hovertext"].items() if k not in all_samples and not k.endswith("_alt")])
+                    rect = f"<rect width='{d['w']}' height='{d['h']}' x='{d['x']}' y='{d['y']}' rx='{d['r']}' ry='{d['r']}' style='fill:{d['fill']};fill-opacity:{d['fill_opacity']};stroke-width:1;stroke:{d['stroke']}'>"
+                    title = f"<title>{hover_text}</title>"
+                    heatmap_boxes[variant] += [rect, title, "</rect>"]
 
             # Legend
             for variant_type in legend:
