@@ -277,6 +277,7 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
         <sub><b>Darian Hole</b></sub>
       </a>
       <br/>
+      <a href="https://github.com/phac-nml" title="Review: Pull Request">👀</a>
       <a href="https://github.com/DarianHole" title="Testing">⚠️</a>
       <a href="https://github.com/DarianHole" title="Security">🛡️</a>
     </td>
@@ -329,7 +330,7 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
         <sub><b>Ana Duggan</b></sub>
       </a>
       <br />
-      <a href="https://github.com/phac-nml" title="Ideas: GWAS">🤔</a>
+      <a href="https://github.com/phac-nml" title="Ideas: Trees">🤔</a>
       <a href="https://github.com/phac-nml" title="Review: Pull Request">👀</a>
       <a href="https://github.com/phac-nml" title="Project Management">📆</a>
     </td>
