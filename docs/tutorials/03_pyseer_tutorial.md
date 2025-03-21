@@ -1,16 +1,25 @@
 # Tutorial 03 - Pyseer Tutorial
 
+This tutorial automates and reproduces the results from the [penicillin resistance GWAS](https://pyseer.readthedocs.io/en/master/tutorial.html) written by the `pyseer` authors.
+
 1. Download the tutorial data.
 
     ```bash
-    nextflow pull phac-nml/pangwas
-    cp -r ~/.nextflow/assets/phac-nml/pangwas/data .
+    git clone --depth 1 https://github.com/phac-nml/pangwas.git
+    cd pangwas
     ```
 
-1. Decompress the data.
+1. Decompress the core genome data.
 
     ```bash
     gunzip data/tutorial_core/snps.Rtab.gz
+    gunzip data/tutorial_core/gff.gz
+    gunzip data/tutorial_core/clusters.tsv.gz
+    ```
+
+1. Decompress the pan genome data.
+
+    ```bash
     gunzip data/tutorial_pangenome/variants.Rtab.gz
     gunzip data/tutorial_pangenome/clusters.tsv.gz
     ```
