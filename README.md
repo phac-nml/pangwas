@@ -50,7 +50,7 @@ Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
 
 ### Conda
 
-> Pending merge of the [bioconda recipe](https://github.com/bioconda/bioconda-recipes/pull/54760).
+> ❗ Pending release of the [bioconda recipe](https://github.com/bioconda/bioconda-recipes/pull/54760).
 
 ```bash
 conda create -n pangwas -c conda-forge -c bioconda pangwas
@@ -58,7 +58,7 @@ conda create -n pangwas -c conda-forge -c bioconda pangwas
 
 ### Docker
 
-> Pending merge of the [bioconda recipe](https://github.com/bioconda/bioconda-recipes/pull/54760).
+> ❗ Pending release of the [bioconda recipe](https://github.com/bioconda/bioconda-recipes/pull/54760).
 
 ```bash
 docker pull quay.io/biocontainers/pangwas:latest
@@ -72,10 +72,18 @@ nextflow pull phac-nml/pangwas
 
 ### Source
 
+Install `pangwas` from the github repository:
+
 ```bash
 micromamba env create -f environment.yml -n pangwas
 micromamba activate pangwas
 pip install .
+```
+
+Build the `Docker` image from the github repository:
+
+```bash
+docker build -t phac-nml/pangwas:latest .
 ```
 
 ## Usage
