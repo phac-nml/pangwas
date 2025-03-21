@@ -39,17 +39,35 @@ Please see the extended documentation at: <https://phac-nml.github.io/pangwas/>
 
 ## Install
 
-1. Install with `conda`:
+### Conda
 
-    ```bash
-    conda create -n pangwas -c conda-forge -c bioconda pangwas
-    ```
+> Pending merge of the [bioconda recipe](https://github.com/bioconda/bioconda-recipes/pull/54760).
 
-1. Install with `nextflow`:
+```bash
+conda create -n pangwas -c conda-forge -c bioconda pangwas
+```
 
-    ```bash
-    nextflow pull phac-nml/pangwas
-    ```
+### Docker
+
+> Pending merge of the [bioconda recipe](https://github.com/bioconda/bioconda-recipes/pull/54760).
+
+```bash
+docker pull quay.io/biocontainers/pangwas:latest
+```
+
+### Nextflow
+
+```bash
+nextflow pull phac-nml/pangwas
+```
+
+### Source
+
+```bash
+micromamba env create -f environment.yml -n pangwas
+micromamba activate pangwas
+pip install .
+```
 
 ## Usage
 
