@@ -12,7 +12,7 @@ readme = "README.md"
 # license = {file="LICENSE"}
 keywords = ["Pangenome", "GWAS", "Nextflow"]
 
-requires-python = ">=3.10,<3.11"
+requires-python = ">=3.10"
 
 # dependencies are managed through conda environment.yml
 dependencies = []
