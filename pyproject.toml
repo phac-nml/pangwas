@@ -1,6 +1,6 @@
 [project]
 name = "pangwas"
-version = "0.1.0"
+version = "0.1.1.dev0"
 description = "A pipeline for pangenome-wide association studies (panGWAS)"
 authors = [
     {name = "Katherine Eaton", email = "katherine.eaton@phac-aspc.gc.ca"},
