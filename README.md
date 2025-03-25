@@ -291,13 +291,13 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
       <a href="https://github.com/ConnorChato" title="Ideas: Clustering">🤔</a>
     </td>
     <td align="center">
-      <a href="https://github.com/phac-nml"><img src="https://ui-avatars.com/api/?name=APapineau?s=100" width="100px;" alt=""/>
+      <a href="https://github.com/apapineau"><img src="https://avatars.githubusercontent.com/u/89413643?v=4" width="100px;" alt=""/>
         <br />
         <sub><b>Amber Papineau</b></sub>
       </a>
       <br />
-      <a href="https://github.com/phac-nml" title="Data: Heatmap">🔣</a>
-      <a href="https://github.com/phac-nml" title="Research: Heatmap">🔬</a>
+      <a href="https://github.com/apapineau" title="Data: Heatmap">🔣</a>
+      <a href="https://github.com/apapineau" title="Research: Heatmap">🔬</a>
     </td>
     <td align="center">
       <a href="https://github.com/molpratt"><img src="https://avatars.githubusercontent.com/u/141779800?v=4" width="100px;" alt=""/>
@@ -325,14 +325,14 @@ ShelleyPeterson"><img src="https://avatars.githubusercontent.com/u/37002890?v=4&
       <a href="https://github.com/TheZetner" title="Ideas: Plots">🤔</a>
     </td>  
     <td align="center">
-      <a href="https://github.com/phac-nml"><img src="https://ui-avatars.com/api/?name=ADuggan?s=100" width="100px;" alt=""/>
+      <a href="https://github.com/atduggan"><img src="https://avatars.githubusercontent.com/u/69822095?v=4" width="100px;" alt=""/>
         <br />
         <sub><b>Ana Duggan</b></sub>
       </a>
       <br />
-      <a href="https://github.com/phac-nml" title="Ideas: Trees">🤔</a>
-      <a href="https://github.com/phac-nml" title="Review: Pull Request">👀</a>
-      <a href="https://github.com/phac-nml" title="Project Management">📆</a>
+      <a href="https://github.com/atduggan" title="Ideas: Trees">🤔</a>
+      <a href="https://github.com/atduggan" title="Review: Pull Request">👀</a>
+      <a href="https://github.com/atduggan" title="Project Management">📆</a>
     </td>
     <td align="center">
       <a href="https://github.com/GH-Emily"><img src="https://avatars.githubusercontent.com/u/52721825?v=4" width="100px;" alt=""/>
